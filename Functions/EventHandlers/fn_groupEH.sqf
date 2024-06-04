@@ -20,11 +20,13 @@ if(_morale && GDGM_enableMoraleSystem) then {
 };
 
 //old system
-if(_morale && !GDGM_enableMoraleSystem) then {
+if(_morale && !GDGM_enableMoraleSystem) then { //!! pas compatible headless
 	_group allowFleeing ([side _group] call GDGM_fnc_getCowardice);
 
 	_group addEventHandler ["Fleeing", {
 		params ["_group", "_fleeingNow"];
+
+		if(!isServer) exitWith {};
 
 		private _leader = leader _group;
 		private _nearestEnnemy = _leader findNearestEnemy _leader;
@@ -38,15 +40,21 @@ if(_morale && !GDGM_enableMoraleSystem) then {
 };
 
 if(_support) then {
-	_group addEventHandler ["EnemyDetected", { //bug with headless???
+	[_group, ["EnemyDetected", { 
 		params ["_group", "_newTarget"];
 
-		if(hasInterface) exitWith {};
-
-		("Detected exec " + (name leader _group)) remoteExec ["systemChat",0];
+		// ("detect on server : " + (str isServer)) remoteExec["systemChat",0];
+		// ("detect on interface : " + (str hasInterface)) remoteExec["systemChat",0];
 
 		if(_newTarget isKindOf "Plane" || _newTarget isKindOf "Helicopter") exitWith {};
-		[getPos _newTarget, side _group, leader _group] spawn GDGM_fnc_supportChooser;
-	}];
+		//test if friendly too close 
+		if({side _x == side _group} count nearestObjects [getPosASL (leader _group),["Man","Car","Tank"],50] > 0) exitWith {};
+
+		//random chance 
+		if(random 1 < 0.75) exitWith {};
+
+		// [getPos _newTarget, side _group, leader _group] spawn GDGM_fnc_supportChooser;
+		[getPos _newTarget, side _group, leader _group] remoteExec ["GDGM_fnc_supportChooser", 2];
+	}]] remoteExec ["addEventHandler", 0];
 };
 

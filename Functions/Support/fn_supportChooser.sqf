@@ -1,5 +1,8 @@
 params["_pos","_side","_caller"];
 
+if(time - GDGM_lastSupportRequestTime < 60) exitWith {};
+GDGM_lastSupportRequestTime = time;
+
 //flares 
 if(sunOrMoon == 0 && currentVisionMode _caller == 0) then {
 	[_pos, _side] spawn GDGM_fnc_fireSupportFlares;
@@ -16,9 +19,7 @@ switch (_side) do {
 };
 
 if(_isCASFree) then {
-
 	private _reserves = [_side] call GDGM_fnc_getVehReserves;
-	
 
 	if(_reserves select 4 > 0 || _points > 75) then {
 		private _vehPool = [];
@@ -28,9 +29,6 @@ if(_isCASFree) then {
 			case west: { _vehPool = GDGM_BLUFOR_CASPlanes };
 			case independent: { _vehPool = GDGM_IND_CASPlanes };
 		};
-
-		//test if friendly too close 
-		if({side _x == side _caller} count nearestObjects [_pos,["Man","Car","Tank"],50] > 0) exitWith {};
 
 		if(count _vehPool != 0 && random 1 < 0.1) exitWith {[_pos, _side] spawn GDGM_fnc_fireSupportCASPlane;};
 	};
@@ -46,8 +44,5 @@ switch (_side) do {
 };
 
 if(!_isArtyFree || _points < 50) exitWith {};
-if(random 1 < 0.25) exitWith {};
 
-//test if friendly too close 
-if({side _x == side _caller} count nearestObjects [_pos,["Man","Car","Tank"],50] > 0) exitWith {};
 [_pos, _side, _caller] spawn GDGM_fnc_fireSupportArty;
