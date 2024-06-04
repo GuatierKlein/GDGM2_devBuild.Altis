@@ -30,7 +30,7 @@ params["_array","_node"];
 
 			if(!isServer) exitWith {};
 			
-			("Killed G exec " + (name _unit)) remoteExec ["systemChat",0];
+			// ("Killed G exec " + (name _unit)) remoteExec ["systemChat",0];
 
 			//check plane 
 			if((vehicle _killer) isKindOf "Helicopter" || (vehicle _killer) isKindOf "plane") then {
