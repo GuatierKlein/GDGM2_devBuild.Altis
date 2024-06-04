@@ -11,35 +11,37 @@ _grp setVariable ["GDGM_isLeaderKilled", false];
 _grp setVariable ["GDGM_isFleeing", false];
 
 {
-	_x addEventHandler ["Killed", {
+	_x addMPEventHandler ["MPKilled", {
 		params ["_unit", "_killer", "_instigator", "_useEffects"];
+
+		if(!isServer) exitWith {};
 
 		private _group = group _unit;
 		[_group, _unit] call GDGM_fnc_moraleDeath;
 
 	}];
 
-	_x addEventHandler ["Reloaded", {
-		params ["_unit", "_weapon", "_muzzle", "_newMagazine", "_oldMagazine"];
+	// _x addEventHandler ["Reloaded", {
+	// 	params ["_unit", "_weapon", "_muzzle", "_newMagazine", "_oldMagazine"];
 
-		if(! someAmmo _unit) then {
-			[group _unit, -10] call GDGM_fnc_addMorale;
-		};
-	}];
+	// 	if(! someAmmo _unit) then {
+	// 		[group _unit, -10] call GDGM_fnc_addMorale;
+	// 	};
+	// }];
 	
 } forEach _units;
 
 //compat with vanilla fleeing
-_grp addEventHandler ["Fleeing", {
-	params ["_group", "_fleeingNow"];
+// _grp addEventHandler ["Fleeing", {
+// 	params ["_group", "_fleeingNow"];
 
-	{
-		_x enableAI "PATH";
-		_x setUnitPos "AUTO";		
-	} forEach units _group;
+// 	{
+// 		_x enableAI "PATH";
+// 		_x setUnitPos "AUTO";		
+// 	} forEach units _group;
 
-	[_group, -10] call GDGM_fnc_addMorale;
-}];
+// 	[_group, -10] call GDGM_fnc_addMorale;
+// }];
 
 //encirclred
 private _closestNode = [getPos (leader _grp), side leader _grp] call GDGM_fnc_findClosestSidedNode;
