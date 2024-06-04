@@ -1,0 +1,8 @@
+general ideas:
+- force spawn on cities with raid? 
+- generated every hours for sides with players?
+
+types of raids:
+- target assassination/capture (remove points for looser, and adds points when captured alive)
+- destroy vehicle depot (with custom insta)
+- destroy arty or AA pos (with custom insta)

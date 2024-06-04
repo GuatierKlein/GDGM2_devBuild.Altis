@@ -1,0 +1,10 @@
+corpseManagerMode = 1; 
+wreckManagerMode = 1; 
+corpseLimit = 20;
+wreckLimit = 5;
+corpseRemovalMinTime = 300;
+corpseRemovalMaxTime = 1800;
+wreckRemovalMinTime = 600;
+wreckRemovalMaxTime = 3600;
+minPlayerDistance = 50;
+enableDebugConsole = 1;

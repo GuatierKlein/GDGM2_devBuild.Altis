@@ -1,0 +1,1 @@
+#include "GDGM_onPlayerKilled.sqf";

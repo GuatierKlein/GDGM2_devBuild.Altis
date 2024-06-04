@@ -1,0 +1,54 @@
+#include "Functions\functions.hpp"
+#include "Functions\garbageCollector.hpp"
+#include "GUI\defines.hpp"
+#include "GUI\GUI_core.hpp"
+#include "GUI\GUI_dialog.hpp"
+#include "GUI\GUI_kit_select.hpp"
+#include "GUI\notifications.hpp"
+#include "scripts\kit_select\insignias.hpp"
+
+respawn = 3;
+respawnTemplatesCiv[] = { "Spectator" };
+respawnDelay = 60;
+
+class CfgMusic
+{
+	tracks[] = {};
+
+	class medalOfHonorMusic
+	{
+		name	= "Medal of honor theme";
+		sound[]	= { "Music\medalOfHonor.ogg", db + 10, 1.0 };
+	};
+
+	class bandOfBrothersMusic
+	{
+		name	= "Band of brothers theme";
+		sound[]	= { "Music\bandOfBrothers.ogg", db + 10, 1.0 };
+	};
+	class bia1
+	{
+		name	= "Brothers in arms 1";
+		sound[]	= { "Music\bia1.ogg", db + 10, 1.0 };
+	};
+	class bia2
+	{
+		name	= "Brothers in arms 2";
+		sound[]	= { "Music\bia2.ogg", db + 10, 1.0 };
+	};
+};
+
+// private _music_list = [
+//"SPE_HoW_Animated_Briefing_With_Honor",
+//"SPE_HoW_Animated_Briefing_Patriotic_Military_Theme",
+// "SPE_HoW_Animated_Briefing_Patriotic_Military_Army_Fanfare",
+//"SPE_HoW_Animated_Briefing_Emotional_Orchestra",
+// "SPE_HoW_Animated_Briefing_Cinematic_Patriotic_Cadence_and_Fanfare",
+// 		"bandOfBrothersMusic",
+// 		"medalOfHonorMusic",
+// 		"bia1",
+// 		"bia2"
+// 	];
+
+
+
