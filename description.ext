@@ -5,6 +5,7 @@
 #include "GUI\GUI_dialog.hpp"
 #include "GUI\GUI_kit_select.hpp"
 #include "GUI\notifications.hpp"
+#include "Sounds\Sounds.hpp"
 #include "scripts\kit_select\insignias.hpp"
 
 respawn = 3;

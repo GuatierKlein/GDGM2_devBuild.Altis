@@ -61,15 +61,19 @@ _ammo_display = (((GDGM_artillery_names_array select _index) select 1) select _i
 _commander = [side player] call GDGM_fnc_getCommander;
 
 if (_shots != 0 && _x_coord != "000" && _y_coord != "000") then {
+	// [player, getMissionPath "Sounds\Voices\arty_request.ogg"] remoteExec ["say3D", 0];
+	player sideRadio "radio_arty_request";
 	[player,"Requesting artillery at grid " + _pos_grid] remoteExec ["globalChat",0];
 	sleep 3;
 	[player,str _shots + " shots of " + _ammo_display] remoteExec ["globalChat",0];
 	sleep 20;
+	[west, "Base"] sideRadio "radio_arty_computing";
 	[_commander,"Roger that " + name player + ", computing firing data"] remoteExec ["globalChat",0];
+	[_commander,"Firing " + str _shots + " rounds at grid " + _pos_grid] remoteExec ["globalChat",0];
 	sleep 40;
 
-
-	[_commander,"Firing " + str _shots + " rounds at grid " + _pos_grid] remoteExec ["globalChat",0];
+	[west, "Base"] sideRadio "radio_arty_incoming";
+	[_commander,"Rounds away"] remoteExec ["globalChat",0];
 	sleep 20;
 
 	private _volley = floor(_shots / 4);
@@ -81,6 +85,8 @@ if (_shots != 0 && _x_coord != "000" && _y_coord != "000") then {
 	};
 	sleep (5 + floor(random 2));
 	[_adj_pos, _ammo, 20, _rest, 0.25] spawn BIS_fnc_fireSupportVirtual;
+	[west, "Base"] sideRadio "radio_arty_roundsOver";
+	[_commander,"Rounds over, out"] remoteExec ["globalChat",0];
 } else {
 	systemChat "Shots and coordinates can't be 0";	
 };
