@@ -7,7 +7,7 @@ _veh setVariable ["GDGM_reserve", _reserve];
 _veh setVariable ["GDGM_type", _type];
 
 //EH
-_veh addEventHandler ["Killed", {
+_veh addMPEventHandler ["MPKilled", {
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
 	if(!isServer) exitWith {};
 

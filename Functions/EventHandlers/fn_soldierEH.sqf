@@ -8,14 +8,14 @@ params["_array",["_reserve",false]];
 
 	//EH
 	if(_reserve) then {
-		_x addEventHandler ["Killed", {
+		_x addMPEventHandler ["MPKilled", {
 			params ["_unit", "_killer", "_instigator", "_useEffects"];
 			if(!isServer) exitWith {};
 
 			_unit setVariable ["GDGM_reserve", false];
 		}];	
 	} else {
-		_x addEventHandler ["Killed", {
+		_x addMPEventHandler ["MPKilled", {
 			params ["_unit", "_killer", "_instigator", "_useEffects"];
 			if(!isServer) exitWith {};
 
@@ -25,7 +25,7 @@ params["_array",["_reserve",false]];
 	};
 
 	//ait threat detection
-	_x addEventHandler ["Killed", {
+	_x addMPEventHandler ["MPKilled", {
 			params ["_unit", "_killer", "_instigator", "_useEffects"];
 			if(!isServer) exitWith {};
 

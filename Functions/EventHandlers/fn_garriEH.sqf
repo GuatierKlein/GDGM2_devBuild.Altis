@@ -7,7 +7,7 @@ params["_array","_node"];
 	_x setVariable ["GDGM_isGarri", true];
 
 	//EH
-	_x addEventHandler ["Killed", {
+	_x addMPEventHandler ["MPKilled", {
 		params ["_unit", "_killer", "_instigator", "_useEffects"];
 
 		if(!isServer) exitWith {};
@@ -25,9 +25,11 @@ params["_array","_node"];
 
 	
 	//ait threat detection
-	_x addEventHandler ["Killed", {
+	_x addMPEventHandler ["MPKilled", {
 			params ["_unit", "_killer", "_instigator", "_useEffects"];
 
+			if(!isServer) exitWith {};
+			
 			("Killed G exec " + (name _unit)) remoteExec ["systemChat",0];
 
 			//check plane 
