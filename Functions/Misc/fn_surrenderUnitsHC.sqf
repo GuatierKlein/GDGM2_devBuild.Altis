@@ -63,7 +63,7 @@ private _units = units _grp;
 		{ 
 			params ["_target", "_caller", "_actionId", "_arguments"];
 
-			_target switchMove (selectRandom ["Acts_AidlPsitMstpSsurWnonDnon01","Acts_AidlPsitMstpSsurWnonDnon02"]);
+			[_target] remoteExec ["GDGM_fnc_playCaptureAnim", owner _target];
 		},				// Code executed on completion
 		{},													// Code executed on interrupted
 		[],													// Arguments passed to the scripts as _this select 3
@@ -109,15 +109,12 @@ private _units = units _grp;
 		{ 
 			params ["_target", "_caller", "_actionId", "_arguments"];
 
+			_target remoteExec ["GDGM_fnc_disarmUnit", owner _target];
+
 			private _weapons = weapons _target;
 			private _items = items _target;
 			private _magazines = magazines _target;
 			private _head = [headgear _target];
-
-			removeAllWeapons _target;
-			removeHeadgear _target;
-			// removeVest _target;
-			removeBackpack _target;
 
 			private _weaponHolder = createVehicle ["groundweaponholder", getPos _target, [], 0, "CAN_COLLIDE"];		
 
@@ -155,10 +152,7 @@ private _units = units _grp;
 		{ 
 			params ["_target", "_caller", "_actionId", "_arguments"];
 
-			_target setCaptive false;
-			_target setBehaviour "aware";
-			_target enableAI "ALL";
-			_target switchMove "";
+			_target remoteExec["GDGM_fnc_gobackToFight", owner _target];
 
 		},				// Code executed on completion
 		{},													// Code executed on interrupted

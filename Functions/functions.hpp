@@ -127,6 +127,9 @@ class CfgFunctions
 			class getSkipTurn{};
 			class setSkipTurn{};
 			class tryAddPoints {};
+			class disarmUnit {};
+			class gobackToFight {};
+			class playCaptureAnim {};
 		};
 		class Events
 		{
