@@ -27,7 +27,8 @@ params["_array","_node"];
 	//ait threat detection
 	_x addEventHandler ["Killed", {
 			params ["_unit", "_killer", "_instigator", "_useEffects"];
-			if(!isServer) exitWith {};
+
+			("Killed G exec " + (name _unit)) remoteExec ["systemChat",0];
 
 			//check plane 
 			if((vehicle _killer) isKindOf "Helicopter" || (vehicle _killer) isKindOf "plane") then {

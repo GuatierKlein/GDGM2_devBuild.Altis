@@ -40,7 +40,11 @@ if(_morale && !GDGM_enableMoraleSystem) then {
 if(_support) then {
 	_group addEventHandler ["EnemyDetected", { //bug with headless???
 		params ["_group", "_newTarget"];
-		if(!isServer) exitWith {};
+
+		if(hasInterface) exitWith {};
+
+		("Detected exec " + (name leader _group)) remoteExec ["systemChat",0];
+
 		if(_newTarget isKindOf "Plane" || _newTarget isKindOf "Helicopter") exitWith {};
 		[getPos _newTarget, side _group, leader _group] spawn GDGM_fnc_supportChooser;
 	}];
