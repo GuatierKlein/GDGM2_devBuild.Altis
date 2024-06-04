@@ -1,0 +1,1 @@
+"E:\SteamLibrary\steamapps\common\Arma 3\arma3.exe" -client -connect=127.0.0.1 -password=caca -port=2302 "-mod=E:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@Zeus Enhanced - ACE3 Compatibility;E:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@Zeus Enhanced;E:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@CBA_A3;E:\SteamLibrary\steamapps\common\Arma 3\!Workshop\@ace"
