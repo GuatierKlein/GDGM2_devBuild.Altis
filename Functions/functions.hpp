@@ -206,6 +206,7 @@ class CfgFunctions
 			class toggleGhostMode {};
 			class vehToGarage {};
 			class openGiveNode {};
+			class playerAmmo {};
 		};
 		class Raids {
 			class generateRaid {};

@@ -74,7 +74,7 @@ GDGM_airResponseCoef = 1;
 
 //OPFOR logistics
 GDGM_OPFOR_supplies = 100;
-GDGM_OPFOR_reserves = 25;
+GDGM_OPFOR_reserves = 200;
 GDGM_OPFOR_fixedReservesPerTurn = 50;
 GDGM_OPFOR_vehReserves = [30, 1, 1, 10, 2]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
 GDGM_OPFOR_vehReservesIncome = [5, 1, 0.25, 0.25, 0.25]; 
@@ -83,7 +83,7 @@ GDGM_OPFOR_moraleOffset = 0;
 GDGM_OPFOR_skill = 0.35;
 //BLUFOR logistics
 GDGM_BLUFOR_supplies = 250;
-GDGM_BLUFOR_reserves = 10;
+GDGM_BLUFOR_reserves = 200;
 GDGM_BLUFOR_fixedReservesPerTurn = 50;
 GDGM_BLUFOR_vehReserves = [20, 5, 0, 0, 10]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
 GDGM_BLUFOR_vehReservesIncome = [5, 1, 0.25, 0.25, 0.25]; 

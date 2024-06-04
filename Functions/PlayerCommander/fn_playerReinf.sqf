@@ -8,6 +8,9 @@ private _side = side _player;
 //serverside
 if([_side] call GDGM_fnc_getPoints < 10) exitWith {"Not enough logistic points" remoteExec ["systemChat",0]};
 if([_side] call GDGM_fnc_getReserves < 7) exitWith {"Not enough reserves" remoteExec ["systemChat",0]};
+
+player sideRadio "radio_reinf_request";
+
 [_side, -10] spawn GDGM_fnc_addPoints;
 
 private _eligibleNodes = [];
@@ -174,6 +177,7 @@ _veh addItemCargoGlobal ["Toolkit", 1];
 _veh addItemCargoGlobal ["Medikit", 10];
 
 "Reinforcements on the way" remoteExec ["systemChat",0];
+[west, "Base"] sideRadio "radio_reinf_confirm";
 
 //marker
 private _marker_object = createMarker [(str _veh + "_marker"), getPosASL _veh];

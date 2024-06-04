@@ -52,7 +52,7 @@ class dialogPlayerMenu {
 		};
 		class btnAmmo: RscButton
 		{
-			action = "closedialog 0; [position player, side player, player] remoteExec ['GDGM_fnc_ammoOnPos',2]";
+			action = "closedialog 0; [] call GDGM_fnc_playerAmmo";
 
 			idc = 1604;
 			text = "CALL SUPPLIES"; //--- ToDo: Localize;
