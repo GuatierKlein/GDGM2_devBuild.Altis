@@ -87,6 +87,7 @@ class CfgFunctions
 			class getOpenedHouses {};
 			class findPatrolPoints {};
 			class surrenderUnits {};
+			class surrenderUnitsHC {};
 			class findTriggerDominantSide {};
 			class spawnSquad {};
 			class spawnAPC {};

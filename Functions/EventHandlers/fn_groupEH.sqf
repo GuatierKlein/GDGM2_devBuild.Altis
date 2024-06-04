@@ -33,7 +33,7 @@ if(_morale && !GDGM_enableMoraleSystem) then { //!! pas compatible headless
 
 		if(!isNull _nearestEnnemy) then {
 			if(_leader distance _nearestEnnemy < GDGM_surrenderDistance && random 1 < GDGM_surrenderProbability) then {
-				[units _group] spawn GDGM_fnc_surrenderUnits;
+				[_group] spawn GDGM_fnc_surrenderUnits;
 			};
 		};
 	}];

@@ -11,4 +11,4 @@ private _tmpArray = [];
 	
 } forEach _units;
 
-[_tmpArray] spawn GDGM_fnc_surrenderUnits;
+// [_tmpArray] spawn GDGM_fnc_surrenderUnits;

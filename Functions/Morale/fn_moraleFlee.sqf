@@ -3,8 +3,8 @@ params["_grp"];
 //find closest not contested node
 private _nodeTo = [getPos(leader _grp), side _grp] call GDGM_fnc_findClosestSidedUnconstestedNode;
 
-if(isNull _nodeTo) exitWith {[units _grp] spawn GDGM_fnc_surrenderUnits}; 
-if(_nodeTo distance (leader _grp) > 3000) exitWith {[units _grp] spawn GDGM_fnc_surrenderUnits};
+if(isNull _nodeTo) exitWith {[_grp] spawn GDGM_fnc_surrenderUnits}; 
+if(_nodeTo distance (leader _grp) > 3000) exitWith {[_grp] spawn GDGM_fnc_surrenderUnits};
 
 _grp setVariable ["GDGM_isFleeing", true];
 private _nodeToPos = _nodeTo getVariable "GDGM_position";

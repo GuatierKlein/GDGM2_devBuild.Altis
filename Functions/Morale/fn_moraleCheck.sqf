@@ -12,7 +12,7 @@ if(_morale <= (_cowardice * 100) && random 100 < (100 - _morale)) then {
 
 	if(!isNull _nearestEnnemy) then {
 		if(_leader distance _nearestEnnemy < GDGM_surrenderDistance && random 1 < GDGM_surrenderProbability) then {
-			[units _grp] spawn GDGM_fnc_surrenderUnits;
+			[_grp] spawn GDGM_fnc_surrenderUnits;
 		} else {
 			[_grp] spawn GDGM_fnc_moraleFlee;
 		};
