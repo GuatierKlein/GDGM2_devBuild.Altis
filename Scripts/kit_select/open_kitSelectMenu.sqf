@@ -4,54 +4,10 @@ _unit = _this select 0;
 
 //creer un marker GDGM_camKit pour positionner la camera
 
-available_kits = [
-	kit_ne,
-	kit_recruit,
-	kit_recruit_1,
-	kit_rifle,
-	kit_rifle_1,
-	kit_rifle_2,
-	kit_gre,
-	kit_gre_1,
-	kit_at,
-	kit_at_1,
-	kit_at_2,
-	kit_aa,
-	kit_medic,
-	kit_medic_1,
-	kit_mg,
-	kit_eng,
-	kit_tp,
-	kit_fpv,
-	kit_fpv_1,
-	kit_cds,
-	kit_pilot
-]; //mettre ici les noms des mannequins, laissez kit_ne pour le kit sans equipement car il 
+available_kits = GDGM_kitSelect_availableKits; //mettre ici les noms des mannequins, laissez kit_ne pour le kit sans equipement car il 
 //est referencé à d'autre endroit dans le code et causera des erreurs d'initalisation de variable si supprimé
 
-_available_kits_name = [
-	"Sans équipement",
-	"Recrue",
-	"Recrue",
-	"Opérateur",
-	"Opérateur",
-	"Opérateur",
-	"Grenadier",
-	"Grenadier",
-	"Opérateur AT",
-	"Opérateur AT",
-	"Opérateur AT",
-	"Opérateur AA",
-	"Auxsan",
-	"Auxsan",
-	"TAD",
-	"Sapeur",
-	"TP",
-	"Opérateur Crocus",
-	"Opérateur Mavic",
-	"Opérateur radio",
-	"Pilote"
-]; //ici les noms d'affichages dans la liste (même ordre que les mannequins)
+_available_kits_name = GDGM_kitSelect_availableKitsNames; //ici les noms d'affichages dans la liste (même ordre que les mannequins)
 
 //NE PAS MODIFIER EN DESSOUS
 KIT_unit = _unit;

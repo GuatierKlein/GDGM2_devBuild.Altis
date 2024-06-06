@@ -2,9 +2,9 @@ params ["_veh"];
 
 //mettre [this] execVM "scripts\addPilot\addPilotAction.sqf" dans l'init du véhicule
 //mannequin pour l'équipement du pilot
-_kit_used = kit_crew;
+_kit_used = GDGM_addPilot_kitUsed;
 //classname du pilot
-_baseUnit = "SPE_US_Rifleman";
+_baseUnit = GDGM_addPilot_baseUnit;
 
 if(!isNull (driver _veh) && alive (driver _veh)) exitwith {hint "Place conducteur déjà occupée"};
 

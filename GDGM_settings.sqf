@@ -257,4 +257,15 @@ GDGM_connectionBlackList = [
 
 ];
 
+//scripts settings 
+//addpilot
+//mannequin pour l'équipement du pilot
+GDGM_addPilot_kitUsed = kit_crew;
+//classname du pilot
+GDGM_addPilot_baseUnit = "B_G_Soldier_F";
+
+//kit_select
+GDGM_kitSelect_availableKits = []; //mannequins
+GDGM_kitSelect_availableKitsNames = []; //nons
+
 
