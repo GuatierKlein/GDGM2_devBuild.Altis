@@ -19,8 +19,6 @@ params["_array","_node"];
 			_newGarri = 0;
 		};
 		_node setVariable ["GDGM_garrison", _newGarri];
-
-		[_node] spawn GDGM_fnc_updateNodeMarker;
 	}];	
 
 	
