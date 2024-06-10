@@ -1,4 +1,4 @@
-params["_toNode","_spawnPoss","_taskId"];
+params["_toNode","_spawnPoss","_taskId", "_attackingSide"];
 
 private _side = _toNode getVariable "GDGM_owner";
 private _spawnedObjects = [];
@@ -35,7 +35,8 @@ while {alive _leader && _i < _maxTime} do {
 sleep 30;
 
 if(!alive _leader) then {
-	[_side, -100] spawn GDGM_fnc_addPoints;
+	[_side, -10] call GDGM_fnc_addPoints;
+	[_side, true] call GDGM_fnc_setSkipTurnSupply;
 	[_taskId,"SUCCEEDED"] call BIS_fnc_taskSetState;
 } else {
 	[_taskId,"FAILED"] call BIS_fnc_taskSetState;
@@ -43,7 +44,7 @@ if(!alive _leader) then {
 
 deleteMarker _marker_object;
 
-[_side, -1] call GDGM_fnc_addRaidNb;
+[_attackingSide, -1] call GDGM_fnc_addRaidNb; 
 
 //despawn 
 sleep 300;

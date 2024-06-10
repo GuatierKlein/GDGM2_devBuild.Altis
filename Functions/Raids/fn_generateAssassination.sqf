@@ -27,6 +27,6 @@ if(_i > _waitTime) exitWith {
 	[_attackingSide, -1] call GDGM_fnc_addRaidNb;
 };
 
-[_node, _taskId] spawn GDGM_fnc_spawnAssassination; 
+[_node, _taskId, _attackingSide] spawn GDGM_fnc_spawnAssassination; 
 
 

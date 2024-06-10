@@ -63,6 +63,6 @@ if(_i > _waitTime) exitWith {
 "Spawning convoy in 5 minutes..." remoteExec ["systemChat",0];
 sleep 300;
 "Spawning convoy" remoteExec ["systemChat",0];
-[_toNode, _spawnPoss, _taskId] spawn GDGM_fnc_spawnConvoyAmbush; 
+[_toNode, _spawnPoss, _taskId, _attackingSide] spawn GDGM_fnc_spawnConvoyAmbush; 
 
 

@@ -1,4 +1,4 @@
-params["_node","_taskId"];
+params["_node","_taskId", "_attackingSide"];
 
 private _side = _node getVariable "GDGM_owner";
 private _spawnedObjects = [];
@@ -88,7 +88,7 @@ if(isNull _case) then {
 	deleteVehicle _case;
 };
 
-[_side, -1] call GDGM_fnc_addRaidNb;
+[_attackingSide, -1] call GDGM_fnc_addRaidNb;
 deleteMarker _marker_object;
 
 //despawn 
