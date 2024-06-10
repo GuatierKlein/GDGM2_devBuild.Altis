@@ -11,16 +11,23 @@ while {true} do {
 		[_x, [_x] call GDGM_fnc_getReservesPerTurn] call GDGM_fnc_addReserves;
 		[_x, [_x] call GDGM_fnc_getVehReservesPerTurn] call GDGM_fnc_addVehReserves;
 		[] spawn GDGM_fnc_nodeGarbageCollector;
-		[] call GDGM_fnc_tickSupply;
+		
 		[] call GDGM_fnc_tickFrontlineSupplies;
 
+		if([_x] call GDGM_fnc_getSkipTurnSupply) then {
+			[_x, false] call GDGM_fnc_setSkipTurnSupply;
+			(str _x + " supply turn was skipped") remoteExec["systemChat",0];
+		} else {
+			[] call GDGM_fnc_tickSupply;
+		};
+		
 		if([_x] call GDGM_fnc_getSkipTurn) then {
 			[_x, false] call GDGM_fnc_setSkipTurn;
 			(str _x + " turn was skipped") remoteExec["systemChat",0];
-			continue;
+		} else {
+			[_x] spawn GDGM_fnc_sideTick;
 		};
-		
-		[_x] spawn GDGM_fnc_sideTick;
+
 		sleep (GDGM_timeBetweenAITicks);	
 		// sleep 5;	
 	} forEach _sides;	

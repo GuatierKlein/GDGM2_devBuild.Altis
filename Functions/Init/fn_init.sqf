@@ -26,6 +26,9 @@ GDGM_playerFOBs = [];
 GDGM_BLUFOR_skipTurn = false;
 GDGM_OPFOR_skipTurn = false;
 GDGM_IND_skipTurn = false;
+GDGM_BLUFOR_skipSupplyTurn = false;
+GDGM_OPFOR_skipSupplyTurn = false;
+GDGM_IND_skipSupplyTurn = false;
 GDGM_lastSupportRequestTime = 0;
 
 waitUntil { GDGM_init_type != -1 };

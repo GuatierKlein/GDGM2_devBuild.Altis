@@ -130,6 +130,8 @@ class CfgFunctions
 			class disarmUnit {};
 			class gobackToFight {};
 			class playCaptureAnim {};
+			class getSkipTurnSupply {};
+			class setSkipTurnSupply {};
 		};
 		class Events
 		{
