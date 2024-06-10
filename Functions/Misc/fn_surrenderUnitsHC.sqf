@@ -56,7 +56,7 @@ private _units = units _grp;
 		"Catpure",										// Title of the action
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
-		"_this distance _target < 3 && side _this != (_target getVariable 'GDGM_owner')",						// Condition for the action to be shown
+		"_this distance _target < 3 && side _this != (_target getVariable 'GDGM_owner') && alive _target",						// Condition for the action to be shown
 		"_caller distance _target < 3",						// Condition for the action to progress
 		{},													// Code executed when action starts
 		{},													// Code executed on every progress tick
@@ -78,7 +78,7 @@ private _units = units _grp;
 		"Put blindfold",										// Title of the action
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
-		"_this distance _target < 3 && side _this != (_target getVariable 'GDGM_owner')",						// Condition for the action to be shown
+		"_this distance _target < 3 && side _this != (_target getVariable 'GDGM_owner') && alive _target",						// Condition for the action to be shown
 		"_caller distance _target < 3",						// Condition for the action to progress
 		{},													// Code executed when action starts
 		{},													// Code executed on every progress tick
@@ -102,7 +102,7 @@ private _units = units _grp;
 		"Disarm",										// Title of the action
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
-		"_this distance _target < 3 && side _this != (_target getVariable 'GDGM_owner')",						// Condition for the action to be shown
+		"_this distance _target < 3 && side _this != (_target getVariable 'GDGM_owner') && alive _target",						// Condition for the action to be shown
 		"_caller distance _target < 3",						// Condition for the action to progress
 		{},													// Code executed when action starts
 		{},													// Code executed on every progress tick
@@ -145,7 +145,7 @@ private _units = units _grp;
 		"Go back to fight!",										// Title of the action
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
-		"_this distance _target < 3 && side _this == (_target getVariable 'GDGM_owner')",						// Condition for the action to be shown
+		"_this distance _target < 3 && side _this == (_target getVariable 'GDGM_owner') && alive _target",						// Condition for the action to be shown
 		"_caller distance _target < 3",						// Condition for the action to progress
 		{},													// Code executed when action starts
 		{},													// Code executed on every progress tick
