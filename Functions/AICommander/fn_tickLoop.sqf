@@ -4,7 +4,15 @@ private _sides = GDGM_sides call BIS_fnc_arrayShuffle;
 // waitUntil { GDGM_lanceria; };
 // "IA lancées" remoteExec ["systemChat",0];
 
-sleep (GDGM_AITimeBuffer);
+private _i = 0;
+while {GDGM_AITimeBuffer > i || GDGM_gracePeriodDone} do {
+	_i = _i + 60;
+	("Grace period, " + str (GDGM_AITimeBuffer - _i) + "s remaining") remoteExec ["systemChat",0];
+	sleep 60;
+};
+
+"Grace period finished, simulation is starting" remoteExec["hint",0];
+GDGM_gracePeriodDone = true;
 
 while {true} do {
 	{

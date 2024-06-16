@@ -30,6 +30,7 @@ GDGM_BLUFOR_skipSupplyTurn = false;
 GDGM_OPFOR_skipSupplyTurn = false;
 GDGM_IND_skipSupplyTurn = false;
 GDGM_lastSupportRequestTime = 0;
+GDGM_gracePeriodDone = false;
 
 waitUntil { GDGM_init_type != -1 };
 // "LeadTrack01c_F" remoteExec["playMusic",0];

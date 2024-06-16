@@ -3,7 +3,7 @@ GDGM_eastRaidNb = 0;
 GDGM_westRaidNb = 0;
 GDGM_indRaidNb = 0;
 
-sleep 30;
+waitUntil { sleep 60; GDGM_gracePeriodDone; };
 
 while {true} do {
 	//find which sides to create raid for

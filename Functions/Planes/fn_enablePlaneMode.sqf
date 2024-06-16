@@ -3,6 +3,8 @@ GDGM_planeModeEnabled = true;
 private _ticksMod = 0;
 private _tmpArray = [];
 
+waitUntil { sleep 60; GDGM_gracePeriodDone; };
+
 while {GDGM_planeModeEnabled} do {
 	//tick and threat decrease
 	if(_ticksMod % 10 == 0) then {
