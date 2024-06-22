@@ -5,7 +5,7 @@ private _sides = GDGM_sides call BIS_fnc_arrayShuffle;
 // "IA lancées" remoteExec ["systemChat",0];
 
 private _i = 0;
-while {GDGM_AITimeBuffer > i || GDGM_gracePeriodDone} do {
+while {GDGM_AITimeBuffer > _i || GDGM_gracePeriodDone} do {
 	_i = _i + 60;
 	("Grace period, " + str (GDGM_AITimeBuffer - _i) + "s remaining") remoteExec ["systemChat",0];
 	sleep 60;
