@@ -23,3 +23,5 @@ private _baseUnit = "B_Soldier_F";
 	false, 
 	false
 ] call BIS_fnc_holdActionAdd;
+
+(group _unit) setVariable ["acex_headless_blacklist", true];
