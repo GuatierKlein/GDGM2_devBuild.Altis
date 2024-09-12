@@ -25,8 +25,11 @@ switch (_side) do {
 	case independent: {GDGM_isCASFree_ind = false };
 };
 
+//random pos 
+_pos = _pos getPos [random 100, random 360];
+
 //call in time 
-private _callinTime = 30 + floor(random 60);
+private _callinTime = 120 + floor(random 60);
 sleep (_callinTime);
 
 [_pos, _side] spawn GDGM_fnc_airStrike;
