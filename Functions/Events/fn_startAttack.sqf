@@ -1,4 +1,4 @@
-params["_fromNode","_toNode", "_bestChoiceBG","_attackingSide", "_taskId"];
+params["_fromNode","_toNode", "_bestChoiceBG","_attackingSide", "_taskId", ["_isDivison", false], "_divisionName"];
 
 private _defendingSide = _toNode getVariable "GDGM_owner";
 private _tankPool = [];

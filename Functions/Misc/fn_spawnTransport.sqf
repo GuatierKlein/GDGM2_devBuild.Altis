@@ -1,4 +1,4 @@
-params["_pos","_grp","_side","_arrayToStore",["_spawnSquad",false],["_dir",0],["_reserve",false]];
+params["_pos","_grp","_side","_arrayToStore",["_spawnSquad",false],["_dir",0],["_reserve",false], ["_isDivison", false], "_divisionName"];
 
 if(_reserve && ([_side] call GDGM_fnc_getVehReserves ) select 0 < 1 && [_side] call GDGM_fnc_getReserves < 1) exitWith {
 	[_pos, _grp, _side, _arrayToStore, 7, "NONE", _reserve] spawn GDGM_fnc_spawnSquad;

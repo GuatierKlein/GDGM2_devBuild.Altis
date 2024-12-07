@@ -1,4 +1,4 @@
-params["_pos","_grp","_side",["_arrayToStore",[]],["_dir",0],["_reserve",false]];
+params["_pos","_grp","_side",["_arrayToStore",[]],["_dir",0],["_reserve",false], ["_isDivison", false], "_divisionName"];
 
 if(_reserve && ([_side] call GDGM_fnc_getVehReserves ) select 2 < 1) exitWith {};
 

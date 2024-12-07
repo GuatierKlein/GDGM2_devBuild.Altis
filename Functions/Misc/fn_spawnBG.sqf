@@ -1,4 +1,4 @@
-params["_pos", "_toNode","_side","_bg"];
+params["_pos", "_toNode","_side","_bg", ["_isDivison", false], "_divisionName"];
 
 //roads 
 private _nearbyRoads = _pos nearRoads 450;

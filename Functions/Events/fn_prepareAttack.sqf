@@ -1,4 +1,4 @@
-params["_side","_nodeFrom","_nodeTo","_garrisonStrength","_bg","_cost","_reserveCost","_combatPower"];
+params["_side","_nodeFrom","_nodeTo","_garrisonStrength","_bg","_cost","_reserveCost","_combatPower", ["_isDivison", false], ["_divisionName", ""]];
 
 //create task
 private _title = ([_side] call GDGM_fnc_getFactionName) + " is attacking " + (_nodeTo getVariable "GDGM_name");
@@ -37,7 +37,7 @@ if(_i <= _waitTime) then {
 		_arrow call BIS_fnc_drawArrow;
 	};
 	//spawn attack
-	[_nodeFrom, _nodeTo, _bg, _side, _taskId] spawn GDGM_fnc_startAttack;
+	[_nodeFrom, _nodeTo, _bg, _side, _taskId, _isDivison, _divisionName] spawn GDGM_fnc_startAttack;
 	_arrow call BIS_fnc_drawArrow;
 } else {
 	//spend points

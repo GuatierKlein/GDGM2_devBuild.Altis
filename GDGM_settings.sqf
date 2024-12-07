@@ -268,4 +268,28 @@ GDGM_addPilot_baseUnit = "B_G_Soldier_F";
 GDGM_kitSelect_availableKits = []; //mannequins
 GDGM_kitSelect_availableKitsNames = []; //nons
 
+//special divisions
+// [
+// 	"New division" //name,
+// 	west, //side 
+// 	createHashMapFromArray [ //dummies
+// 		["rifle", loadout_blufor],
+// 		["gre", loadout_blufor],
+// 		["mg", loadout_blufor],
+// 		["at", loadout_blufor],
+// 		["sl", loadout_blufor],
+// 		["crew", loadout_blufor],
+// 		["sn", loadout_blufor],
+// 		["rto", loadout_blufor],
+// 		["off", loadout_blufor]
+// 	],
+// 	createHashMapFromArray [ //vehicles
+// 		["light", []],
+// 		["heavy", []],
+// 		["transport", []],
+// 		["tank", []]
+// 	],
+// 	200, //reserves
+// 	200 //suuplies
+// ] call GDGM_fnc_division;
 

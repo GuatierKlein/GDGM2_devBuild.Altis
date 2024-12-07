@@ -298,5 +298,9 @@ class CfgFunctions
 		class Intro {
 			class openIntroCam {};
 		}
+
+		class Division {
+			class division {};
+		}
 	};
 };
