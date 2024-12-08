@@ -1,10 +1,15 @@
-params["_array",["_reserve",false]];
+params["_array",["_reserve",false], ["_isDivion", false], ["_divisionName", ""]];
 
 {
 	//store side
 	_x setVariable ["GDGM_owner", side _x];
 	_x setVariable ["GDGM_reserve", _reserve];
 	_x setVariable ["GDGM_type", "man"];
+
+	//division 
+	if(_isDivion) then {
+		_x setVariable ["GDGM_divisionName", _divisionName];
+	};
 
 	//EH
 	if(_reserve) then {
