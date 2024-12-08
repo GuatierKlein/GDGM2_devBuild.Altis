@@ -33,7 +33,7 @@ private _spawnedUnits = [];
 				
 				if(_spawnPos select 0 == 0 && _spawnPos select 1 == 0 ) then {continue};
 
-				[_spawnPos, _grp, _side, _spawnedUnits, 7, "NONE", true] spawn GDGM_fnc_spawnSquad;
+				[_spawnPos, _grp, _side, _spawnedUnits, 7, "NONE", true, _isDivison, _divisionName] spawn GDGM_fnc_spawnSquad;
 				sleep 2;
 				_wp = _grp addWaypoint [[_posTo select 0, _posTo select 1, 0], 150];
 				_wp setWaypointType "SAD";
@@ -68,7 +68,7 @@ private _spawnedUnits = [];
 
 				if(_spawnPos select 0 == 0 && _spawnPos select 1 == 0 ) then {continue};
 
-				[_spawnPos, _grp, _side, _spawnedUnits, false, _dir, true] spawn GDGM_fnc_spawnAPC;
+				[_spawnPos, _grp, _side, _spawnedUnits, false, _dir, true, _isDivison, _divisionName] spawn GDGM_fnc_spawnAPC;
 				sleep 2;
 				_wp = _grp addWaypoint [[_posTo select 0, _posTo select 1, 0], 150];
 				_wp setWaypointType "SAD";
@@ -103,7 +103,7 @@ private _spawnedUnits = [];
 
 				if(_spawnPos select 0 == 0 && _spawnPos select 1 == 0 ) then {continue};
 
-				[_spawnPos, _grp, _side, _spawnedUnits, true, _dir, true] spawn GDGM_fnc_spawnLightArmedVeh;
+				[_spawnPos, _grp, _side, _spawnedUnits, true, _dir, true, _isDivison, _divisionName] spawn GDGM_fnc_spawnLightArmedVeh;
 				sleep 2;
 				_wp = _grp addWaypoint [[_posTo select 0, _posTo select 1, 0], 150];
 				_wp setWaypointType "SAD";
@@ -138,7 +138,7 @@ private _spawnedUnits = [];
 
 				if(_spawnPos select 0 == 0 && _spawnPos select 1 == 0 ) then {continue};
 
-				[_spawnPos, _grp, _side, _spawnedUnits, true, _dir, true] spawn GDGM_fnc_spawnTransport;
+				[_spawnPos, _grp, _side, _spawnedUnits, true, _dir, true, _isDivison, _divisionName] spawn GDGM_fnc_spawnTransport;
 				_spawnedMountedGrps pushBack _grp;
 				sleep 2;
 
@@ -175,7 +175,7 @@ private _spawnedUnits = [];
 
 				if(_spawnPos select 0 == 0 && _spawnPos select 1 == 0 ) then {continue};
 
-				[_spawnPos, _grp, _side, _spawnedUnits, _dir, true] spawn GDGM_fnc_spawnTank;
+				[_spawnPos, _grp, _side, _spawnedUnits, _dir, true, _isDivison, _divisionName] spawn GDGM_fnc_spawnTank;
 				sleep 2;
 				_wp = _grp addWaypoint [[_posTo select 0, _posTo select 1, 0], 150];
 				_wp setWaypointType "SAD";
@@ -192,7 +192,7 @@ private _spawnedUnits = [];
 
 //spawn hq
 _newGrp = createGroup [_side ,true]; 
-[_pos, _newGrp, _side, _spawnedUnits, objnull, "COLONEL"] spawn GDGM_fnc_spawnHQ;
+[_pos, _newGrp, _side, _spawnedUnits, objnull, "COLONEL", _isDivison, _divisionName] spawn GDGM_fnc_spawnHQ;
 
 sleep 2;
 _wp = _newGrp addWaypoint [[_posTo select 0, _posTo select 1, 0], 150];
