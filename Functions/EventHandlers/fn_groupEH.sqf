@@ -1,8 +1,11 @@
 //for groups only !!!
-params["_group","_flee",["_support", true], ["_morale", true]];
+params["_group","_flee",["_support", true], ["_morale", true], ["_skill", 0]];
 
 //skill 
-private _skill = [side _group] call GDGM_fnc_getSideSkill;
+if(_skill == 0) then {
+	_skill = [side _group] call GDGM_fnc_getSideSkill;
+};
+
 {
 	_x setSkill _skill;
 } forEach units _group;

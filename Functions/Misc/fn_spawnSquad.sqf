@@ -120,4 +120,10 @@ if(!isNil "_veh") then {
 };
 
 [_array, _reserve] spawn GDGM_fnc_soldierEH;
-[_grp, false, true] spawn GDGM_fnc_groupEH;
+
+if(_isDivison) then {
+	[_grp, false, true, _division get "skill"] spawn GDGM_fnc_groupEH;
+} else {
+	[_grp, false, true] spawn GDGM_fnc_groupEH;
+};
+
