@@ -1,11 +1,12 @@
-params["_name", "_side", "_dummiesHashMap", "_vehHashMap", "_reserves", "_supplies"];
+params["_name", "_side", "_dummiesHashMap", "_vehHashMap", "_vehReserves", "_reserves", "_supplies", "_skill"];
 
 private _divisionHashMap = createHashMap;
 
 _divisionHashMap set ["name", _name];
 _divisionHashMap set ["reserves", _reserves];
-_divisionHashMap set ["supplies", _supplies];
+// _divisionHashMap set ["supplies", _supplies]; //not implemented
 _divisionHashMap set ["side", _side];
+_divisionHashMap set ["skill", _skill];
 
 //dummmies
 _divisionHashMap set ["rifle", _dummiesHashMap get "rifle"];
@@ -20,9 +21,13 @@ _divisionHashMap set ["crew", _dummiesHashMap get "crew"];
 
 //vehicles
 _divisionHashMap set ["light", _vehHashMap get "lightVeh"];
+// _divisionHashMap set ["lightReserves", _vehReserves select 0]; //not used
 _divisionHashMap set ["heavy", _vehHashMap get "heavy"];
+_divisionHashMap set ["heavyReserves", _vehReserves select 1];
 _divisionHashMap set ["transport", _vehHashMap get "transport"];
+_divisionHashMap set ["transportReserves", _vehReserves select 2];
 _divisionHashMap set ["tank", _vehHashMap get "tank"];
+_divisionHashMap set ["tankReserves", _vehReserves select 3];
 
 switch (_side) do {
 	case west: { GDGM_BLUFOR_divisions pushBack _divisionHashMap};
