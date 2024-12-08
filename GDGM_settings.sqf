@@ -270,18 +270,18 @@ GDGM_kitSelect_availableKitsNames = []; //nons
 
 //special divisions
 [
-	"Test division" //name,
+	"Test division", //name,
 	east, //side 
 	createHashMapFromArray [ //dummies
-		["rifle", loadout_opfor_div],
-		["gre", loadout_opfor_div],
-		["mg", loadout_opfor_div],
-		["at", loadout_opfor_div],
-		["sl", loadout_opfor_div],
-		["crew", loadout_opfor_div],
-		["sn", loadout_opfor_div],
-		["rto", loadout_opfor_div],
-		["off", loadout_opfor_div]
+		["rifle", [loadout_opfor_div]],
+		["gre", [loadout_opfor_div]],
+		["mg", [loadout_opfor_div]],
+		["at", [loadout_opfor_div]],
+		["sl", [loadout_opfor_div]],
+		["crew", [loadout_opfor_div]],
+		["sn", [loadout_opfor_div]],
+		["rto", [loadout_opfor_div]],
+		["off", [loadout_opfor_div]]
 	],
 	createHashMapFromArray [ //vehicles
 		["light", ["O_T_MRAP_02_hmg_ghex_F"]],
