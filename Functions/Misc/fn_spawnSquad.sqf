@@ -88,7 +88,14 @@ for [{private _j = 0}, {_j < _size}, {_j = _j + 1}] do {
 		};
 	};
 
-	_unit = _grp createUnit [_unitType,  _pos, [], 0, _spawnType];
+	_unit = _grp createUnit [_unitType,  _pos, [], 0, "NONE"];
+
+	if(!isNil "_veh") then {
+		if(!isNull _veh) then {
+			_unit moveInAny _veh;
+		};		
+	};
+
 	_unit setUnitLoadout getUnitLoadout (selectRandom _loadoutPool);
 	//TODO code to run on unit spawn
 	_arrayToStore pushBack _unit;
@@ -113,12 +120,6 @@ for [{private _j = 0}, {_j < _size}, {_j = _j + 1}] do {
 	};	
 
 	sleep 0.5;
-};
-
-if(!isNil "_veh") then {
-	{
-		_x moveInCargo _veh;		
-	} forEach _array;
 };
 
 [_array, _reserve] spawn GDGM_fnc_soldierEH;

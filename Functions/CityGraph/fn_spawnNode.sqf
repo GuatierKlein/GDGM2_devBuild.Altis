@@ -218,7 +218,7 @@ if(!(_owner == GDGM_reducedSide && GDGM_reducedSideLimitedSpawn)) then {
 		private _road = selectRandom _nearbyRoads;
 		private _info = getRoadInfo _road;
 		private _dir = (_info select 6) getDir (_info select 7);
-		private _pos = getPosASL _road;
+		private _pos = getPosATL _road;
 		_newGrp = createGroup [_owner ,true]; 
 		[_pos, _newGrp, _owner, _tmpArray, true, _dir, true] spawn GDGM_fnc_spawnTransport;
 		_wp = _newGrp addWaypoint [_pos, 0];
@@ -232,7 +232,7 @@ if(_garri >= GDGM_smallTownGarri && !(_owner == GDGM_reducedSide && GDGM_reduced
 		private _road = selectRandom _nearbyRoads;
 		private _info = getRoadInfo _road;
 		private _dir = (_info select 6) getDir (_info select 7);
-		private _pos = getPosASL _road;
+		private _pos = getPosATL _road;
 		_newGrp = createGroup [_owner ,true]; 
 		[_pos, _newGrp, _owner, _tmpArray, false, _dir, true] spawn GDGM_fnc_spawnAPC;
 		_wp = _newGrp addWaypoint [_pos, 0];
@@ -266,7 +266,7 @@ if(_garri >= GDGM_bigTownGarri && !(_owner == GDGM_reducedSide && GDGM_reducedSi
 		private _road = selectRandom _nearbyRoads;
 		private _info = getRoadInfo _road;
 		private _dir = (_info select 6) getDir (_info select 7);
-		private _pos = getPosASL _road;
+		private _pos = getPosATL _road;
 		_newGrp = createGroup [_owner ,true]; 
 		[_pos, _newGrp, _owner, _tmpArray, true, _dir, true] spawn GDGM_fnc_spawnTransport;
 		_wp = _newGrp addWaypoint [_pos, 0];

@@ -33,7 +33,7 @@ private _spawnedUnits = [];
 				
 				if(_spawnPos select 0 == 0 && _spawnPos select 1 == 0 ) then {continue};
 
-				[_spawnPos, _grp, _side, _spawnedUnits, 7, "NONE", true, _isDivison, _divisionName] spawn GDGM_fnc_spawnSquad;
+				[_spawnPos, _grp, _side, _spawnedUnits, 7, "NONE", true, objNull, _isDivison, _divisionName] spawn GDGM_fnc_spawnSquad;
 				sleep 2;
 				_wp = _grp addWaypoint [[_posTo select 0, _posTo select 1, 0], 150];
 				_wp setWaypointType "SAD";

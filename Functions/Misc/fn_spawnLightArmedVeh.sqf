@@ -45,7 +45,7 @@ _array pushBack _unit;
 _grp addVehicle _veh;
 
 if(_spawnSquad) then {	
-	[_pos, _grp, _side, _arrayToStore, floor((_veh emptyPositions "Cargo")), "CARGO",_reserve] spawn GDGM_fnc_spawnSquad;
+	[_pos, _grp, _side, _arrayToStore, floor((_veh emptyPositions "Cargo")), "CARGO",_reserve, _veh, _isDivison, _divisionName] spawn GDGM_fnc_spawnSquad;
 };
 _arrayToStore pushBack _veh;
 
