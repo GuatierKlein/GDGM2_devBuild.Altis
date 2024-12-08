@@ -28,7 +28,7 @@ private _side = west;
 			};
 			case "man": { 
 				private _division = _x getVariable ["GDGM_divisionName", ""];
-				if(_division == "") then {
+				if(_division != "") then {
 					[_division, 1] call GDGM_fnc_addReserves; 
 				} else {
 					[side _x, 1] call GDGM_fnc_addReserves; 
