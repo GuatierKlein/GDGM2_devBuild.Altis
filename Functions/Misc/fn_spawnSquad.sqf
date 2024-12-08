@@ -8,6 +8,7 @@ grp = createGroup [_attackingSide ,true];
 private _unitType = "";
 private _loadoutPool = [];
 private _array = [];
+private _division = [];
 
 //spawn pool  
 switch (_side) do {
@@ -16,48 +17,73 @@ switch (_side) do {
 	case independent: {_unitType = GDGM_IND_baseUnit };
 };
 
+//get division 
+if(_isDivison) then {
+	_division = GDGM_allDivisions get _divisionName;
+};
+
 //spawn
 for [{private _j = 0}, {_j < _size}, {_j = _j + 1}] do {
 	//unit type
 	switch (_j) do {
 		case 0: {
 			//SL
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_SLDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_SLDummies};
-				case independent: {_loadoutPool = GDGM_IND_SLDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "sl";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_SLDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_SLDummies};
+					case independent: {_loadoutPool = GDGM_IND_SLDummies};
+				};
 			};
 		};
 		case 1: {
 			//gre  
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_greDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_greDummies};
-				case independent: {_loadoutPool = GDGM_IND_greDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "gre";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_greDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_greDummies};
+					case independent: {_loadoutPool = GDGM_IND_greDummies};
+				};
 			};
 		};
 		case 3: {
 			//at  
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_ATDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_ATDummies};
-				case independent: {_loadoutPool = GDGM_IND_ATDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "at";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_ATDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_ATDummies};
+					case independent: {_loadoutPool = GDGM_IND_ATDummies};
+				};
 			};
 		};
 		case 5: {
 			//mg  
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_MGDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_MGDummies};
-				case independent: {_loadoutPool = GDGM_IND_MGDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "mg";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_MGDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_MGDummies};
+					case independent: {_loadoutPool = GDGM_IND_MGDummies};
+				};
 			};
 		};
 		default {
 			//rifle
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_rifleDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_rifleDummies};
-				case independent: {_loadoutPool = GDGM_IND_rifleDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "rifle";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_rifleDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_rifleDummies};
+					case independent: {_loadoutPool = GDGM_IND_rifleDummies};
+				};
 			};
 		};
 	};
@@ -68,12 +94,20 @@ for [{private _j = 0}, {_j < _size}, {_j = _j + 1}] do {
 	_arrayToStore pushBack _unit;
 	_array pushBack _unit;
 
-	if(_reserve && [_side] call GDGM_fnc_getReserves < 1) then {
+	if(_reserve && !_division && [_side] call GDGM_fnc_getReserves < 1) then {
+		break;
+	};
+
+	if(_reserve && _division && [_divisionName] call GDGM_fnc_getReserves < 1) then {
 		break;
 	};
 
 	if(_reserve) then {
-		[_side, -1] call GDGM_fnc_addReserves;
+		if(_isDivison) then {
+			[_divisionName, -1] call GDGM_fnc_addReserves;
+		} else {
+			[_side, -1] call GDGM_fnc_addReserves;
+		};
 	};	
 
 	sleep 0.5;

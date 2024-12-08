@@ -4,12 +4,20 @@ private _unitType = "";
 private _unitLoadouts = [];
 private _vehPool = [];
 private _array = [];
+private _division = [];
 
 //spawn pool  
 switch (_side) do {
 	case east: {_unitType = GDGM_OPFOR_baseUnit; _unitLoadouts = GDGM_OPFOR_rifleDummies; _vehPool = GDGM_OPFOR_lightArmedVeh };
 	case west: {_unitType = GDGM_BLUFOR_baseUnit; _unitLoadouts = GDGM_BLUFOR_rifleDummies; _vehPool = GDGM_BLUFOR_lightArmedVeh };
 	case independent: {_unitType = GDGM_IND_baseUnit; _unitLoadouts = GDGM_IND_rifleDummies; _vehPool = GDGM_IND_lightArmedVeh };
+};
+
+//if division 
+if(_isDivison) then {
+	_division = GDGM_allDivisions get _divisionName;
+	_unitLoadouts = _division get "rifle";
+	_vehPool = _division get "light";
 };
 
 //spawn veh
@@ -41,9 +49,13 @@ if(_spawnSquad) then {
 };
 _arrayToStore pushBack _veh;
 
-if(_reserve) then {
-	[_side, -2] call GDGM_fnc_addReserves;
-};
+	if(_reserve) then {
+		if(_isDivison) then {
+			[_divisionName, -2] call GDGM_fnc_addReserves;
+		} else {
+			[_side, -2] call GDGM_fnc_addReserves;
+		};
+	};	
 
 [_array, _reserve] spawn GDGM_fnc_soldierEH;
 [_veh, 10] spawn GDGM_fnc_vehEH;

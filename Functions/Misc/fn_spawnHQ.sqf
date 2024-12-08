@@ -9,6 +9,7 @@ private _unitType = "";
 private _loadoutPool = [];
 private _array = [];
 private _allPos = [];
+private _division = [];
 
 if(!isNull _building) then {
 	_allPos = _building buildingPos -1;
@@ -21,64 +22,98 @@ switch (_side) do {
 	case independent: {_unitType = GDGM_IND_baseUnit };
 };
 
+//get division 
+if(_isDivison) then {
+	_division = GDGM_allDivisions get _divisionName;
+};
+
+
 //spawn
 for [{private _j = 0}, {_j < 7}, {_j = _j + 1}] do {
 	//unit type
 	switch (_j) do {
 		case 0: {
-			//SL
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_OfficerDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_OfficerDummies};
-				case independent: {_loadoutPool = GDGM_IND_OfficerDummies};
+			//off
+			if(_isDivison) then {
+				_loadoutPool = _division get "off";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_OfficerDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_OfficerDummies};
+					case independent: {_loadoutPool = GDGM_IND_OfficerDummies};
+				};
 			};
 		};
 		case 1: {
 			//radio  
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_radioDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_radioDummies};
-				case independent: {_loadoutPool = GDGM_IND_radioDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "rto";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_radioDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_radioDummies};
+					case independent: {_loadoutPool = GDGM_IND_radioDummies};
+				};
 			};
 		};
 		case 3: {
 			//gre  
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_greDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_greDummies};
-				case independent: {_loadoutPool = GDGM_IND_greDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "gre";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_greDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_greDummies};
+					case independent: {_loadoutPool = GDGM_IND_greDummies};
+				};
 			};
 		};
 		case 4: {
 			//snper  
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_SniperDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_SniperDummies};
-				case independent: {_loadoutPool = GDGM_IND_SniperDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "sniper";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_SniperDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_SniperDummies};
+					case independent: {_loadoutPool = GDGM_IND_SniperDummies};
+				};
 			};
 		};
 		case 5: {
 			//mg  
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_MGDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_MGDummies};
-				case independent: {_loadoutPool = GDGM_IND_MGDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "mg";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_MGDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_MGDummies};
+					case independent: {_loadoutPool = GDGM_IND_MGDummies};
+				};
 			};
 		};
 		case 6: {
 		//sl
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_SLDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_SLDummies};
-				case independent: {_loadoutPool = GDGM_IND_SLDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "sl";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_SLDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_SLDummies};
+					case independent: {_loadoutPool = GDGM_IND_SLDummies};
+				};
 			};
 		};
 		default {
 			//rifle
-			switch (_side) do {
-				case east: {_loadoutPool = GDGM_OPFOR_rifleDummies};
-				case west: {_loadoutPool = GDGM_BLUFOR_rifleDummies};
-				case independent: {_loadoutPool = GDGM_IND_rifleDummies};
+			if(_isDivison) then {
+				_loadoutPool = _division get "rifle";
+			} else {
+				switch (_side) do {
+					case east: {_loadoutPool = GDGM_OPFOR_rifleDummies};
+					case west: {_loadoutPool = GDGM_BLUFOR_rifleDummies};
+					case independent: {_loadoutPool = GDGM_IND_rifleDummies};
+				};
 			};
 		};
 	};
@@ -97,10 +132,14 @@ for [{private _j = 0}, {_j < 7}, {_j = _j + 1}] do {
 	if(_reserve && [_side] call GDGM_fnc_getReserves < 1) then {
 		break;
 	};
-
+	
 	if(_reserve) then {
-		[_side, -1] call GDGM_fnc_addReserves;
-	};	
+		if(_isDivison) then {
+			[_divisionName, -1] call GDGM_fnc_addReserves;
+		} else {
+			[_side, -1] call GDGM_fnc_addReserves;
+		};
+	};		
 
 	if(_j == 0) then {
 		_unit setRank _rank;
