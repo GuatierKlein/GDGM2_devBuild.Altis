@@ -269,6 +269,14 @@ GDGM_kitSelect_availableKits = []; //mannequins
 GDGM_kitSelect_availableKitsNames = []; //nons
 
 //special divisions
+
+//DON't MODIFIY BETWEEN THESE COMMENTS
+GDGM_allDivisions = createHashMap;
+GDGM_BLUFOR_divisions = [];
+GDGM_OPFOR_divisions = [];
+GDGM_IND_divisions = [];
+//DON't MODIFIY BETWEEN THESE COMMENTS
+
 [
 	"Test division", //name,
 	east, //side 
