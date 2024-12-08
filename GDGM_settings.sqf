@@ -270,28 +270,27 @@ GDGM_kitSelect_availableKitsNames = []; //nons
 
 //special divisions
 [
-	"New division" //name,
-	west, //side 
+	"Test division" //name,
+	east, //side 
 	createHashMapFromArray [ //dummies
-		["rifle", loadout_blufor],
-		["gre", loadout_blufor],
-		["mg", loadout_blufor],
-		["at", loadout_blufor],
-		["sl", loadout_blufor],
-		["crew", loadout_blufor],
-		["sn", loadout_blufor],
-		["rto", loadout_blufor],
-		["off", loadout_blufor]
+		["rifle", loadout_opfor_div],
+		["gre", loadout_opfor_div],
+		["mg", loadout_opfor_div],
+		["at", loadout_opfor_div],
+		["sl", loadout_opfor_div],
+		["crew", loadout_opfor_div],
+		["sn", loadout_opfor_div],
+		["rto", loadout_opfor_div],
+		["off", loadout_opfor_div]
 	],
 	createHashMapFromArray [ //vehicles
-		["light", []],
-		["heavy", []],
-		["transport", []],
-		["tank", []]
+		["light", ["O_T_MRAP_02_hmg_ghex_F"]],
+		["heavy", ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"]],
+		["transport", ["O_T_Truck_03_transport_ghex_F"]],
+		["tank", ["O_T_MBT_02_railgun_ghex_F"]]
 	],
 	[0,0,0,0], //veh reserves
-	200, //reserves
-	200, //suuplies
+	400, //reserves
+	0, //suuplies, not implemented
 	0.8 //skill
 ] call GDGM_fnc_division;
-
