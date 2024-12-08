@@ -129,8 +129,14 @@ for [{private _j = 0}, {_j < 7}, {_j = _j + 1}] do {
 	_arrayToStore pushBack _unit;
 	_array pushBack _unit;
 
-	if(_reserve && [_side] call GDGM_fnc_getReserves < 1) then {
+	if(_reserve && !_isDivison && [_side] call GDGM_fnc_getReserves < 1) then {
 		break;
+	};
+
+	if(_reserve && _isDivison) then {
+		if([_divisionName] call GDGM_fnc_getReserves < 1) then {
+			break;
+		};
 	};
 	
 	if(_reserve) then {

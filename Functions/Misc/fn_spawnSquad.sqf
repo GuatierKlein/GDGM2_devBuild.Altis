@@ -98,8 +98,10 @@ for [{private _j = 0}, {_j < _size}, {_j = _j + 1}] do {
 		break;
 	};
 
-	if(_reserve && _isDivison && [_divisionName] call GDGM_fnc_getReserves < 1) then {
-		break;
+	if(_reserve && _isDivison) then {
+		if([_divisionName] call GDGM_fnc_getReserves < 1) then {
+			break;
+		};
 	};
 
 	if(_reserve) then {

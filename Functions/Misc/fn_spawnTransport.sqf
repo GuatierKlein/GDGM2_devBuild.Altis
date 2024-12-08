@@ -49,6 +49,7 @@ if(_reserve) then {
 	if(_isDivison) then {
 		//crew reserves 
 		[_divisionName, -1] call GDGM_fnc_addReserves;
+
 		//veh reserves 
 		[_divisionName, [-1,0,0,0,0]] call GDGM_fnc_addVehReserves;
 	} else {
