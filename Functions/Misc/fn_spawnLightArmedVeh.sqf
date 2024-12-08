@@ -1,4 +1,4 @@
-params["_pos","_grp","_side","_arrayToStore",["_spawnSquad",false],["_dir",0],["_reserve",false], ["_isDivison", false], "_divisionName"];
+params["_pos","_grp","_side","_arrayToStore",["_spawnSquad",false],["_dir",0],["_reserve",false], ["_isDivison", false], ["_divisionName", ""]];
 
 private _unitType = "";
 private _unitLoadouts = [];

@@ -1,4 +1,4 @@
-params["_pos","_grp","_side","_arrayToStore", ["_building", objnull],["_rank", "CAPTAIN"],["_spawnType","NONE"],["_reserve",false],"_veh", ["_isDivison", false], "_divisionName"];
+params["_pos","_grp","_side","_arrayToStore", ["_building", objnull],["_rank", "CAPTAIN"],["_spawnType","NONE"],["_reserve",false],"_veh", ["_isDivison", false], ["_divisionName", ""]];
 
 /*test 
 grp = createGroup [_attackingSide ,true]; 
