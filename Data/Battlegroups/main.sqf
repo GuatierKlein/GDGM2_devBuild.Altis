@@ -32,7 +32,7 @@ GDGM_battlegroupPool pushBack [[["tank", 1], ["apc", 1], ["Msquad", 3]], 150, 29
 GDGM_battlegroupPool pushBack [[["tank", 1], ["apc", 2], ["Msquad", 6]], 300, 57, "2 armored platoon", 300];
 
 //medium mechanised BG 
-// GDGM_battlegroupPool pushBack [[["apc", 6], ["Msquad", 10]], 45, 92, "1 mechanized company", 180];
+GDGM_battlegroupPool pushBack [[["apc", 6], ["Msquad", 10]], 45, 92, "1 mechanized company", 180];
 //price = 5 * 4 + 3 * 15 == 65
 
 // //small armored BG 
