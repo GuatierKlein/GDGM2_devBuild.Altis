@@ -42,7 +42,7 @@ if(_supplies - 20 >= 0) then {
 [_toNode, _attackingSide, 5] spawn GDGM_fnc_bombTown;
 
 //after x minutes, remove under attack so that everything can despawn
-// sleep (GDGM_attackForceSpawnTime*60);
+sleep (GDGM_attackForceSpawnTime*60);
 [_taskId,"SUCCEEDED"] call BIS_fnc_taskSetState;
 _toNode setVariable ["GDGM_underAttack",false];
 _spawnMsg = "Attack on " + (_toNode getVariable "GDGM_name") + " is over, you can safely leave the area.";
