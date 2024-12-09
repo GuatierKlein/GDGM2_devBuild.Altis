@@ -1,4 +1,5 @@
-private _sides = GDGM_sides call BIS_fnc_arrayShuffle;
+private _sides = GDGM_sides + keys GDGM_allDivisions;
+_sides = _sides call BIS_fnc_arrayShuffle;
 // GDGM_lanceria = false;
 
 // waitUntil { GDGM_lanceria; };
@@ -16,18 +17,21 @@ GDGM_gracePeriodDone = true;
 
 while {true} do {
 	{
-		[_x, [_x] call GDGM_fnc_getReservesPerTurn] call GDGM_fnc_addReserves;
-		[_x, [_x] call GDGM_fnc_getVehReservesPerTurn] call GDGM_fnc_addVehReserves;
 		[] spawn GDGM_fnc_nodeGarbageCollector;
-		
 		[] call GDGM_fnc_tickFrontlineSupplies;
-
-		if([_x] call GDGM_fnc_getSkipTurnSupply) then {
-			[_x, false] call GDGM_fnc_setSkipTurnSupply;
-			(str _x + " supply turn was skipped") remoteExec["systemChat",0];
-		} else {
 			[] call GDGM_fnc_tickSupply;
-		};
+
+		if(typeName _x == "SIDE") then {
+			//side tick
+			[_x, [_x] call GDGM_fnc_getReservesPerTurn] call GDGM_fnc_addReserves;
+			[_x, [_x] call GDGM_fnc_getVehReservesPerTurn] call GDGM_fnc_addVehReserves;
+
+			// if([_x] call GDGM_fnc_getSkipTurnSupply) then {
+			// 	[_x, false] call GDGM_fnc_setSkipTurnSupply;
+			// 	(str _x + " supply turn was skipped") remoteExec["systemChat",0];
+			// } else {
+			// 	[] call GDGM_fnc_tickSupply;
+			// };
 		
 		if([_x] call GDGM_fnc_getSkipTurn) then {
 			[_x, false] call GDGM_fnc_setSkipTurn;
@@ -35,6 +39,11 @@ while {true} do {
 		} else {
 			[_x] spawn GDGM_fnc_sideTick;
 		};
+		} else {
+			//division tick
+			[_x] spawn GDGM_fnc_divisionTick;
+		};
+
 
 		sleep (GDGM_timeBetweenAITicks);	
 		// sleep 5;	

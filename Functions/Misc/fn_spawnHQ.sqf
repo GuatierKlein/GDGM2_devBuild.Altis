@@ -164,5 +164,5 @@ for [{private _j = 0}, {_j < 7}, {_j = _j + 1}] do {
 	sleep 0.5;
 };
 
-[_array, _reserve] spawn GDGM_fnc_soldierEH;
+[_array, _reserve, _isDivison, _divisionName] spawn GDGM_fnc_soldierEH;
 [_grp, false, true] spawn GDGM_fnc_groupEH;

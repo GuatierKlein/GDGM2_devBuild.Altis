@@ -1,4 +1,4 @@
-params["_fromNode","_toNode", "_bestChoiceBG","_attackingSide", "_taskId", ["_isDivison", false], "_divisionName"];
+params["_fromNode","_toNode", "_bestChoiceBG","_attackingSide", "_taskId", ["_isDivison", false], ["_divisionName", ""]];
 
 private _defendingSide = _toNode getVariable "GDGM_owner";
 private _tankPool = [];
@@ -36,13 +36,13 @@ if(_supplies - 20 >= 0) then {
 };
 
 //spawn BG 
-[_pos, _toNode, _attackingSide, _bestChoiceBG] spawn GDGM_fnc_spawnBG;
+[_pos, _toNode, _attackingSide, _bestChoiceBG, _isDivison, _divisionName] spawn GDGM_fnc_spawnBG;
 
 //bombings
 [_toNode, _attackingSide, 5] spawn GDGM_fnc_bombTown;
 
 //after x minutes, remove under attack so that everything can despawn
-sleep (GDGM_attackForceSpawnTime*60);
+// sleep (GDGM_attackForceSpawnTime*60);
 [_taskId,"SUCCEEDED"] call BIS_fnc_taskSetState;
 _toNode setVariable ["GDGM_underAttack",false];
 _spawnMsg = "Attack on " + (_toNode getVariable "GDGM_name") + " is over, you can safely leave the area.";

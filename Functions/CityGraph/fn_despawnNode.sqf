@@ -17,12 +17,12 @@ private _side = west;
 				};
 			};
 			case "apc": { 
-				if(count(crew _x) > 0) then {
+				if(canMove _x) then {
 					[_divisionOrSide, [0,1,0,0,0]] call GDGM_fnc_addVehReserves; 
 				};
 			};
 			case "tank": { 
-				if(count(crew _x) > 0) then {
+				if(canMove _x) then {
 					[_divisionOrSide, [0,0,1,0,0]] call GDGM_fnc_addVehReserves; 
 				};
 			};

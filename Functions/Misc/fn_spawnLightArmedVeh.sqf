@@ -57,6 +57,6 @@ _arrayToStore pushBack _veh;
 		};
 	};	
 
-[_array, _reserve] spawn GDGM_fnc_soldierEH;
+[_array, _reserve, _isDivison, _divisionName] spawn GDGM_fnc_soldierEH;
 [_veh, 10] spawn GDGM_fnc_vehEH;
 [_grp, false, true] spawn GDGM_fnc_groupEH;

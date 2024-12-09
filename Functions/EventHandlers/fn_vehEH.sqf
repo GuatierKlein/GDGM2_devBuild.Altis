@@ -1,4 +1,4 @@
-params["_veh","_cost",["_type","none"],["_reserve",false]];
+params["_veh","_cost",["_type","none"],["_reserve",false], ["_isDivion", false], ["_divisionName", ""]];
 
 //store side
 _veh setVariable ["GDGM_owner", side _veh];
@@ -21,3 +21,7 @@ _veh addMPEventHandler ["MPKilled", {
 		[_unit getVariable "GDGM_owner" , 0.5 * GDGM_threatLevelCoef] call GDGM_fnc_addThreatLevel;
 	};
 }];	
+
+if(_isDivion) then {
+	_veh setVariable ["GDGM_divisionName", _divisionName];
+};

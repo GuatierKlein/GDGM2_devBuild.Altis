@@ -60,5 +60,5 @@ if(_reserve) then {
 	};
 };
 
-[_array,_reserve] spawn GDGM_fnc_soldierEH;
-[_veh,0,"truck",_reserve] spawn GDGM_fnc_vehEH;
+[_array, _reserve, _isDivison, _divisionName] spawn GDGM_fnc_soldierEH;
+[_veh,0,"truck",_reserve, _isDivison, _divisionName] spawn GDGM_fnc_vehEH;

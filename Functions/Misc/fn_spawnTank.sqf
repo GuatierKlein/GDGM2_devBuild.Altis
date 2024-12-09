@@ -53,7 +53,7 @@ _grp addVehicle _veh;
 
 _veh setVehicleLock "LOCKED";
 
-[_veh, 0, "tank", _reserve] spawn GDGM_fnc_vehEH;
+[_veh, 0, "tank", _reserve, _isDivison, _divisionName] spawn GDGM_fnc_vehEH;
 
 if(_reserve) then {
 	if(_isDivison) then {

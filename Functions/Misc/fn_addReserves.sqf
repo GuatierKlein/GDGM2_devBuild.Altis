@@ -26,6 +26,6 @@ if(typeName _side == "SIDE") then {
 	};
 } else {
 	private _division = GDGM_allDivisions get _side;
-	_division set ["reserve", (0 max (( _division get "reserve") + _points)) min GDGM_maxReserves];
+	_division set ["reserves", (0 max (( _division get "reserves") + _points)) min GDGM_maxReserves];
 };
 
