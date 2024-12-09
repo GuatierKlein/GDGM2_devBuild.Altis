@@ -163,6 +163,7 @@ class CfgFunctions
 		};
 		class AICommander {
 			class sideTick {};
+			class divisionTick {};
 			class getSidedFrontlineNodes {};
 			class tickDefensive {};
 			class tickAggressive {};
@@ -170,9 +171,11 @@ class CfgFunctions
 			class tickLoop {};
 			class tickSupply {};
 			class findBestBG {};
+			class findBestBGDivision {};
 			class getSideNodes {};
 			class convertBGToVehReserveCost {};
 			class tickFrontlineSupplies {};
+			class tickAggressiveDivision {};
 		};
 		class Save {
 			class save {};
