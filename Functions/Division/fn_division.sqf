@@ -15,7 +15,7 @@ _divisionHashMap set ["mg", _dummiesHashMap get "mg"];
 _divisionHashMap set ["sl", _dummiesHashMap get "sl"];
 _divisionHashMap set ["at", _dummiesHashMap get "at"];
 _divisionHashMap set ["off", _dummiesHashMap get "off"];
-_divisionHashMap set ["sniper", _dummiesHashMap get "sniper"];
+_divisionHashMap set ["sniper", _dummiesHashMap get "sn"];
 _divisionHashMap set ["rto", _dummiesHashMap get "rto"];
 _divisionHashMap set ["crew", _dummiesHashMap get "crew"];
 
@@ -25,9 +25,9 @@ _divisionHashMap set ["light", _vehHashMap get "lightVeh"];
 _divisionHashMap set ["heavy", _vehHashMap get "heavy"];
 _divisionHashMap set ["heavyReserves", _vehReserves select 1];
 _divisionHashMap set ["transport", _vehHashMap get "transport"];
-_divisionHashMap set ["transportReserves", _vehReserves select 2];
+_divisionHashMap set ["transportReserves", _vehReserves select 0];
 _divisionHashMap set ["tank", _vehHashMap get "tank"];
-_divisionHashMap set ["tankReserves", _vehReserves select 3];
+_divisionHashMap set ["tankReserves", _vehReserves select 2];
 
 switch (_side) do {
 	case west: { GDGM_BLUFOR_divisions pushBack _divisionHashMap};

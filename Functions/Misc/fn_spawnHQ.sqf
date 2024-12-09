@@ -129,6 +129,12 @@ for [{private _j = 0}, {_j < 7}, {_j = _j + 1}] do {
 	_arrayToStore pushBack _unit;
 	_array pushBack _unit;
 
+	if(!isNil "_veh") then {
+		if(!isNull _veh) then {
+			_unit moveInAny _veh;
+		};		
+	};
+
 	if(_reserve && !_isDivison && [_side] call GDGM_fnc_getReserves < 1) then {
 		break;
 	};
@@ -156,12 +162,6 @@ for [{private _j = 0}, {_j < 7}, {_j = _j + 1}] do {
 	};
 
 	sleep 0.5;
-};
-
-if(!isNil "_veh") then {
-	{
-		_x moveInCargo _veh;		
-	} forEach _array;
 };
 
 [_array, _reserve] spawn GDGM_fnc_soldierEH;

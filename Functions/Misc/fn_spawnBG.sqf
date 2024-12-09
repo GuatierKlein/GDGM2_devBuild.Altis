@@ -192,7 +192,7 @@ private _spawnedUnits = [];
 
 //spawn hq
 _newGrp = createGroup [_side ,true]; 
-[_pos, _newGrp, _side, _spawnedUnits, objnull, "COLONEL", _isDivison, _divisionName] spawn GDGM_fnc_spawnHQ;
+[_pos, _newGrp, _side, _spawnedUnits, objnull, "COLONEL", "NONE", false, objnull, _isDivison, _divisionName] spawn GDGM_fnc_spawnHQ;
 
 sleep 2;
 _wp = _newGrp addWaypoint [[_posTo select 0, _posTo select 1, 0], 150];

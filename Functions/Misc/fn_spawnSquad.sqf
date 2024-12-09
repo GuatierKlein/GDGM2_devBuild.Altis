@@ -125,7 +125,7 @@ for [{private _j = 0}, {_j < _size}, {_j = _j + 1}] do {
 [_array, _reserve] spawn GDGM_fnc_soldierEH;
 
 if(_isDivison) then {
-	[_grp, false, true, _division get "skill"] spawn GDGM_fnc_groupEH;
+	[_grp, false, true, false, _division get "skill"] spawn GDGM_fnc_groupEH;
 } else {
 	[_grp, false, true] spawn GDGM_fnc_groupEH;
 };
