@@ -5,7 +5,7 @@ GDGM_YAxisSpawnDistance = 500;
 GDGM_maxRoadPathLength = 300;
 GDGM_locationSearchRadius = 250;
 GDGM_timeBetweenAITicks = 60*60; //in seconds
-GDGM_AITimeBuffer = 1200; //time before AI start up
+GDGM_AITimeBuffer = 30; //time before AI start up
 GDGM_maxNodeSpawn = 5;
 GDGM_mineProbability = 0.1; 
 GDGM_mineProbabilityRoadBonus = 0.1; 
@@ -22,7 +22,8 @@ GDGM_heavyWeaponSpawnProbability = 1;
 GDGM_maxInstaDistance = 500;
 GDGM_enableMoraleSystem = true;
 GDGM_spawnFrontlineBuildings = true;
-GDGM_sides = [opfor, west];
+GDGM_sides = [];
+// GDGM_sides = [opfor, west]; //remettre apres test des divisions
 GDGM_defaultOwner = opfor;
 GDGM_independentName = "INDFOR";
 GDGM_eastName = "OPFOR";
@@ -33,7 +34,7 @@ GDGM_reducedSideLimitedSpawn = false; // limit spawn for reduced side
 GDGM_civilianAlreadySpawnedNodeMax = 1;
 GDGM_attackForceSpawnTime = 20; // temps que dure une attaque
 GDGM_waterPatrolProba = 0;
-GDGM_maxBGReserve = 50; //max bg size allowed
+GDGM_maxBGReserve = 60; //max bg size allowed
 GDGM_introCamLeftSide = west;
 GDGM_introCamRightSide = east;
 
@@ -104,7 +105,7 @@ GDGM_smallTownSize = 20;
 GDGM_bigTownSize = 60;
 GDGM_smallTownGarri = 10;
 GDGM_mediumTownGarri = 20;
-GDGM_bigTownGarri = 40;
+GDGM_bigTownGarri = 35;
 
 //aggressive, cautious, defensive 
 GDGM_OPFOR_commanderStyle = "aggressive";
@@ -278,7 +279,7 @@ GDGM_IND_divisions = [];
 //DON't MODIFIY BETWEEN THESE COMMENTS
 
 [
-	"Test division", //name,
+	"TestDivision", //name,
 	east, //side 
 	createHashMapFromArray [ //dummies
 		["rifle", [loadout_opfor_div]],
@@ -297,7 +298,7 @@ GDGM_IND_divisions = [];
 		["transport", ["O_T_Truck_03_transport_ghex_F"]],
 		["tank", ["O_T_MBT_02_railgun_ghex_F"]]
 	],
-	[0,0,0,0], //veh reserves
+	[50,10,5,0], //veh reserves
 	400, //reserves
 	0, //suuplies, not implemented
 	0.8 //skill
