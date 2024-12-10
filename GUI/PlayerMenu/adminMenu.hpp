@@ -71,32 +71,35 @@ class adminMenu
 		class RscButton_1605: RscButton
 		{
 			idc = 1605;
-			text = "Button"; //--- ToDo: Localize;
+			text = "Offensive east"; //--- ToDo: Localize;
 			x = 0.314375 * safezoneW + safezoneX;
 			y = 0.522 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.044 * safezoneH;
-			tooltip = "tooltip"; //--- ToDo: Localize;
+			tooltip = ""; //--- ToDo: Localize;
+			action = "closedialog 0; [east] remoteExec ['GDGM_fnc_startOffensive',2]";
 		};
 		class RscButton_1606: RscButton
 		{
 			idc = 1606;
-			text = "Button"; //--- ToDo: Localize;
+			text = "Offensive west"; //--- ToDo: Localize;
 			x = 0.314375 * safezoneW + safezoneX;
 			y = 0.577 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.044 * safezoneH;
-			tooltip = "tooltip"; //--- ToDo: Localize;
+			tooltip = ""; //--- ToDo: Localize;
+			action = "closedialog 0; [west] remoteExec ['GDGM_fnc_startOffensive',2]";
 		};
 		class RscButton_1607: RscButton
 		{
 			idc = 1607;
-			text = "Button"; //--- ToDo: Localize;
+			text = "Offensive ind"; //--- ToDo: Localize;
 			x = 0.314375 * safezoneW + safezoneX;
 			y = 0.632 * safezoneH + safezoneY;
 			w = 0.0928125 * safezoneW;
 			h = 0.044 * safezoneH;
-			tooltip = "tooltip"; //--- ToDo: Localize;
+			tooltip = ""; //--- ToDo: Localize;
+			action = "closedialog 0; [independent] remoteExec ['GDGM_fnc_startOffensive',2]";
 		};
 		class RscButton_1608: RscButton
 		{

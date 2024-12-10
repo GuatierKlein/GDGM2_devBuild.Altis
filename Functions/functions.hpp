@@ -139,6 +139,7 @@ class CfgFunctions
 			class prepareAttack {};
 			class autoResolveAttack {};
 			class bombTown {};
+			class startOffensive {};
 		};
 		class Support
 		{
