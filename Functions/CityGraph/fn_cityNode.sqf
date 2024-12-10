@@ -74,6 +74,7 @@ _node setVariable ["GDGM_roadBlocks",[]];
 _node setVariable ["GDGM_destructionAmount", _destruction];
 _node setVariable ["GDGM_reinfGroups", []];
 _node setVariable ["GDGM_instaGroups", []];
+_node setVariable ["GDGM_noAttack", _pos inArea "GDGM_noAttackZone" || _pos inArea "GDGM_noAttackZone_1"];
 
 [_node] call GDGM_fnc_createFortifications;
 [_houses, _destruction] call GDGM_fnc_destroyTown;

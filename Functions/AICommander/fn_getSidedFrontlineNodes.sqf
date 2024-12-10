@@ -10,7 +10,9 @@ private _ennemyNodes = [];
 				_friendlyNodes pushBack _x;
 			};		
 		} else {
-			_ennemyNodes pushBack _x;
+			if(!(_x getVariable "GDGM_noAttack")) then {
+				_ennemyNodes pushBack _x;
+			};
 		};
 	};	
 } forEach GDGM_civiNodes;
