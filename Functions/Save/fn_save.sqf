@@ -3,6 +3,7 @@
 private _nodeSave = []; //[pos, garri, owner, type]
 private _pointsSave = []; //[east, west, independant]
 private _commanderSave = []; //[east, west, independant]
+private _divisionSave = []; //[model, reserves]
 private _save = [];
 
 //points
@@ -31,7 +32,15 @@ private _deployedReserves = [] call GDGM_fnc_getDeployedReservesPoints;
 	_nodeSave pushBack [_pos, _garri, _owner, _type, _destuction];
 } forEach GDGM_allNodes;
 
-_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave];
+//divisions
+{
+	private _division = GDGM_allDivisions get _x;
+	private _model = _division get "model";
+	private _reserves = _division get "reserves";
+	_divisionSave pushBack [_model, _reserves];
+} forEach (keys GDGM_allDivisions);
+
+_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave];
 
 //save to profile 
 profileNamespace setVariable [missionName, _save];

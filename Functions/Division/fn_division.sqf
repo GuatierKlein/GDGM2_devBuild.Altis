@@ -22,7 +22,7 @@ _divisionHashMap set ["rto", _dummiesHashMap get "rto"];
 _divisionHashMap set ["crew", _dummiesHashMap get "crew"];
 
 //vehicles
-_divisionHashMap set ["light", _vehHashMap get "lightVeh"];
+_divisionHashMap set ["light", _vehHashMap get "light"];
 // _divisionHashMap set ["lightReserves", _vehReserves select 0]; //not used
 _divisionHashMap set ["heavy", _vehHashMap get "heavy"];
 _divisionHashMap set ["heavyReserves", _vehReserves select 1];

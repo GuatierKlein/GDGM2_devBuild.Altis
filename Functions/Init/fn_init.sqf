@@ -74,8 +74,9 @@ if(GDGM_init_type == 1) then {
 	[_save select 1] call GDGM_fnc_graph;
 	//built objects 
 	[_save select 3] call GDGM_fnc_loadBuiltObjects;
+	[_save select 4] call GDGM_fnc_initDivisions;
 };
-[] call GDGM_fnc_initDivisions;
+
 [] call GDGM_fnc_Planes;
 [] call GDGM_fnc_initCommanders;
 [] call GDGM_fnc_generateStartIntel;

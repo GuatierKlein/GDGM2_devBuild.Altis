@@ -1,5 +1,5 @@
 //parameters
-GDGM_init_type = 1; //1 = create, 2 = load, -1 = wait
+GDGM_init_type = 2; //1 = create, 2 = load, -1 = wait
 GDGM_spawnDistance = 1500;
 GDGM_YAxisSpawnDistance = 500;
 GDGM_maxRoadPathLength = 300;
@@ -110,11 +110,6 @@ GDGM_bigTownGarri = 35;
 GDGM_OPFOR_commanderStyle = "aggressive";
 GDGM_BLUFOR_commanderStyle = "cautious";
 GDGM_IND_commanderStyle = "cautious";
-
-//divisions 
-GDGM_BLUFOR_startingDivs = 0;
-GDGM_OPFOR_startingDivs = 1;
-GDGM_IND_startingDivs = 0;
 
 //units
 GDGM_OPFOR_baseUnit = "O_T_Soldier_F";
@@ -279,9 +274,10 @@ GDGM_kitSelect_availableKitsNames = []; //nons
 GDGM_BLUFOR_divisionsModels = [];
 GDGM_OPFOR_divisionsModels = [];
 GDGM_IND_divisionsModels = [];
+GDGM_allDivisionModels = createHashMap;
 //DON't MODIFIY BETWEEN THESE COMMENTS
 
-GDGM_OPFOR_divisionsModels pushBack [
+private _div1 = [
 	"TestDivision", //name,
 	east, //side 
 	createHashMapFromArray [ //dummies
@@ -306,3 +302,6 @@ GDGM_OPFOR_divisionsModels pushBack [
 	0, //suuplies, not implemented
 	0.8 //skill
 ];
+
+GDGM_OPFOR_divisionsModels pushBack _div1;
+GDGM_allDivisionModels set [_div1 select 0, _div1];

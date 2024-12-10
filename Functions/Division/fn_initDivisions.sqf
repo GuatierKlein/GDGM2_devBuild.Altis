@@ -1,23 +1,17 @@
-//west 
-if(count GDGM_BLUFOR_divisionsModels > 0) then {
-	for [{private _i = 0}, {_i < GDGM_BLUFOR_startingDivs}, {_i = _i + 1}] do {
-		private _divisionModel = selectRandom GDGM_BLUFOR_divisionsModels;
-		_divisionModel call GDGM_fnc_division;
-	};
-};
-
-//east 
-if(count GDGM_OPFOR_divisionsModels > 0) then {
-	for [{private _i = 0}, {_i < GDGM_OPFOR_startingDivs}, {_i = _i + 1}] do {
-		private _divisionModel = selectRandom GDGM_OPFOR_divisionsModels;
-		_divisionModel call GDGM_fnc_division;
-	};
-};
-
-//ind 
-if(count GDGM_IND_divisionsModels > 0) then {
-	for [{private _i = 0}, {_i < GDGM_IND_startingDivs}, {_i = _i + 1}] do {
-		private _divisionModel = selectRandom GDGM_IND_divisionsModels;
-		_divisionModel call GDGM_fnc_division;
-	};
-};
+params["_divisionSave"];
+{
+	private _model = GDGM_allDivisionModels get (_x select 0);
+	private _reserves = _x select 1;
+	
+	[
+		_model select 0, //name,
+		_model select 1, //side 
+		_model select 2,
+		_model select 3,
+		_model select 4, //veh reserves
+		_reserves, //reserves
+		0, //suuplies, not implemented
+		_model select 7
+	] call GDGM_fnc_division;
+	
+} forEach _divisionSave;
