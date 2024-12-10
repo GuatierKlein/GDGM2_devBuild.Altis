@@ -173,6 +173,7 @@ class CfgFunctions
 			class tickSupply {};
 			class findBestBG {};
 			class findBestBGDivision {};
+			class findBestBGReserves {};
 			class getSideNodes {};
 			class convertBGToVehReserveCost {};
 			class tickFrontlineSupplies {};

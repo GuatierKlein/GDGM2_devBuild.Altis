@@ -37,7 +37,8 @@ private _deployedReserves = [] call GDGM_fnc_getDeployedReservesPoints;
 	private _division = GDGM_allDivisions get _x;
 	private _model = _division get "model";
 	private _reserves = _division get "reserves";
-	_divisionSave pushBack [_model, _reserves];
+	private _vehReserves = [_x] call GDGM_fnc_getVehReserves;
+	_divisionSave pushBack [_model, _reserves, _vehReserves];
 } forEach (keys GDGM_allDivisions);
 
 _save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave];
