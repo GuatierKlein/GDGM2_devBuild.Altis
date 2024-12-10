@@ -33,7 +33,7 @@ if(count _bestChoiceBG == 0) exitwith{systemChat "no bg"};
 } forEach _ennemyFrontlineNodes;
 
 //no match
-if(_maxRatio < 1 || isNull _maxNode) exitwith{systemChat "no match"}; 
+if(_maxRatio < 0.5 || isNull _maxNode) exitwith{systemChat "no match"}; 
 
 //trouver ville de départ
 private _fromNode = [_side, _maxNode, false] call GDGM_fnc_findFriendlyNeighbourNode;
