@@ -29,7 +29,7 @@ if(count _bestChoiceBG == 0) exitwith{systemChat "no bg"};
 		_weight = _weight + 0.75;
 	};
 	
-	if(_ratio > _maxRatio && random 1 < 1 && _distanceWithClosestPlayer > 500) then {
+	if(_ratio > _maxRatio && _distanceWithClosestPlayer > 500) then {
 		_maxNode = _x;
 		_maxRatio = _ratio;
 	};
