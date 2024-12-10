@@ -31,6 +31,11 @@ GDGM_OPFOR_skipSupplyTurn = false;
 GDGM_IND_skipSupplyTurn = false;
 GDGM_lastSupportRequestTime = 0;
 GDGM_gracePeriodDone = false;
+GDGM_allDivisions = createHashMap;
+GDGM_BLUFOR_divisions = [];
+GDGM_OPFOR_divisions = [];
+GDGM_IND_divisions = [];
+GDGM_divIndex = 0;
 
 waitUntil { GDGM_init_type != -1 };
 // "LeadTrack01c_F" remoteExec["playMusic",0];
@@ -70,6 +75,7 @@ if(GDGM_init_type == 1) then {
 	//built objects 
 	[_save select 3] call GDGM_fnc_loadBuiltObjects;
 };
+[] call GDGM_fnc_initDivisions;
 [] call GDGM_fnc_Planes;
 [] call GDGM_fnc_initCommanders;
 [] call GDGM_fnc_generateStartIntel;

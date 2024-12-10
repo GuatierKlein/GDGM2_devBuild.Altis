@@ -304,6 +304,7 @@ class CfgFunctions
 
 		class Division {
 			class division {};
+			class initDivisions {};
 		}
 	};
 };

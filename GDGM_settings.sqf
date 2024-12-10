@@ -111,6 +111,11 @@ GDGM_OPFOR_commanderStyle = "aggressive";
 GDGM_BLUFOR_commanderStyle = "cautious";
 GDGM_IND_commanderStyle = "cautious";
 
+//divisions 
+GDGM_BLUFOR_startingDivs = 0;
+GDGM_OPFOR_startingDivs = 1;
+GDGM_IND_startingDivs = 0;
+
 //units
 GDGM_OPFOR_baseUnit = "O_T_Soldier_F";
 GDGM_BLUFOR_baseUnit = "B_G_Soldier_F";
@@ -271,13 +276,12 @@ GDGM_kitSelect_availableKitsNames = []; //nons
 //special divisions
 
 //DON't MODIFIY BETWEEN THESE COMMENTS
-GDGM_allDivisions = createHashMap;
-GDGM_BLUFOR_divisions = [];
-GDGM_OPFOR_divisions = [];
-GDGM_IND_divisions = [];
+GDGM_BLUFOR_divisionsModels = [];
+GDGM_OPFOR_divisionsModels = [];
+GDGM_IND_divisionsModels = [];
 //DON't MODIFIY BETWEEN THESE COMMENTS
 
-[
+GDGM_OPFOR_divisionsModels pushBack [
 	"TestDivision", //name,
 	east, //side 
 	createHashMapFromArray [ //dummies
@@ -301,4 +305,4 @@ GDGM_IND_divisions = [];
 	400, //reserves
 	0, //suuplies, not implemented
 	0.8 //skill
-] call GDGM_fnc_division;
+];

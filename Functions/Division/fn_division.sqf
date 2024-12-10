@@ -1,8 +1,10 @@
-params["_name", "_side", "_dummiesHashMap", "_vehHashMap", "_vehReserves", "_reserves", "_supplies", "_skill"];
+params["_model", "_side", "_dummiesHashMap", "_vehHashMap", "_vehReserves", "_reserves", "_supplies", "_skill"];
 
 private _divisionHashMap = createHashMap;
+private _name = "division" + str GDGM_divIndex;
 
-_divisionHashMap set ["name", _name];
+_divisionHashMap set ["name", "division" + str GDGM_divIndex];
+_divisionHashMap set ["model", _model];
 _divisionHashMap set ["reserves", _reserves];
 // _divisionHashMap set ["supplies", _supplies]; //not implemented
 _divisionHashMap set ["side", _side];
@@ -36,5 +38,6 @@ switch (_side) do {
 };
 
 GDGM_allDivisions set [_name, _divisionHashMap];
+GDGM_divIndex = GDGM_divIndex + 1;
 
 
