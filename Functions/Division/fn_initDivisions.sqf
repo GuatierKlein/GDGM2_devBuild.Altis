@@ -9,7 +9,6 @@ if(count GDGM_BLUFOR_divisionsModels > 0) then {
 //east 
 if(count GDGM_OPFOR_divisionsModels > 0) then {
 	for [{private _i = 0}, {_i < GDGM_OPFOR_startingDivs}, {_i = _i + 1}] do {
-		hint str GDGM_OPFOR_divisionsModels;
 		private _divisionModel = selectRandom GDGM_OPFOR_divisionsModels;
 		_divisionModel call GDGM_fnc_division;
 	};
