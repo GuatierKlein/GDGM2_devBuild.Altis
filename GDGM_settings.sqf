@@ -268,6 +268,19 @@ GDGM_addPilot_baseUnit = "B_G_Soldier_F";
 GDGM_kitSelect_availableKits = []; //mannequins
 GDGM_kitSelect_availableKitsNames = []; //nons
 
+//supply crates 
+GDGM_supplyCrateModels = createHashMap;
+
+GDGM_supplyCrateModels set ["nlaw", [
+	["launch_NLAW_F", 5]
+]];
+
+GDGM_supplyCrateModels set ["ammo", [
+	["30Rnd_556x45_stanag_red", 30],
+	["HandGrenade", 5],
+	["SmokeShell", 5]
+]];
+
 //special divisions
 
 //DON't MODIFIY BETWEEN THESE COMMENTS

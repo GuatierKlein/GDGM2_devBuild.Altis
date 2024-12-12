@@ -114,7 +114,6 @@ class CfgFunctions
 			class getCommanderStyle {};
 			class spawnBG {};
 			class ambientMusic {};
-			class initCommanders {};
 			class getCommander {};
 			class addPilot {};
 			class findClosestSidedPlayer {};
@@ -205,6 +204,7 @@ class CfgFunctions
 			class spawnRecruit {};
 			class spawnVehBuy {};
 			class spawnPlaneBuy {};
+			class spawnSupplyCrate {};
 			class openPlayerMenu {};
 			class openTPMap {};
 			class tpToFriendlyTown{};
@@ -214,6 +214,8 @@ class CfgFunctions
 			class vehToGarage {};
 			class openGiveNode {};
 			class playerAmmo {};
+			class initCommanders {};
+			class initSupplyOfficer {};
 		};
 		class Raids {
 			class generateRaid {};
