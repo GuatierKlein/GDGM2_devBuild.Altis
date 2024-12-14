@@ -49,4 +49,6 @@ while {true} do {
 		// sleep 5;	
 	} forEach _sides;	
 	// sleep 0;
+	_sides = GDGM_sides + keys GDGM_allDivisions;
+	_sides = _sides call BIS_fnc_arrayShuffle;
 };
