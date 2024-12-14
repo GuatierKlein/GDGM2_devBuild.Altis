@@ -311,7 +311,7 @@ private _div1 = [
 		["tank", ["O_T_MBT_02_railgun_ghex_F"]]
 	],
 	[50,10,5,0], //veh reserves
-	400, //reserves
+	150, //reserves
 	0, //suuplies, not implemented
 	0.8 //skill
 ];
