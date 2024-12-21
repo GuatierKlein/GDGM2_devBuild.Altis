@@ -12,32 +12,32 @@ respawn = 3;
 respawnTemplatesCiv[] = { "Spectator" };
 respawnDelay = 60;
 
-class CfgMusic
-{
-	tracks[] = {};
+// class CfgMusic
+// {
+// 	tracks[] = {};
 
-	class medalOfHonorMusic
-	{
-		name	= "Medal of honor theme";
-		sound[]	= { "Music\medalOfHonor.ogg", db + 10, 1.0 };
-	};
+// 	class medalOfHonorMusic
+// 	{
+// 		name	= "Medal of honor theme";
+// 		sound[]	= { "Music\medalOfHonor.ogg", db + 10, 1.0 };
+// 	};
 
-	class bandOfBrothersMusic
-	{
-		name	= "Band of brothers theme";
-		sound[]	= { "Music\bandOfBrothers.ogg", db + 10, 1.0 };
-	};
-	class bia1
-	{
-		name	= "Brothers in arms 1";
-		sound[]	= { "Music\bia1.ogg", db + 10, 1.0 };
-	};
-	class bia2
-	{
-		name	= "Brothers in arms 2";
-		sound[]	= { "Music\bia2.ogg", db + 10, 1.0 };
-	};
-};
+// 	class bandOfBrothersMusic
+// 	{
+// 		name	= "Band of brothers theme";
+// 		sound[]	= { "Music\bandOfBrothers.ogg", db + 10, 1.0 };
+// 	};
+// 	class bia1
+// 	{
+// 		name	= "Brothers in arms 1";
+// 		sound[]	= { "Music\bia1.ogg", db + 10, 1.0 };
+// 	};
+// 	class bia2
+// 	{
+// 		name	= "Brothers in arms 2";
+// 		sound[]	= { "Music\bia2.ogg", db + 10, 1.0 };
+// 	};
+// };
 
 // private _music_list = [
 //"SPE_HoW_Animated_Briefing_With_Honor",
