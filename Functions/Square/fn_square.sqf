@@ -9,7 +9,16 @@ private _middleCoord = [_Xcoord * 500 + 250, _Ycoord * 500 + 250, 0];
 private _color = "colorred";
 
 private _closestNode = [_middleCoord] call GDGM_fnc_findClosestNode;
+private _closestNodePos = _closestNode getVariable "GDGM_position";
+
+//look if FOB closer than closestnode 
+private _distWithClosestNode = _closestNodePos distance2D _middleCoord;
+
 private _owner = _closestNode getVariable "GDGM_owner";
+
+if([_middleCoord, _distWithClosestNode] call GDGM_fnc_isFOBWithinDist) then {
+	_owner = GDGM_playerSide;
+};
 
 if(_owner == west) then {
 	_color = "colorblue";

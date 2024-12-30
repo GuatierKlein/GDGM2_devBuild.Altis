@@ -1,5 +1,6 @@
 //parameters
 GDGM_init_type = 2; //1 = create, 2 = load, -1 = wait
+GDGM_playerSide = west;
 GDGM_spawnDistance = 1500;
 GDGM_YAxisSpawnDistance = 500;
 GDGM_maxRoadPathLength = 300;
@@ -27,14 +28,14 @@ GDGM_defaultOwner = opfor;
 GDGM_independentName = "INDFOR";
 GDGM_eastName = "OPFOR";
 GDGM_westName = "BLUFOR";
-GDGM_reducedSide = west; 
+GDGM_reducedSide = GDGM_playerSide; 
 GDGM_reducedSideOnlySpawnAttacks = false; // reduced side will only spawn when under attack
 GDGM_reducedSideLimitedSpawn = false; // limit spawn for reduced side
 GDGM_civilianAlreadySpawnedNodeMax = 1;
 GDGM_attackForceSpawnTime = 20; // temps que dure une attaque
 GDGM_waterPatrolProba = 0;
 GDGM_maxBGReserve = 60; //max bg size allowed
-GDGM_introCamLeftSide = west;
+GDGM_introCamLeftSide = GDGM_playerSide;
 GDGM_introCamRightSide = east;
 
 //attacks

@@ -70,11 +70,9 @@ if(GDGM_init_type == 1) then {
 		GDGM_BLUFOR_commanderStyle =  _commanders select 1;
 		GDGM_IND_commanderStyle =  _commanders select 2;
 	};
-	//graph
-	[_save select 1] call GDGM_fnc_graph;
-	//built objects 
 	[_save select 3] call GDGM_fnc_loadBuiltObjects;
 	[_save select 4] call GDGM_fnc_initDivisions;
+	[_save select 1] call GDGM_fnc_graph;
 };
 
 [] call GDGM_fnc_Planes;
