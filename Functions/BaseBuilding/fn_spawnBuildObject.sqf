@@ -325,7 +325,7 @@ if (_i == 120 && !isNull _object) then {
 					params ["_target", "_caller", "_actionId", "_arguments"];
 					_id = clientOwner;
 					[_target,_id] remoteExec ["GDGM_fnc_saveBuiltObject",2];	
-					removeAllActions _target;
+					_target removeAction _actionId;
 				},
 				nil,		// arguments
 				6,		// priority
