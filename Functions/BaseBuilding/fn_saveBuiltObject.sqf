@@ -15,15 +15,16 @@ if(_speType == "hq") then {
 
     //créer un node ici, ça ne devrait rien changer car il ne sera pas dans le graphe
     private _location = createLocation ["NameCity", _pos, 1, 1];	
-    _location setText "FOB";
+    _location setText "";
 
     if((locationPosition _location) inArea "GDGM_blackList_marker" 
             || (locationPosition _location) inArea "GDGM_blackList_marker_1" 
             || !((locationPosition _location) inArea "GDGM_AO")) 
     exitWith {};
 
-    private _node = [_location, GDGM_playerSide] call GDGM_fnc_cityNode;
+    private _node = [_location, GDGM_playerSide] call GDGM_fnc_FOBNode;
+    [_node] call GDGM_fnc_nodeMarker;
     GDGM_allNodes pushBack _node;
-    GDGM_civiNodes pushBack _node;
+    GDGM_strategicNodes pushBack _node;
     GDGM_customLocationsPositions pushBack _pos;
 };

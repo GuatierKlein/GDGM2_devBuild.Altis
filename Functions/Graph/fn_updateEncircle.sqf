@@ -17,7 +17,7 @@ GDGM_fnc_setEncircledRecursive = {
 //set all to encircled
 {
 	_x setVariable ["GDGM_isEncircled", true];
-} forEach GDGM_civiNodes;
+} forEach GDGM_strategicNodes;
 
 {
 	[_x] call GDGM_fnc_setEncircledRecursive;

@@ -8,7 +8,7 @@ private _eligibleNodes = [];
 {
 	if(_x getVariable "GDGM_owner" == _side || _x getVariable "GDGM_underAttack") then {continue};
 	_eligibleNodes pushBack _x;
-} forEach GDGM_civiNodes;
+} forEach GDGM_strategicNodes;
 
 private _node = selectRandom _eligibleNodes;
 

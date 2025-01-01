@@ -62,7 +62,7 @@ GDGM_startIntelProba = 0.25;
 GDGM_supplyPointRevenue = 30;
 GDGM_maxSupply = 600;
 GDGM_maxReserves = 400;
-GDGM_civiNodesRevenue = 2;
+GDGM_strategicNodesRevenue = 2;
 GDGM_maxVehStockpiles = [50, 25, 10, 5, 5];
 
 //plane mode 

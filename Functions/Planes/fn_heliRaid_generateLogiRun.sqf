@@ -1,7 +1,7 @@
 params["_side"];
 
 //find nodes
-private _friendlyNodes = GDGM_civiNodes select { _x getVariable "GDGM_owner" == _side };
+private _friendlyNodes = GDGM_strategicNodes select { _x getVariable "GDGM_owner" == _side };
 
 if(count _friendlyNodes < 2) exitWith {};
 

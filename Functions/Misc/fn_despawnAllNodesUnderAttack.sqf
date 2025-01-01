@@ -1,3 +1,3 @@
 {
 	_x setVariable ["GDGM_underAttack", false];
-} forEach GDGM_civiNodes;
+} forEach GDGM_strategicNodes;

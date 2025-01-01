@@ -15,7 +15,7 @@ private _ennemyNodes = [];
 			};
 		};
 	};	
-} forEach GDGM_civiNodes;
+} forEach GDGM_strategicNodes;
 
 private _res = [_friendlyNodes, _ennemyNodes];
 _res;

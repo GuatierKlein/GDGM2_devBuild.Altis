@@ -1,6 +1,6 @@
 params["_side"];
 
-private _allNodes = GDGM_civiNodes;
+private _allNodes = GDGM_strategicNodes;
 private _res = [];
 {
 	if(_x getVariable "GDGM_owner" == _side) then {

@@ -39,7 +39,7 @@ if(isNil "_save") then {
 	{
 		_node = [_x] call GDGM_fnc_cityNode;
 		GDGM_allNodes pushBack _node;
-		GDGM_civiNodes pushBack _node;
+		GDGM_strategicNodes pushBack _node;
 	} forEach _customLocs;
 } else {
 	//load
@@ -57,7 +57,14 @@ if(isNil "_save") then {
 			private _nearestCity = nearestLocation [_pos, ""];
 			private _node = [_nearestCity, _owner, _garri, _destruction] call GDGM_fnc_cityNode;
 			GDGM_allNodes pushBack _node;
-			GDGM_civiNodes pushBack _node;
+			GDGM_strategicNodes pushBack _node;
+		} else {
+			if(_type == "fob" && _pos inArea "GDGM_AO") then {		
+				private _nearestCity = nearestLocation [_pos, ""];
+				private _node = [_nearestCity, _owner, _garri] call GDGM_fnc_FOBNode;
+				GDGM_allNodes pushBack _node;
+				GDGM_strategicNodes pushBack _node;
+			};
 		};
 	} forEach _save;
 };
@@ -66,8 +73,8 @@ if(isNil "_save") then {
 //check for min dist
 private _i = 0;
 
-while {count GDGM_civiNodes > _i} do {
-	private _y = GDGM_civiNodes select _i;
+while {count GDGM_strategicNodes > _i} do {
+	private _y = GDGM_strategicNodes select _i;
 	private _posY = _y getVariable "GDGM_position";
 	private _garriY = _y getVariable "GDGM_targetGarrison";
 	private _node2keep = objNull;
@@ -97,7 +104,7 @@ while {count GDGM_civiNodes > _i} do {
 			[_x] call GDGM_fnc_deleteNode;
 			break;
 		};
-	} forEach GDGM_civiNodes;	
+	} forEach GDGM_strategicNodes;	
 
 	_i = _i + 1;
 };
@@ -105,7 +112,7 @@ while {count GDGM_civiNodes > _i} do {
 "Linking nodes... (can take several minutes)" remoteExec ["systemChat",0];
 
 //build graph with civi nodes
-private _nbNodes = count GDGM_civiNodes;
+private _nbNodes = count GDGM_strategicNodes;
 {
 	//civilian nodes	
 	private _closeNodes = [_x getVariable "GDGM_position"] call GDGM_fnc_findNodesConnectedWithRoads;
@@ -118,7 +125,7 @@ private _nbNodes = count GDGM_civiNodes;
 		[_x, _closestNode] call GDGM_fnc_addNodeConnection;	
 	};	
 
-} forEach GDGM_civiNodes;
+} forEach GDGM_strategicNodes;
 
 "Nodes linked" remoteExec ["systemChat",0];
 "Testing node connections..." remoteExec ["systemChat",0];
@@ -134,7 +141,7 @@ while {_continue} do {
 	_continue = false;
 
 	{
-		if!([_x, GDGM_civiNodes select 0] call GDGM_fnc_isConnectedTo) then {
+		if!([_x, GDGM_strategicNodes select 0] call GDGM_fnc_isConnectedTo) then {
 			_continue = true;
 			_unConnectedNodes pushBack _x;
 			_closeNodes = [_x, true] call GDGM_fnc_findCloseNodesFromNode;
@@ -150,7 +157,7 @@ while {_continue} do {
 
 			//[[_x],"Coloryellow", str (_x distanceSqr (_closeNodes select 0))] spawn GDGM_fnc_markNodes;
 		};
-	} forEach GDGM_civiNodes;
+	} forEach GDGM_strategicNodes;
 	if(_continue) then {
 		[_minDistNode, _minDistNextNode] call GDGM_fnc_addNodeConnection;	
 	};	
@@ -203,7 +210,7 @@ _allEntry = nearestObjects [[0,0,0], ["LocationEvacPoint_F"], worldSize * 2];
 			_minDist2 = _dist2;
 			_closestNode2 = _x;
 		};
-	} forEach GDGM_civiNodes;
+	} forEach GDGM_strategicNodes;
 	
 	//remove connection
 	private _array = _closestNode1 getVariable "GDGM_connectedNodes";
@@ -219,7 +226,7 @@ _allEntry = nearestObjects [[0,0,0], ["LocationEvacPoint_F"], worldSize * 2];
 
 {
 	[_x] call GDGM_fnc_computeNodeWeight;
-} forEach GDGM_civiNodes;
+} forEach GDGM_strategicNodes;
 
 //encirclements 
 "Finding encirclements" remoteExec ["systemChat",0];

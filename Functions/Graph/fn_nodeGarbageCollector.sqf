@@ -4,7 +4,7 @@
 	if!(triggerActivated _trg) then {
 		[_x] spawn GDGM_fnc_despawnNode;
 	};
-} forEach GDGM_civiNodes;
+} forEach GDGM_strategicNodes;
 
 //insta
 {

@@ -51,6 +51,8 @@ class CfgFunctions
 			class addDestruction {};
 			class spawnDestructionEffects {};
 			class callBackPatrols {};
+			class FOBNode {};
+			class spawnFOBNode {};
 		};
 		class Square
 		{

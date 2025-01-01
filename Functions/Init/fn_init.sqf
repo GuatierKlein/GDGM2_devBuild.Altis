@@ -1,7 +1,7 @@
 private _handle = objNull;
 
 GDGM_allNodes = []; 
-GDGM_civiNodes = []; //only civilian nodes
+GDGM_strategicNodes = []; //only civilian nodes
 GDGM_supplyNodes = []; //only supply nodes
 GDGM_entryNodes = [];
 GDGM_allSquares = [];

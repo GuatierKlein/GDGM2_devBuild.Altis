@@ -20,6 +20,11 @@ switch (_type) do {
 		_shape = "mil_box";
 	};
 
+	case "fob": {
+		_text = _name;
+		_shape = "loc_Bunker";
+	};
+
 	case "entry": {
 		_text = _name;
 		_shape = "mil_start";
