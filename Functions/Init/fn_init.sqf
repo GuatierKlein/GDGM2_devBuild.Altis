@@ -36,6 +36,7 @@ GDGM_BLUFOR_divisions = [];
 GDGM_OPFOR_divisions = [];
 GDGM_IND_divisions = [];
 GDGM_divIndex = 0;
+GDGM_customLocationsPositions = [];
 
 waitUntil { GDGM_init_type != -1 };
 // "LeadTrack01c_F" remoteExec["playMusic",0];
@@ -64,12 +65,15 @@ if(GDGM_init_type == 1) then {
 	GDGM_BLUFOR_vehReserves = (_points select 1) select 2;
 	GDGM_IND_vehReserves = (_points select 2) select 2;
 	//set commanders
-	if(count _save > 2) then {
-		private _commanders = _save select 2;
-		GDGM_OPFOR_commanderStyle = _commanders select 0;
-		GDGM_BLUFOR_commanderStyle =  _commanders select 1;
-		GDGM_IND_commanderStyle =  _commanders select 2;
+	private _commanders = _save select 2;
+	GDGM_OPFOR_commanderStyle = _commanders select 0;
+	GDGM_BLUFOR_commanderStyle =  _commanders select 1;
+	GDGM_IND_commanderStyle =  _commanders select 2;
+	//custom locations 
+	if(count _save > 5) then {
+		GDGM_customLocationsPositions = _save select 5;
 	};
+
 	[_save select 3] call GDGM_fnc_loadBuiltObjects;
 	[_save select 4] call GDGM_fnc_initDivisions;
 	[_save select 1] call GDGM_fnc_graph;

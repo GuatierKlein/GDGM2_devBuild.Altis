@@ -13,6 +13,14 @@ private _customLocs = [];
 	deleteVehicle _x;
 } forEach _customNodes;
 
+//saved custom nodes 
+
+{	
+	private _location = createLocation ["NameCity", _x, 1, 1];	
+	_customLocs pushBack _location;
+	_location setText "";
+} forEach GDGM_customLocationsPositions;
+
 //civi nodes
 if(isNil "_save") then {
 	//create

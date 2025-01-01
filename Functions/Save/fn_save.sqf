@@ -41,7 +41,7 @@ private _deployedReserves = [] call GDGM_fnc_getDeployedReservesPoints;
 	_divisionSave pushBack [_model, _reserves, _vehReserves];
 } forEach (keys GDGM_allDivisions);
 
-_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave];
+_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave, GDGM_customLocationsPositions];
 
 //save to profile 
 profileNamespace setVariable [missionName, _save];

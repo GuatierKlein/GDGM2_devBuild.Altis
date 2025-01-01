@@ -12,3 +12,10 @@ _markerName setMarkerType "mil_flag";
 
 GDGM_playerFOBs pushBack _obj;
 
+
+
+// attention pb si le FOB est pas saved
+
+//!!!!!! ça passe à chaque built, ça va créer des nodes à l'infini!
+// bouger le code dans le save built object 
+
