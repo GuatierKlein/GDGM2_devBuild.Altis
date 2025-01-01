@@ -6,7 +6,7 @@ class CfgFunctions
 		{
 			class init {};
 		};
-		class CityGraph
+		class Graph
 		{
 			class cityNode {};
 			class nodeMarker {};
