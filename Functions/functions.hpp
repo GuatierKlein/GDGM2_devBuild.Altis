@@ -254,6 +254,7 @@ class CfgFunctions
 			class makeRadio{};
 			class makeVehDepot {};
 			class isFOBWithinDist {};
+			class updateCurrentFobs {};
 		};
 		class HighCommand {
 			class HCSpawnSquad {};
