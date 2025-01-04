@@ -218,6 +218,8 @@ class CfgFunctions
 			class playerAmmo {};
 			class initCommanders {};
 			class initSupplyOfficer {};
+			class setAO {};
+			class openSetAO {};
 		};
 		class Raids {
 			class generateRaid {};

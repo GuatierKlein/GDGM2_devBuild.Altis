@@ -377,6 +377,30 @@ class dialogPlayerMenu {
 			h = 0.043996 * safezoneH;
 			tooltip = "Despawn all unecessary positions"; //--- ToDo: Localize;
 		};
+		class btnRemoveAO: RscButton
+		{
+			idc = 04011;
+			action = "closedialog 0; ";
+
+			text = "Remove AO"; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.885 * safezoneH + safezoneY;
+			w = 0.103125 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Removes the AO area"; //--- ToDo: Localize;
+		};
+		class btnSetAO: RscButton
+		{
+			idc = 04012;
+			action = "closedialog 0; [] spawn GDGM_fnc_openSetAo";
+
+			text = "Set AO"; //--- ToDo: Localize;
+			x = 0.0153125 * safezoneW + safezoneX;
+			y = 0.83 * safezoneH + safezoneY;
+			w = 0.103125 * safezoneW;
+			h = 0.044 * safezoneH;
+			tooltip = "Allows tou to set a square area where node can spawn. Nodes outside this area won't spawn."; //--- ToDo: Localize;
+		};
 	};
 	class ControlsBackground
 	{
@@ -391,53 +415,3 @@ class dialogPlayerMenu {
 		};
 	};
 };
-
-
-/* #Merebo
-$[
-	1.063,
-	["dsqds",[[0,0,1,1],0.025,0.04,"GUI_GRID"],0,0,0],
-	[1200,"frame",[1,"Images\PlayerMenu.paa",["0.164899 * safezoneW + safezoneX","-0.0169541 * safezoneH + safezoneY","0.634113 * safezoneW","1.03391 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1600,"btnSave",[1,"SAVE",["0.592797 * safezoneW + safezoneX","0.423007 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Save the game","-1"],["action = |closedialog 0; [] remoteExec [^GDGM_fnc_save^,2]|;"]],
-	[1601,"btnAttack",[1,"ATTACK MENU",["0.592797 * safezoneW + safezoneX","0.532997 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Order an attack ","-1"],["action = |closedialog 0; [] spawn GDGM_fnc_openSelectAttack|;"]],
-	[1602,"btnCommander",[1,"CHANGE COMMANDER",["0.592797 * safezoneW + safezoneX","0.478002 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Change commander behaviour","-1"],["action = |closedialog 0; [] spawn GDGM_fnc_openSelectCommander|;"]],
-	[1603,"btnCamp",[1,"CALL REINFORCEMENTS",["0.469068 * safezoneW + safezoneX","0.478002 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"A truck will bring a squad of AIs to fill your group","-1"],["action = |closedialog 0; [player] remoteExec [^GDGM_fnc_playerReinf^,2]|;"]],
-	[1604,"btnAmmo",[1,"CALL SUPPLIES",["0.469068 * safezoneW + safezoneX","0.423007 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"A truck or helicopter will deliver you ammo","-1"],["action = |closedialog 0; [position player, side player, player] remoteExec [^GDGM_fnc_ammoOnPos^,2]|;"]],
-	[1605,"btnCrate",[1,"DROP SUPPLY CRATE",["0.469068 * safezoneW + safezoneX","0.587992 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Drop a small supply crate to build (only for engineers)","-1"],["action = |closedialog 0; [player, ^small^] remoteExec [^GDGM_fnc_spawnLogiCrate^,2]|;"]],
-	[1606,"RscButton_1606",[1,"BUILD MENU",["0.592797 * safezoneW + safezoneX","0.642987 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Opens build menu (only for engineers)","-1"],["action = |closedialog 0; [player] spawn GDGM_fnc_openBuildMenu|;"]],
-	[1607,"RscButton_1607",[1,"AI GROUP MENU",["0.592797 * safezoneW + safezoneX","0.587992 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Opens group management menu","-1"],["action = |closedialog 0; [player] spawn GDGM_fnc_openRecruitAI|;"]],
-	[1608,"RscButton_1608",[1,"TELEPORT TO NODE",["0.469068 * safezoneW + safezoneX","0.532997 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"Teleport to a friendly node, only available when close to a friendly node or your faction commander.","-1"],["action = |closedialog 0; [] spawn GDGM_fnc_openTPMap|;"]],
-	[1609,"btnClose",[1,"CLOSE",["0.597952 * safezoneW + safezoneX","0.895965 * safezoneH + safezoneY","0.113419 * safezoneW","0.0439961 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["action = |closedialog 0|;"]],
-	[1000,"txtWestSupplies",[1,"West:",["0.190676 * safezoneW + safezoneX","0.5 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1001,"txtEastSupplies",[1,"East:",["0.190676 * safezoneW + safezoneX","0.532997 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1002,"txtIndSupplies",[1,"Ind:",["0.190676 * safezoneW + safezoneX","0.565994 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1003,"ctrlTxtWestSupplies",[1,"<supplies>",["0.273163 * safezoneW + safezoneX","0.5 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 110311;"]],
-	[1004,"ctrlTxtEastSupplies",[1,"<supplies>",["0.273163 * safezoneW + safezoneX","0.532997 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 110312;"]],
-	[1005,"ctrlTxtIndSupllies",[1,"<supplies>",["0.273163 * safezoneW + safezoneX","0.565994 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 110313;"]],
-	[1006,"ctrlTxtWestReserves",[1,"<reserves>",["0.319561 * safezoneW + safezoneX","0.5 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 8053;"]],
-	[1007,"ctrlTxtEastReserves",[1,"<reserves>",["0.319561 * safezoneW + safezoneX","0.532997 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 8052;"]],
-	[1008,"ctrlTxtIndReserves",[1,"<reserves>",["0.319561 * safezoneW + safezoneX","0.565994 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 8051;"]],
-	[1009,"txtSupplies",[1,"Supplies",["0.273163 * safezoneW + safezoneX","0.456004 * safezoneH + safezoneY","0.04125 * safezoneW","0.055 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1010,"txtReserves",[1,"Reserves",["0.324717 * safezoneW + safezoneX","0.456004 * safezoneH + safezoneY","0.04125 * safezoneW","0.055 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1011,"txtVehReserves",[1,"Friendly vehicle reserves: ",["0.185521 * safezoneW + safezoneX","0.60999 * safezoneH + safezoneY","0.0979687 * safezoneW","0.0440001 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1012,"txtVehTrucks",[1,"Trucks:",["0.195832 * safezoneW + safezoneX","0.642987 * safezoneH + safezoneY","0.04125 * safezoneW","0.055 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1013,"txtAPC",[1,"APC's:",["0.195832 * safezoneW + safezoneX","0.675984 * safezoneH + safezoneY","0.0360937 * safezoneW","0.0440001 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1014,"txtTanks",[1,"Tanks: ",["0.195832 * safezoneW + safezoneX","0.697982 * safezoneH + safezoneY","0.04125 * safezoneW","0.055 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1015,"txtTrHeli",[1,"Transport aircrafts:",["0.195832 * safezoneW + safezoneX","0.73098 * safezoneH + safezoneY","0.0773437 * safezoneW","0.0440001 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
-	[1016,"txtArmedHeli",[1,"Combat aircrafts:",["0.195832 * safezoneW + safezoneX","0.752978 * safezoneH + safezoneY","0.0721875 * safezoneW","0.055 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = |1-1017|;"]],
-	[1017,"ctrlTruckReserves",[1,"<reserves>",["0.288629 * safezoneW + safezoneX","0.653986 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 29051;"]],
-	[1018,"ctrlAPCReserves",[1,"<reserves>",["0.288629 * safezoneW + safezoneX","0.686983 * safezoneH + safezoneY","0.0773437 * safezoneW","0.022 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 29052;"]],
-	[1019,"ctrlTankReserves",[1,"<reserves>",["0.288629 * safezoneW + safezoneX","0.708981 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 29053;"]],
-	[1020,"ctrlTrHeliReserves",[1,"<reserves>",["0.288629 * safezoneW + safezoneX","0.741979 * safezoneH + safezoneY","0.0825 * safezoneW","0.022 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 29054;"]],
-	[1021,"ctrlCombatHeliReserves",[1,"<reserves>",["0.288629 * safezoneW + safezoneX","0.763977 * safezoneH + safezoneY","0.0824863 * safezoneW","0.0329971 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],["idc = 29055;"]]
-]
-*/
-
-
-
-
-
-
-
-
-
