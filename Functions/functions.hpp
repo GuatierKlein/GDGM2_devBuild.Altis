@@ -220,6 +220,7 @@ class CfgFunctions
 			class initSupplyOfficer {};
 			class setAO {};
 			class openSetAO {};
+			class removeAO {};
 		};
 		class Raids {
 			class generateRaid {};

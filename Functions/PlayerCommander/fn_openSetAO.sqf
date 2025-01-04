@@ -39,4 +39,5 @@ systemChat "Down Right Selected";
 
 deleteMarkerLocal "GDGM_AOupperLeftMarker";
 
+hint "AO set";
 [GDGM_AOUpperLeftPos, GDGM_AODownRightPos] remoteExec ["GDGM_fnc_setAO", 2];

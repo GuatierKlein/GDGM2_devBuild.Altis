@@ -1,0 +1,1 @@
+deleteMarker "GDGM_AllowedSpawnMarker";

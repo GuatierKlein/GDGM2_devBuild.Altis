@@ -380,7 +380,7 @@ class dialogPlayerMenu {
 		class btnRemoveAO: RscButton
 		{
 			idc = 04011;
-			action = "closedialog 0; ";
+			action = "closedialog 0; [] remoteExec ['GDGM_fnc_removeAO',2]; hint 'AO removed'";
 
 			text = "Remove AO"; //--- ToDo: Localize;
 			x = 0.0153125 * safezoneW + safezoneX;
