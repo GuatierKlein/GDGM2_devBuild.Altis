@@ -30,7 +30,7 @@ GDGM_fnc_tpToPlayer = {
 	_unit_to_tp = _display getVariable 'GDGM_unit_to_tp';	
 	_index = lbCurSel 170411;
 	_target_unit = allPlayersArray select _index;
-	private _nearestBaddies = _target_unit nearEntities [["Man", "Car", "Tank", "Motorcycle"], 125];
+	private _nearestBaddies = _target_unit nearEntities [["Man", "Car", "Tank", "Motorcycle"], 50];
 
 	if((_nearestBaddies findIf {side _x != side _target_unit && side _x != civilian}) != -1) exitWith {
 		hint "Ennemis trop proche de la cible";
