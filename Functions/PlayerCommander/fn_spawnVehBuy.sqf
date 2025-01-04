@@ -28,7 +28,7 @@ if(_useMap) then {
 
 	private _code = "GDGM_spawnVehMapPos = _pos;";
 	onMapSingleClick (_code + "; onMapSingleClick ''; removeMissionEventHandler ['Map', GDGM_spawnVehMapClickEH]; openMap false; true");
-	waitUntil{count GDGM_spawnVehMapPos != 0 || GDGM_exitFunction}
+	waitUntil{count GDGM_spawnVehMapPos != 0 || GDGM_exitFunction};
 };
 
 if(GDGM_exitFunction) exitWith {};
