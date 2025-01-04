@@ -10,7 +10,7 @@ if(!isNil "BAR_enableCustomKitOnRespawn") then {
 	};
 };
 
-waitUntil { !isNull player };
+
 
 // player addAction
 // [

@@ -1,8 +1,8 @@
 params ["_player", "_didJIP"];
 
-//arty
-#include "scripts\arty\core.sqf";
 //kitSelect 
 #include "scripts\kit_select\core.sqf";
+//arty
+#include "scripts\arty\core.sqf";
 
 execVM "GDGM_initClient.sqf";	

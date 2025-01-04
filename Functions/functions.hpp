@@ -133,6 +133,7 @@ class CfgFunctions
 			class playCaptureAnim {};
 			class getSkipTurnSupply {};
 			class setSkipTurnSupply {};
+			class setSavedPlayerKit {};
 		};
 		class Events
 		{

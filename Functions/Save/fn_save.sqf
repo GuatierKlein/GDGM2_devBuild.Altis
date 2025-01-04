@@ -41,7 +41,14 @@ private _deployedReserves = [] call GDGM_fnc_getDeployedReservesPoints;
 	_divisionSave pushBack [_model, _reserves, _vehReserves];
 } forEach (keys GDGM_allDivisions);
 
-_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave, GDGM_customLocationsPositions];
+//userKits 
+private _userKitSave = [];
+{
+	private _kit = GDGM_savedUserKitHashMap get _x;
+	_userKitSave pushBack [_x, _kit];
+} forEach (keys GDGM_savedUserKitHashMap);
+
+_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave, GDGM_customLocationsPositions, _userKitSave];
 
 //save to profile 
 profileNamespace setVariable [missionName, _save];

@@ -3,9 +3,8 @@ BAR_enableCustomKitOnRespawn = false;
 //false = le kit du mannequin et la spécialisation sera appliqué au respawn sans le kit sauvegardé à l'arsenal
 
 //NE PAS MODIFIER EN DESSOUS
-player setVariable ["BAR_kit", kit_ne];
+GDGM_loadedSave = false;
 BAR_customKit = getUnitLoadout kit_ne;
-
 BAR_fnc_setKit = {
 	params ["_kit"];
 	private _res = false;
@@ -27,6 +26,8 @@ BAR_fnc_setKit = {
 	};
 
 	player setVariable ["BAR_kit",_kit];
+	//save in server
+	[getPlayerUID player, vehicleVarName _kit] remoteExec ["GDGM_fnc_setSavedPlayerKit", 2];
 
 	//supply cost
 	if(_cost != 0) then {
@@ -37,6 +38,17 @@ BAR_fnc_setKit = {
 };
 
 BAR_fnc_applyKit = {
+	if(!GDGM_loadedSave) then {
+		private _stroredKits = [missionNamespace, "GDGM_savedUserKitHashMap", createHashMap] call BIS_fnc_getServerVariable;
+		private _savedKit = _stroredKits getOrDefault [(getPlayerUID player), "kit_ne"];
+		player setVariable ["BAR_kit", missionNamespace getVariable _savedKit];
+		GDGM_loadedSave = true;
+
+		if(_savedKit != "kit_ne") then {
+			systemChat "Kit chargé depuis le serveur";
+		};
+	};
+
 	_kit_unit = player getVariable "BAR_kit";
 
 	_loadout = getUnitLoadout _kit_unit;

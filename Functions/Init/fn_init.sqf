@@ -37,6 +37,7 @@ GDGM_OPFOR_divisions = [];
 GDGM_IND_divisions = [];
 GDGM_divIndex = 0;
 GDGM_customLocationsPositions = [];
+GDGM_savedUserKitHashMap = createHashMap;
 
 waitUntil { GDGM_init_type != -1 };
 // "LeadTrack01c_F" remoteExec["playMusic",0];
@@ -72,6 +73,12 @@ if(GDGM_init_type == 1) then {
 	//custom locations 
 	if(count _save > 5) then {
 		GDGM_customLocationsPositions = _save select 5;
+	};
+	//load user kits
+	if(count _save > 6) then {
+		{
+			GDGM_savedUserKitHashMap set [_x select 0, _x select 1];
+		} forEach (_save select 6);
 	};
 
 	[_save select 3] call GDGM_fnc_loadBuiltObjects;
