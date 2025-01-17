@@ -7,5 +7,5 @@
 
 {
 	private _owner = _x getVariable "GDGM_owner";
-	[_owner, GDGM_strategicNodesRevenue] spawn GDGM_fnc_addPoints;	
+	[_owner, GDGM_strategicNodesRevenue] call GDGM_fnc_addPoints;	
 } forEach GDGM_strategicNodes;
