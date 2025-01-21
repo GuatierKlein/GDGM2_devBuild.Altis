@@ -48,7 +48,10 @@ private _userKitSave = [];
 	_userKitSave pushBack [_x, _kit];
 } forEach (keys GDGM_savedUserKitHashMap);
 
-_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave, GDGM_customLocationsPositions, _userKitSave];
+//date 
+private _date = date;
+
+_save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisionSave, GDGM_customLocationsPositions, _userKitSave, _date];
 
 //save to profile 
 profileNamespace setVariable [missionName, _save];

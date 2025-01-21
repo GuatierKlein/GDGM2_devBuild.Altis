@@ -80,6 +80,10 @@ if(GDGM_init_type == 1) then {
 			GDGM_savedUserKitHashMap set [_x select 0, _x select 1];
 		} forEach (_save select 6);
 	};
+	//load date 
+	if(count _save > 7) then {
+		date = _save select 7;
+	};
 
 	[_save select 3] call GDGM_fnc_loadBuiltObjects;
 	[_save select 4] call GDGM_fnc_initDivisions;
