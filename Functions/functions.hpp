@@ -222,6 +222,7 @@ class CfgFunctions
 			class setAO {};
 			class openSetAO {};
 			class removeAO {};
+			class capture {};
 		};
 		class Raids {
 			class generateRaid {};

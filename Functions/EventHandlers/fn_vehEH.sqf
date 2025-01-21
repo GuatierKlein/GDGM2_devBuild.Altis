@@ -25,3 +25,25 @@ _veh addMPEventHandler ["MPKilled", {
 if(_isDivion) then {
 	_veh setVariable ["GDGM_divisionName", _divisionName];
 };
+
+//add action to capture 
+if(side _veh != GDGM_playerSide) then {
+	[
+		_veh,											// Object the action is attached to
+		"Capture and put to garage",										// Title of the action
+		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
+		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
+		"_this distance _target < 5",						// Condition for the action to be shown
+		"_caller distance _target < 5",						// Condition for the action to progress
+		{},													// Code executed when action starts
+		{},													// Code executed on every progress tick
+		{ [clientOwner, side player, _target] remoteExec["GDGM_fnc_vehToGarage",2] },				// Code executed on completion
+		{},													// Code executed on interrupted
+		[],													// Arguments passed to the scripts as _this select 3
+		5,													// Action duration in seconds
+		0,													// Priority
+		false,												// Remove on completion
+		false												// Show in unconscious state
+	] remoteExec ["BIS_fnc_holdActionAdd", 0, _veh];	// MP compatible implementation
+};
+
