@@ -223,6 +223,7 @@ class CfgFunctions
 			class openSetAO {};
 			class removeAO {};
 			class capture {};
+			class captureToGarage {};
 		};
 		class Raids {
 			class generateRaid {};

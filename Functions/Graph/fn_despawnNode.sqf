@@ -6,15 +6,15 @@ private _objects = _node getVariable "GDGM_spawnedObjects";
 private _side = west;
 
 {
+	//check if player is in vehicle
+	if({isPlayer _x} count (crew _x) > 0 || _x getVariable ["GDGM_captured", false]) then {
+		_x setVariable ["GDGM_reserve", false];
+		continue;
+	};
+
 	if(_x getVariable "GDGM_reserve") then {
 		_side = _x getVariable "GDGM_owner";
 		private _divisionOrSide = _x getVariable ["GDGM_divisionName", _side];
-
-		//check if player is in vehicle
-		if({isPlayer _x} count (crew _x) > 0) then {
-			_x setVariable ["GDGM_reserve", false];
-			continue;
-		};
 
 		switch (_x getVariable "GDGM_type") do {
 			case "truck": { 

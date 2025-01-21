@@ -4,7 +4,8 @@ params["_veh","_cost",["_type","none"],["_reserve",false], ["_isDivion", false],
 _veh setVariable ["GDGM_owner", side _veh];
 _veh setVariable ["GDGM_cost", _cost];
 _veh setVariable ["GDGM_reserve", _reserve];
-_veh setVariable ["GDGM_type", _type];
+_veh setVariable ["GDGM_type", _type]; //apc, truck, tank
+_veh setVariable ["GDGM_captured", false];
 
 //EH
 _veh addMPEventHandler ["MPKilled", {
@@ -30,19 +31,19 @@ if(_isDivion) then {
 if(side _veh != GDGM_playerSide) then {
 	[
 		_veh,											// Object the action is attached to
-		"Capture and put to garage",										// Title of the action
+		"Capture",										// Title of the action
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
 		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
-		"_this distance _target < 5",						// Condition for the action to be shown
-		"_caller distance _target < 5",						// Condition for the action to progress
+		"_this distance _target < 5 && count crew _target == 0",						// Condition for the action to be shown
+		"_caller distance _target < 5 && count crew _target == 0",						// Condition for the action to progress
 		{},													// Code executed when action starts
 		{},													// Code executed on every progress tick
-		{ [clientOwner, side player, _target] remoteExec["GDGM_fnc_vehToGarage",2] },				// Code executed on completion
+		{ [clientOwner, _target] remoteExec["GDGM_fnc_capture",2] },				// Code executed on completion
 		{},													// Code executed on interrupted
 		[],													// Arguments passed to the scripts as _this select 3
 		5,													// Action duration in seconds
 		0,													// Priority
-		false,												// Remove on completion
+		true,												// Remove on completion
 		false												// Show in unconscious state
 	] remoteExec ["BIS_fnc_holdActionAdd", 0, _veh];	// MP compatible implementation
 };

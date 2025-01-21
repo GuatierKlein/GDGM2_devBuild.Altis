@@ -99,11 +99,11 @@ _vehicle = _veh createVehicle _spawnPos;
 
 [
 	_vehicle,											// Object the action is attached to
-	"Put to garage",										// Title of the action
+	"Garage vehicle",										// Title of the action
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Idle icon shown on screen
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",	// Progress icon shown on screen
-	"_this distance _target < 5",						// Condition for the action to be shown
-	"_caller distance _target < 5",						// Condition for the action to progress
+	"_this distance _target < 5 && count crew _target == 0",						// Condition for the action to be shown
+	"_caller distance _target < 5 && count crew _target == 0",						// Condition for the action to progress
 	{},													// Code executed when action starts
 	{},													// Code executed on every progress tick
 	{ [clientOwner, side player, _target] remoteExec["GDGM_fnc_vehToGarage",2] },				// Code executed on completion
