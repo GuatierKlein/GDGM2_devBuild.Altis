@@ -82,7 +82,7 @@ if(GDGM_init_type == 1) then {
 	};
 	//load date 
 	if(count _save > 7) then {
-		date = _save select 7;
+		setDate (_save select 7);
 	};
 
 	[_save select 3] call GDGM_fnc_loadBuiltObjects;
