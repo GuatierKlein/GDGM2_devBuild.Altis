@@ -258,6 +258,11 @@ GDGM_connectionBlackList = [
 
 ];
 
+GDGM_connectionForced = [
+	// [[3108,764.449,0], [5471.92,1541.2,0]]
+];
+
+
 //scripts settings 
 //addpilot
 //mannequin pour l'équipement du pilot

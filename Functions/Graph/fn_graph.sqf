@@ -220,6 +220,33 @@ _allEntry = nearestObjects [[0,0,0], ["LocationEvacPoint_F"], worldSize * 2];
 	_closestNode2 setVariable ["GDGM_connectedNodes", _array - [_closestNode1]];
 } forEach GDGM_connectionBlackList;
 
+"Addind forced connections..." remoteExec ["systemChat",0];
+
+//add forced connections 
+{
+	private _pos1 = _x select 0;
+	private _pos2 = _x select 1;
+	private _minDist1 = 10000;
+	private _closestNode1 = objNull;
+	private _minDist2 = 10000;
+	private _closestNode2 = objNull;
+	{
+		private _pos = _x getVariable "GDGM_position";
+		private _dist1 = _pos distance2D _pos1;
+		private _dist2 = _pos distance2D _pos2;
+		if(_dist1 < _minDist1) then {
+			_minDist1 = _dist1;
+			_closestNode1 = _x;
+		};
+		if(_dist2 < _minDist2) then {
+			_minDist2 = _dist2;
+			_closestNode2 = _x;
+		};
+	} forEach GDGM_strategicNodes;
+	
+	[_closestNode1, _closestNode2] call GDGM_fnc_addNodeConnection;
+} forEach GDGM_connectionForced;
+
 "Computing aggregate weights..." remoteExec ["systemChat",0];
 
 //compute weights
