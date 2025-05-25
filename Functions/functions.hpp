@@ -325,7 +325,6 @@ class CfgFunctions
 		}
 
 		class SupplyHubs {
-			class spawnAirport {};
 			class initAirports {};
 			class simulateAirport {};
 		}

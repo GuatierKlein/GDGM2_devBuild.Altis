@@ -65,6 +65,13 @@ GDGM_maxReserves = 400;
 GDGM_strategicNodesRevenue = 2;
 GDGM_maxVehStockpiles = [50, 25, 10, 5, 5];
 
+//airport
+GDGM_airport_enable = true; //enable airports
+GDGM_airport_timeBtwnPlane = [1000, 1500, 3000]; //min, mean, max
+GDGM_airport_planeSupplyRevenue = 50; //how much the player gets when a plane lands at an airport
+GDGM_airport_planeReservesRevenue = 25; //how much the player gets when a plane lands at an airport
+GDGM_airport_displayLandingNotif = true; //display a notification when a plane lands at an airport
+
 //plane mode 
 GDGM_enablePlaneMode = true;
 GDGM_planeModePlayerSide = blufor;

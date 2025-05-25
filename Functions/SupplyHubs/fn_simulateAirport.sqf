@@ -54,7 +54,7 @@ while {_node getVariable "GDGM_owner" == _side} do {
 
 	if(alive _veh && damage _veh < 0.5 && _counter < 600) then { 
 		// hint "atterit";
-		if(_side == GDGM_playerSide) then {
+		if(_side == GDGM_playerSide && GDGM_airport_displayLandingNotif) then {
 			["GDGM_planeLanded", [_nodeName]] remoteExec["BIS_fnc_showNotification", 0];
 			//give stuff
 		};
@@ -69,9 +69,9 @@ while {_node getVariable "GDGM_owner" == _side} do {
 		"];
 	} else {
 		// hint "avion crash";
-		{ deleteVehicle _x } forEach units group _grp;
+		{ deleteVehicle _x } forEach units _grp;
 		deleteVehicle _veh;
 	};
 
-	sleep (random [1000, 1500, 3000]); // wait before spawning next plane
+	sleep (random GDGM_airport_timeBtwnPlane); // wait before spawning next plane
 };
