@@ -25,7 +25,20 @@ if(typeName _side == "SIDE") then {
 		};
 	};
 } else {
-	private _division = GDGM_allDivisions get _side;
-	_division set ["reserves", (0 max (( _division get "reserves") + _points)) min GDGM_maxReserves];
+	if(_side == "player") then { // player side reserves
+		if(GDGM_player_reserves + _points > 0) then {
+			GDGM_player_reserves = GDGM_player_maxReserves min (GDGM_player_reserves + _points);
+		} else {
+			//si pas assez de point on tape sur la faction
+			private _rest = GDGM_player_reserves + _points;
+			GDGM_player_reserves = 0;
+
+			[GDGM_playerSide, _rest] call GDGM_fnc_addReserves;
+		};
+	} else {
+		//division reserves
+		private _division = GDGM_allDivisions get _side;
+		_division set ["reserves", (0 max (( _division get "reserves") + _points)) min GDGM_maxReserves];
+	};
 };
 
