@@ -158,6 +158,7 @@ GDGM_OPFOR_CASPlanes = ["O_Plane_CAS_02_dynamicLoadout_F"];
 GDGM_OPFOR_FighterPlanes = ["O_Plane_Fighter_02_F"];
 GDGM_OPFOR_AA = ["B_HMG_01_high_F"];
 GDGM_OPFOR_patrolBoats = [];
+GDGM_OPFOR_transportPlanes = [];
 
 //BLUFOR loadouts
 GDGM_BLUFOR_rifleDummies = [loadout_blufor];
@@ -183,6 +184,7 @@ GDGM_BLUFOR_CASPlanes = ["B_Plane_CAS_01_dynamicLoadout_F"];
 GDGM_BLUFOR_FighterPlanes = ["B_Plane_Fighter_01_F"];
 GDGM_BLUFOR_AA = ["B_HMG_01_high_F"];
 GDGM_BLUFOR_patrolBoats = [];
+GDGM_BLUFOR_transportPlanes = ["C_Plane_Civil_01_F"];
 
 //INDEPENDANTS loadouts
 GDGM_IND_rifleDummies = [];
@@ -208,6 +210,7 @@ GDGM_IND_CASPlanes = [];
 GDGM_IND_FighterPlanes = [];
 GDGM_IND_AA = [];
 GDGM_IND_patrolBoats = [];
+GDGM_IND_transportPlanes = [];
 
 //players pool  
 GDGM_PLAYERS_transports = [

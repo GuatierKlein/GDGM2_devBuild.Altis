@@ -46,6 +46,7 @@ if(isNil "_save") then {
 		private _node = [_x] call GDGM_fnc_airportNode;
 		GDGM_allNodes pushBack _node;
 		GDGM_strategicNodes pushBack _node;
+		GDGM_airportNodes pushBack _node;
 	} forEach GDGM_airports;
 } else {
 	//load
@@ -81,6 +82,7 @@ if(isNil "_save") then {
 				private _node = [_pos, _owner, _garri] call GDGM_fnc_airportNode;
 				GDGM_allNodes pushBack _node;
 				GDGM_strategicNodes pushBack _node;
+				GDGM_airportNodes pushBack _node;
 			};
 		};
 	} forEach _save;

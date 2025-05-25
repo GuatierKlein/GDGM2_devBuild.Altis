@@ -4,6 +4,7 @@ GDGM_allNodes = [];
 GDGM_strategicNodes = []; //only civilian nodes
 GDGM_supplyNodes = []; //only supply nodes
 GDGM_entryNodes = [];
+GDGM_airportNodes = [];
 GDGM_allSquares = [];
 GDGM_allFortif = [];
 GDGM_allWaterFortif = [];
@@ -115,4 +116,5 @@ if(GDGM_init_type == 1) then {
 [] spawn GDGM_fnc_raidLoop;
 [] spawn GDGM_fnc_ambientMusic;
 [] spawn GDGM_fnc_daySpeedLoop;
+[] spawn GDGM_fnc_initAirports;
 
