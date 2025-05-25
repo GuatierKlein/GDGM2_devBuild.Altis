@@ -1,10 +1,11 @@
-params["_model", "_side", "_dummiesHashMap", "_vehHashMap", "_vehReserves", "_reserves", "_supplies", "_skill"];
+params["_model", "_side", "_dummiesHashMap", "_vehHashMap", "_vehReserves", "_reserves", "_supplies", "_skill", "_allowAttack"];
 
 private _divisionHashMap = createHashMap;
 private _name = "division" + str GDGM_divIndex;
 
 _divisionHashMap set ["name", "division" + str GDGM_divIndex];
 _divisionHashMap set ["model", _model];
+_divisionHashMap set ["allowAttack", _allowAttack];
 _divisionHashMap set ["reserves", _reserves];
 // _divisionHashMap set ["supplies", _supplies]; //not implemented
 _divisionHashMap set ["side", _side];

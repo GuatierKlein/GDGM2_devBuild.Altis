@@ -319,7 +319,8 @@ private _div1 = [
 	[50,10,5,0], //veh reserves
 	150, //reserves
 	0, //suuplies, not implemented
-	0.8 //skill
+	0.8, //skill
+    false //allowAttack
 ];
 
 GDGM_OPFOR_divisionsModels pushBack _div1;

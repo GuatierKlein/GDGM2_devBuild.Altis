@@ -1,4 +1,5 @@
-private _sides = GDGM_sides + keys GDGM_allDivisions;
+private _sides = GDGM_sides + ([] call GDGM_fnc_getAttackDivisions);
+
 _sides = _sides call BIS_fnc_arrayShuffle;
 // GDGM_lanceria = false;
 
@@ -19,7 +20,7 @@ while {true} do {
 	{
 		[] spawn GDGM_fnc_nodeGarbageCollector;
 		[] call GDGM_fnc_tickFrontlineSupplies;
-			[] call GDGM_fnc_tickSupply;
+		[] call GDGM_fnc_tickSupply;
 
 		if(typeName _x == "SIDE") then {
 			//side tick
@@ -49,6 +50,6 @@ while {true} do {
 		// sleep 5;	
 	} forEach _sides;	
 	// sleep 0;
-	_sides = GDGM_sides + keys GDGM_allDivisions;
+	_sides = GDGM_sides + ([] call GDGM_fnc_getAttackDivisions);
 	_sides = _sides call BIS_fnc_arrayShuffle;
 };

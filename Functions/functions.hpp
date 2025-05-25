@@ -317,6 +317,7 @@ class CfgFunctions
 
 		class Division {
 			class division {};
+			class getAttackDivisions {};
 			class initDivisions {};
 		}
 	};
