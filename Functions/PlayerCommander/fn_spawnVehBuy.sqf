@@ -36,40 +36,46 @@ if(GDGM_exitFunction) exitWith {};
 systemChat "Spawning vehicle!";
 
 //check reserves 
-GDGM_clientReserveTrucks = -100;
-GDGM_clientReserveAPC = -100;
-GDGM_clientReserveTanks = -100;
+private _data = [missionNamespace, "GDGM_logiData", []] call BIS_fnc_getServerVariable;
 
-[clientOwner, str (side player)] remoteExecCall ["GDGM_fnc_sendReservesAll",2]; 
-
-_trucksPool = GDGM_PLAYERS_transports + GDGM_PLAYERS_lightArmedVeh; 
-_APCPool = GDGM_PLAYERS_heavyArmedVeh; 
-_tankPool = GDGM_PLAYERS_tanks;
-
-waitUntil { 
-	GDGM_clientReserveTrucks != -100
-	&& GDGM_clientReserveAPC != -100
-	&& GDGM_clientReserveTanks != -100
+// Vérifie qu'on a bien reçu les données
+if (_data isEqualTo [] || count _data < 12) exitWith {
+    hint "Erreur : données logistiques manquantes ou incomplètes.";
 };
+
+_data params [
+    "_OPFOR_supplies",
+    "_IND_supplies",
+    "_BLUFOR_supplies",
+    "_OPFOR_reserves",
+    "_IND_reserves",
+    "_BLUFOR_reserves",
+    "_player_supplies",
+    "_player_reserves",
+    "_OPFOR_vehReserves",
+    "_IND_vehReserves",
+    "_BLUFOR_vehReserves",
+    "_player_vehReserves"
+];
 
 if(_veh in _trucksPool) then {
 	//truck
-	_okBuy = GDGM_clientReserveTrucks > 0;
+	_okBuy = (_BLUFOR_vehReserves select 0) + (_player_vehReserves select 0) > 0;
 	if(_okBuy) then {
-		[str (side player), [-1,0,0,0,0]] remoteExec["GDGM_fnc_addVehReservesString",2];
+		["player", [-1,0,0,0,0]] remoteExec["GDGM_fnc_addVehReserves",2];
 	};
 } else {
 	if(_veh in _APCPool) then {
 		//apc
-		_okBuy = GDGM_clientReserveAPC > 0;
+		_okBuy = (_BLUFOR_vehReserves select 1) + (_player_vehReserves select 1) > 0;
 		if(_okBuy) then {
-			[str (side player), [0,-1,0,0,0]] remoteExec["GDGM_fnc_addVehReservesString",2];
+			["player", [0,-1,0,0,0]] remoteExec["GDGM_fnc_addVehReserves",2];
 		};
 	} else {
 		//tank
-		_okBuy = GDGM_clientReserveTanks > 0;
+		_okBuy = (_BLUFOR_vehReserves select 2) + (_player_vehReserves select 2) > 0;
 		if(_okBuy) then {
-			[str (side player), [0,0,-1,0,0]] remoteExec["GDGM_fnc_addVehReservesString",2];
+			["player", [0,0,-1,0,0]] remoteExec["GDGM_fnc_addVehReserves",2];
 		};
 	};
 };
@@ -80,15 +86,6 @@ if(!_okBuy) exitWith {
 };
 
 ["GDGM_vehSpawned", [_vehName]] call BIS_fnc_showNotification;
-
-// _client publicVariableClient "GDGM_clientReservesEast";
-// _client publicVariableClient "GDGM_clientReservesWest";
-// _client publicVariableClient "GDGM_clientReservesInd";
-// _client publicVariableClient "GDGM_clientReserveTrucks";
-// _client publicVariableClient "GDGM_clientReserveAPC";
-// _client publicVariableClient "GDGM_clientReserveTanks";
-// _client publicVariableClient "GDGM_clientReserveTHeli";
-// _client publicVariableClient "GDGM_clientReserveCHeli";
 
 private _spawnPos = getMarkerPos "GDGM_vehMarkerPos";
 if(_useMap) then {

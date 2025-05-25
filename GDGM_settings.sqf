@@ -78,7 +78,7 @@ GDGM_player_maxSupply = 600;
 GDGM_player_maxReserves = 400;
 GDGM_player_supplies = 100;
 GDGM_player_reserves = 100;
-GDGM_player_incomeShare = 0.25; //how much of the income the player gets, 0.5 = 50% of the income
+GDGM_player_incomeShare = 0.2; //how much of the income the player gets, 0.5 = 50% of the income
 GDGM_player_vehReserves = [10, 0, 0, 0, 0]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
 
 //OPFOR logistics
