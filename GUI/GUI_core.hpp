@@ -6,3 +6,4 @@
 #include "PlayerMenu\buildMenu.hpp"
 #include "PlayerMenu\adminMenu.hpp"
 #include "GUI_timeSkip.hpp"
+#include "GUI_playerShare.hpp"

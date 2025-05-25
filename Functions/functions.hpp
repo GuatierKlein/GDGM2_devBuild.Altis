@@ -82,6 +82,7 @@ class CfgFunctions
 		};
 		class Misc
 		{
+			class changePlayerShare {};
 			class giveNode {};
 			class despawnAllNodesUnderAttack {};
 			class isMinorPlayer {};
@@ -195,6 +196,7 @@ class CfgFunctions
 			class sendLogiPoints {};
 		};
 		class PlayerCommander {
+			class openPlayerShareMenu {};
 			class openTimeMenu {};
 			class openSelectAttack {};
 			class openSelectCommander {};
