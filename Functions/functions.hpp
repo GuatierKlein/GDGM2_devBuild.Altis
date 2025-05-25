@@ -9,6 +9,7 @@ class CfgFunctions
 		class Graph
 		{
 			class cityNode {};
+			class airportNode {};
 			class nodeMarker {};
 			class graph {};
 			class addNodeConnection {};
@@ -321,6 +322,10 @@ class CfgFunctions
 			class division {};
 			class getAttackDivisions {};
 			class initDivisions {};
+		}
+
+		class SupplyHubs {
+			class spawnAirport {};
 		}
 	};
 };

@@ -1,5 +1,5 @@
 //parameters
-GDGM_init_type = 2; //1 = create, 2 = load, -1 = wait
+GDGM_init_type = 1; //1 = create, 2 = load, -1 = wait
 GDGM_playerSide = west;
 GDGM_spawnDistance = 1500;
 GDGM_YAxisSpawnDistance = 500;
@@ -333,3 +333,8 @@ private _div1 = [
 
 GDGM_OPFOR_divisionsModels pushBack _div1;
 GDGM_allDivisionModels set [_div1 select 0, _div1];
+
+//airports 
+GDGM_airports = [
+	GDGM_airport
+];

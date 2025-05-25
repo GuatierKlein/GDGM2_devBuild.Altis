@@ -35,12 +35,18 @@ if(isNil "_save") then {
 			) then {continue};
 		_customLocs pushBack _x;
 	} forEach _allLocs;
-
+	//create civi nodes
 	{
-		_node = [_x] call GDGM_fnc_cityNode;
+		private _node = [_x] call GDGM_fnc_cityNode;
 		GDGM_allNodes pushBack _node;
 		GDGM_strategicNodes pushBack _node;
 	} forEach _customLocs;
+	//airport nodes
+	{
+		private _node = [_x] call GDGM_fnc_airportNode;
+		GDGM_allNodes pushBack _node;
+		GDGM_strategicNodes pushBack _node;
+	} forEach GDGM_airports;
 } else {
 	//load
 	{
@@ -53,15 +59,26 @@ if(isNil "_save") then {
 		if(count _x >  4) then {
 			_destruction = _x select 4;
 		};
-		if(_type == "civilian" && _pos inArea "GDGM_AO") then {		
-			private _nearestCity = nearestLocation [_pos, ""];
-			private _node = [_nearestCity, _owner, _garri, _destruction] call GDGM_fnc_cityNode;
-			GDGM_allNodes pushBack _node;
-			GDGM_strategicNodes pushBack _node;
-		} else {
-			if(_type == "fob" && _pos inArea "GDGM_AO") then {		
+
+		if(!_pos inArea "GDGM_AO") then {
+			continue;
+		};
+
+		switch (_type) do {
+			case ("civilian"): {
+				private _nearestCity = nearestLocation [_pos, ""];
+				private _node = [_nearestCity, _owner, _garri, _destruction] call GDGM_fnc_cityNode;
+				GDGM_allNodes pushBack _node;
+				GDGM_strategicNodes pushBack _node;
+			};
+			case ("fob"): {
 				private _nearestCity = nearestLocation [_pos, ""];
 				private _node = [_nearestCity, _owner, _garri] call GDGM_fnc_FOBNode;
+				GDGM_allNodes pushBack _node;
+				GDGM_strategicNodes pushBack _node;
+			};
+			case ("airport"): {
+				private _node = [_pos, _owner, _garri] call GDGM_fnc_airportNode;
 				GDGM_allNodes pushBack _node;
 				GDGM_strategicNodes pushBack _node;
 			};

@@ -29,6 +29,11 @@ switch (_type) do {
 		_text = _name;
 		_shape = "mil_start";
 	};
+
+	case "airport": {
+		_text = _name;
+		_shape = "mil_triangle";
+	};
 	default { };
 };
 
