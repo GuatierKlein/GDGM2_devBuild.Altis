@@ -36,9 +36,9 @@ if(GDGM_exitFunction) exitWith {};
 systemChat "Spawning vehicle!";
 
 //check reserves 
-GDGM_clientReserveTrucks = -1;
-GDGM_clientReserveAPC = -1;
-GDGM_clientReserveTanks = -1;
+GDGM_clientReserveTrucks = -100;
+GDGM_clientReserveAPC = -100;
+GDGM_clientReserveTanks = -100;
 
 [clientOwner, str (side player)] remoteExecCall ["GDGM_fnc_sendReservesAll",2]; 
 
@@ -47,9 +47,9 @@ _APCPool = GDGM_PLAYERS_heavyArmedVeh;
 _tankPool = GDGM_PLAYERS_tanks;
 
 waitUntil { 
-	GDGM_clientReserveTrucks != -1
-	&& GDGM_clientReserveAPC != -1
-	&& GDGM_clientReserveTanks != -1
+	GDGM_clientReserveTrucks != -100
+	&& GDGM_clientReserveAPC != -100
+	&& GDGM_clientReserveTanks != -100
 };
 
 if(_veh in _trucksPool) then {
