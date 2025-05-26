@@ -18,9 +18,23 @@ GDGM_gracePeriodDone = true;
 
 while {true} do {
 	{
+		[format ["starting turn for %1", str _x]] call GDGM_fnc_logRPT;
+		[format ["supplies before turn for %1 : %2", str _x, [_x] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["reserves before turn for %1 : %2", str _x, [_x] call GDGM_fnc_getReserves]] call GDGM_fnc_logRPT;
+
+		[format ["situation before supply tick"]] call GDGM_fnc_logRPT;
+		[format ["supplies for east : %1", [east] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["supplies for east : %1", [independent] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["supplies for east : %1", [west] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+
 		[] spawn GDGM_fnc_nodeGarbageCollector;
 		[] call GDGM_fnc_tickFrontlineSupplies;
 		[] call GDGM_fnc_tickSupply;
+
+		[format ["situation after supply tick"]] call GDGM_fnc_logRPT;
+		[format ["supplies for east : %1", [east] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["supplies for east : %1", [independent] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["supplies for east : %1", [west] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
 
 		if(typeName _x == "SIDE") then {
 			//side tick
@@ -45,6 +59,8 @@ while {true} do {
 			[_x] spawn GDGM_fnc_divisionTick;
 		};
 
+		[format ["supplies after turn for %1 : %2", str _x, [_x] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["reserves after turn for %1 : %2", str _x, [_x] call GDGM_fnc_getReserves]] call GDGM_fnc_logRPT;
 
 		sleep (GDGM_timeBetweenAITicks);	
 		// sleep 5;	

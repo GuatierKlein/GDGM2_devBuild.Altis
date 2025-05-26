@@ -8,6 +8,8 @@ private _reserves = [_side] call GDGM_fnc_getReserves;
 private _maxRatio = 0;
 private _maxNode = objNull;
 
+[format ["supplies for %1 after regarri: %2", str _side, [_side] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+
 //find best BG
 private _bestChoiceBG = [_side] call GDGM_fnc_findBestBG;
 

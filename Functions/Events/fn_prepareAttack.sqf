@@ -1,5 +1,7 @@
 params["_side","_nodeFrom","_nodeTo","_garrisonStrength","_bg","_cost","_reserveCost","_combatPower", ["_isDivison", false], ["_divisionName", ""]];
 
+[format ["%1 attacks with %2 supplies and %2 reserves", str _side, str _cost, str _reserveCost]] call GDGM_fnc_logRPT;
+
 //create task
 private _title = ([_side] call GDGM_fnc_getFactionName) + " is attacking " + (_nodeTo getVariable "GDGM_name");
 private _desc = ([daytime, "HH:MM"] call BIS_fnc_timeToString) + ", " + ([_side] call GDGM_fnc_getFactionName) + " is attacking " + (_nodeTo getVariable "GDGM_name") + " from " + (_nodeFrom getVariable "GDGM_name") + ". ";

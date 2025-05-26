@@ -134,6 +134,7 @@ class CfgFunctions
 			class getSkipTurnSupply {};
 			class setSkipTurnSupply {};
 			class setSavedPlayerKit {};
+			class logRPT {};
 		};
 		class Events
 		{
