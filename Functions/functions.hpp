@@ -140,6 +140,7 @@ class CfgFunctions
 			class setSkipTurnSupply {};
 			class setSavedPlayerKit {};
 			class logRPT {};
+			class getIRLTime {};
 		};
 		class Events
 		{
