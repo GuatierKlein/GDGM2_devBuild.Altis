@@ -14,6 +14,8 @@ private _deployedReserves = [] call GDGM_fnc_getDeployedReservesPoints;
 	_pointsSave pushBack ([[_x] call GDGM_fnc_getPoints, _reserves + _currentDeployedReserves, (_deployedReserves select 3) select _forEachIndex]);	
 } forEach [east, west, independent];
 
+_pointsSave pushBack [GDGM_player_supplies, GDGM_player_reserves, GDGM_player_vehReserves];
+
 //commander style
 {
 	_commanderSave pushBack ([_x] call GDGM_fnc_getCommanderStyle);	
@@ -57,3 +59,6 @@ _save = [_pointsSave, _nodeSave, _commanderSave, GDGM_builtObjectsSave, _divisio
 profileNamespace setVariable [missionName, _save];
 saveProfileNamespace;
 "Gamed saved!" remoteExec ["systemChat",0];
+
+//log save 
+[format ["Game saved with %1", str _save]] call GDGM_fnc_logRPT;

@@ -65,6 +65,12 @@ if(GDGM_init_type == 1) then {
 	GDGM_OPFOR_vehReserves = (_points select 0) select 2;
 	GDGM_BLUFOR_vehReserves = (_points select 1) select 2;
 	GDGM_IND_vehReserves = (_points select 2) select 2;
+	//player points 
+	if(count _points > 3) then {
+		GDGM_player_supplies = (_points select 3) select 0;
+		GDGM_player_reserves = (_points select 3) select 1;
+		GDGM_player_vehReserves = (_points select 3) select 2;
+	};
 	//set commanders
 	private _commanders = _save select 2;
 	GDGM_OPFOR_commanderStyle = _commanders select 0;
