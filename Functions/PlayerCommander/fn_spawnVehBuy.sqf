@@ -58,6 +58,10 @@ _data params [
     "_player_vehReserves"
 ];
 
+_trucksPool = GDGM_PLAYERS_transports + GDGM_PLAYERS_lightArmedVeh; 
+_APCPool = GDGM_PLAYERS_heavyArmedVeh; 
+_tankPool = GDGM_PLAYERS_tanks;
+
 if(_veh in _trucksPool) then {
 	//truck
 	_okBuy = (_BLUFOR_vehReserves select 0) + (_player_vehReserves select 0) > 0;
