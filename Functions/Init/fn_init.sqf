@@ -39,22 +39,6 @@ GDGM_divIndex = 0;
 GDGM_customLocationsPositions = [];
 GDGM_savedUserKitHashMap = createHashMap;
 
-//logi data 
-missionNamespace setVariable ["GDGM_logiData", [
-    GDGM_OPFOR_supplies,
-    GDGM_IND_supplies,
-    GDGM_BLUFOR_supplies,
-    GDGM_OPFOR_reserves,
-    GDGM_IND_reserves,
-    GDGM_BLUFOR_reserves,
-    GDGM_player_supplies,
-    GDGM_player_reserves,
-    GDGM_OPFOR_vehReserves,
-    GDGM_IND_vehReserves,
-    GDGM_BLUFOR_vehReserves,
-	GDGM_player_vehReserves
-]];
-
 waitUntil { GDGM_init_type != -1 };
 // "LeadTrack01c_F" remoteExec["playMusic",0];
 
@@ -105,6 +89,22 @@ if(GDGM_init_type == 1) then {
 	[_save select 4] call GDGM_fnc_initDivisions;
 	[_save select 1] call GDGM_fnc_graph;
 };
+
+//logi data 
+missionNamespace setVariable ["GDGM_logiData", [
+    GDGM_OPFOR_supplies,
+    GDGM_IND_supplies,
+    GDGM_BLUFOR_supplies,
+    GDGM_OPFOR_reserves,
+    GDGM_IND_reserves,
+    GDGM_BLUFOR_reserves,
+    GDGM_player_supplies,
+    GDGM_player_reserves,
+    GDGM_OPFOR_vehReserves,
+    GDGM_IND_vehReserves,
+    GDGM_BLUFOR_vehReserves,
+	GDGM_player_vehReserves
+]];
 
 [] call GDGM_fnc_Planes;
 [] call GDGM_fnc_initCommanders;
