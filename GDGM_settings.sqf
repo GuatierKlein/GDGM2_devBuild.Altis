@@ -211,7 +211,7 @@ GDGM_IND_patrolBoats = [];
 
 //players pool  
 GDGM_PLAYERS_transports = [
-
+"B_MRAP_01_F"
 ];
 GDGM_PLAYERS_lightArmedVeh = [
 
@@ -226,7 +226,7 @@ GDGM_PLAYERS_CASPlanes = [
 
 ];
 GDGM_PLAYERS_FighterPlanes = [
-
+"B_Plane_Fighter_01_F"
 ];
 
 //music 
