@@ -41,3 +41,5 @@ if(typeName _side == "SIDE") then {
 		// _division set ["supplies", (0 max (( _division get "supplies") + _points)) min GDGM_maxSupply];
 	};
 };
+
+call GDGM_fnc_updateLogiData;

@@ -29,7 +29,4 @@ if(typeName _side == "SIDE") then {
 	};
 };
 
-
-
-
-
+call GDGM_fnc_updateLogiData;
