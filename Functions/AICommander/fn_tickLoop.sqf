@@ -40,10 +40,10 @@ while {true} do {
 			//side tick
 			if(_x == GDGM_playerSide) then {
 				// Player side, add player income share
-				["player", [_x] call GDGM_fnc_getReservesPerTurn * GDGM_player_incomeShare] call GDGM_fnc_addReserves;
-				["player", [_x] call GDGM_fnc_getVehReservesPerTurn * GDGM_player_incomeShare] call GDGM_fnc_addVehReserves;
-				[_x, [_x] call GDGM_fnc_getReservesPerTurn * (1 - GDGM_player_incomeShare)] call GDGM_fnc_addReserves;
-				[_x, [_x] call GDGM_fnc_getVehReservesPerTurn * (1 - GDGM_player_incomeShare)] call GDGM_fnc_addVehReserves;
+				["player", ([_x] call GDGM_fnc_getReservesPerTurn) * GDGM_player_incomeShare] call GDGM_fnc_addReserves;
+				["player", ([_x] call GDGM_fnc_getVehReservesPerTurn) vectorMultiply GDGM_player_incomeShare] call GDGM_fnc_addVehReserves;
+				[_x, ([_x] call GDGM_fnc_getReservesPerTurn) * (1 - GDGM_player_incomeShare)] call GDGM_fnc_addReserves;
+				[_x, ([_x] call GDGM_fnc_getVehReservesPerTurn) vectorMultiply (1 - GDGM_player_incomeShare)] call GDGM_fnc_addVehReserves;
 			} else {
 				[_x, [_x] call GDGM_fnc_getReservesPerTurn] call GDGM_fnc_addReserves;
 				[_x, [_x] call GDGM_fnc_getVehReservesPerTurn] call GDGM_fnc_addVehReserves;
