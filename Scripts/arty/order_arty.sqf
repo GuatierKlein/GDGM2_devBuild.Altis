@@ -12,13 +12,14 @@ switch (side player) do {
 };
 
 private _availablePoints = [missionNamespace, _varName, 0] call BIS_fnc_getServerVariable;
+private _availablePointsPlayer = [missionNamespace, "GDGM_player_supplies", 0] call BIS_fnc_getServerVariable;
 
-if(_availablePoints + _cost < 0) exitWith {
+if(_availablePoints + _availablePointsPlayer + _cost < 0) exitWith {
 	hint "Pas assez de points logistiques";
 };
 
 //supply cost
-[str (side player), _cost] remoteExec["GDGM_fnc_addPointsString", 2];
+["player", _cost] remoteExec["GDGM_fnc_addPoints", 2];
 
 //recup la pos grid
 _x_coord = ctrlText 040512;

@@ -18,18 +18,18 @@ private _type = typeOf _veh;
 
 if(_type in _trucksPool) then {
 	//truck
-	[_objSide, [1,0,0,0,0]] call GDGM_fnc_addVehReserves;
+	["player", [1,0,0,0,0]] call GDGM_fnc_addVehReserves;
 } else {
 	if(_type in _APCPool) then {
 		//apc
-		[_objSide, [0,1,0,0,0]] call GDGM_fnc_addVehReserves;
+		["player", [0,1,0,0,0]] call GDGM_fnc_addVehReserves;
 	} else {
 		if(_type in _tankPool) then {
 			//tank
-			[_objSide, [0,0,1,0,0]] call GDGM_fnc_addVehReserves;
+			["player", [0,0,1,0,0]] call GDGM_fnc_addVehReserves;
 		} else {
 			//plane
-			[_objSide, [0,0,0,0,1]] call GDGM_fnc_addVehReserves;
+			["player", [0,0,0,0,1]] call GDGM_fnc_addVehReserves;
 		};
 	};
 };

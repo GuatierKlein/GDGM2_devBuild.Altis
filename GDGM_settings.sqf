@@ -73,6 +73,14 @@ GDGM_maxHeliRaidNb = 1;
 GDGM_threatLevelCoef = 1; //ajout 0.1 * GDGM_threatLevelCoef to threat when man killed by plane
 GDGM_airResponseCoef = 1;
 
+//player logistics
+GDGM_player_maxSupply = 600;
+GDGM_player_maxReserves = 400;
+GDGM_player_supplies = 100;
+GDGM_player_reserves = 100;
+GDGM_player_incomeShare = 0.2; //how much of the income the player gets, 0.5 = 50% of the income
+GDGM_player_vehReserves = [10, 0, 0, 0, 0]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
+
 //OPFOR logistics
 GDGM_OPFOR_supplies = 100;
 GDGM_OPFOR_reserves = 200;
@@ -203,7 +211,7 @@ GDGM_IND_patrolBoats = [];
 
 //players pool  
 GDGM_PLAYERS_transports = [
-
+"B_MRAP_01_F"
 ];
 GDGM_PLAYERS_lightArmedVeh = [
 
@@ -218,7 +226,7 @@ GDGM_PLAYERS_CASPlanes = [
 
 ];
 GDGM_PLAYERS_FighterPlanes = [
-
+"B_Plane_Fighter_01_F"
 ];
 
 //music 

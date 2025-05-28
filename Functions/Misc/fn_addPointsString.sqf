@@ -23,3 +23,5 @@ switch (_side) do {
 		}; 
 	};
 };
+
+call GDGM_fnc_updateLogiData;

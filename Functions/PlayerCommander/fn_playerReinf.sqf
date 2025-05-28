@@ -6,12 +6,12 @@ private _side = side _player;
 //find close nodes 
 //if none in 2km radius, send heli 
 //serverside
-if([_side] call GDGM_fnc_getPoints < 10) exitWith {"Not enough logistic points" remoteExec ["systemChat",0]};
-if([_side] call GDGM_fnc_getReserves < 7) exitWith {"Not enough reserves" remoteExec ["systemChat",0]};
+if(([_side] call GDGM_fnc_getPoints) + GDGM_player_supplies < 10) exitWith {"Not enough logistic points" remoteExec ["systemChat",0]};
+if(([_side] call GDGM_fnc_getReserves) + GDGM_player_reserves < 7) exitWith {"Not enough reserves" remoteExec ["systemChat",0]};
 
 player sideRadio "radio_reinf_request";
 
-[_side, -10] spawn GDGM_fnc_addPoints;
+["player", -10] spawn GDGM_fnc_addPoints;
 
 private _eligibleNodes = [];
 private _closestNode = [_pos, _side] call GDGM_fnc_findClosestSidedNode;
@@ -106,7 +106,7 @@ if(count _nearbyRoads != 0) then {
 			params ["_unit", "_killer", "_instigator", "_useEffects"];
 			if(!isServer) exitWith {};
 
-			[_unit getVariable "GDGM_owner", -1] call GDGM_fnc_addReserves;
+			["player", -1] call GDGM_fnc_addReserves;
 		}];	
 		sleep 0.5;
 	};

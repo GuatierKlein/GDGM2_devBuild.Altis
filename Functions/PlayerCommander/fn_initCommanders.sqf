@@ -155,6 +155,22 @@ private _side = [west,east,independent];
 			""			// memoryPoint
 	]] remoteExec ["addAction",0,true];
 		[_unit,
+		["<t color='#FFFFFF' size='1.1'><img image='\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\rifle_ca.paa'></img><t color='#ffd700' size='1.1' font='PuristaBold'> Change player share",	
+			{					
+				[] spawn GDGM_fnc_openPlayerShareMenu;
+			},
+			nil,		// arguments
+			6,		// priority
+			true,		// showWindow
+			true,		// hideOnUse
+			"",			// shortcut
+			"", 	// condition
+			3,			// radius
+			false,		// unconscious
+			"",			// selection
+			""			// memoryPoint
+	]] remoteExec ["addAction",0,true];
+		[_unit,
 		["<t color='#FFFFFF' size='1.1'><img image='\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\rifle_ca.paa'></img><t color='#ffd700' size='1.1' font='PuristaBold'> DEBUG MENU (do not use)",	
 			{					
 				createDialog "adminMenu";

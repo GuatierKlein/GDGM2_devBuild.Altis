@@ -3,8 +3,8 @@ params["_pos","_side","_unit"];
 //find close nodes 
 //if none in 2km radius, send heli 
 //serverside
-if([_side] call GDGM_fnc_getPoints < 10) exitWith {"Not enough points" remoteExec ["systemChat",0]};
-[_side, -10] spawn GDGM_fnc_addPoints;
+if(([_side] call GDGM_fnc_getPoints) + GDGM_player_supplies < 10) exitWith {"Not enough points" remoteExec ["systemChat",0]};
+["player", -10] spawn GDGM_fnc_addPoints;
 
 private _eligibleNodes = [];
 private _closeNodes = [_pos, 2500] call GDGM_fnc_findCLoseNodes;

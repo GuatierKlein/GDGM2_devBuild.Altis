@@ -20,8 +20,9 @@ BAR_fnc_setKit = {
 	
 	private _cost = _kit getVariable ["GDGM_kitCost", 0];
 	private _availablePoints = [missionNamespace, _varName, 0] call BIS_fnc_getServerVariable;
+	private _availablePointsPlayer = [missionNamespace, "GDGM_player_supplies", 0] call BIS_fnc_getServerVariable;
 
-	if(_cost != 0 && _availablePoints - _cost < 0) exitWith {
+	if(_cost != 0 && _availablePoints + _availablePointsPlayer - _cost < 0) exitWith {
 		_res;
 	};
 
@@ -31,7 +32,7 @@ BAR_fnc_setKit = {
 
 	//supply cost
 	if(_cost != 0) then {
-		[str (side player), -_cost] remoteExec["GDGM_fnc_addPointsString", 2];
+		["player", -_cost] remoteExec["GDGM_fnc_addPoints", 2];
 	};
 	_res = true;
 	_res;

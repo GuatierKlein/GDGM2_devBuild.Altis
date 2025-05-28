@@ -6,7 +6,7 @@ private _msg = (name _oldUnit) + " was killed by " + (name _killer) + ", removin
 _msg remoteExec ["systemChat",0];
 
 //reserves
-[_side, -1] remoteExec ["GDGM_fnc_addReserves", 2];
+["player", -1] remoteExec ["GDGM_fnc_addReserves", 2];
 
 //killer morale buff 
 if(side _killer != _side) then {
