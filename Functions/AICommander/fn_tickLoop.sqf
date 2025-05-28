@@ -33,8 +33,8 @@ while {true} do {
 
 		[format ["situation after supply tick"]] call GDGM_fnc_logRPT;
 		[format ["supplies for east : %1", [east] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
-		[format ["supplies for east : %1", [independent] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
-		[format ["supplies for east : %1", [west] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["supplies for ind : %1", [independent] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
+		[format ["supplies for west : %1", [west] call GDGM_fnc_getPoints]] call GDGM_fnc_logRPT;
 
 		if(typeName _x == "SIDE") then {
 			//side tick
