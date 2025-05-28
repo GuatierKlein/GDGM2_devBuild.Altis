@@ -226,6 +226,7 @@ class CfgFunctions
 			class removeAO {};
 			class capture {};
 			class captureToGarage {};
+			class updateLogiData {};
 		};
 		class Raids {
 			class generateRaid {};
