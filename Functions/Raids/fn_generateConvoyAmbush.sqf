@@ -38,7 +38,7 @@ for [{private _i = 0}, {_i < _nbVehicles}, {_i = _i + 1}] do {
 
 //create task
 private _title = str _attackingSide + ": convoy ambush at " + (_node getVariable "GDGM_name");
-private _desc = ([daytime, "HH:MM"] call BIS_fnc_timeToString) + ", " + str _attackingSide + " commander wants you to ambush an ennemy convoy going from " + (_node getVariable "GDGM_name") + " to " + (_toNode getVariable "GDGM_name") + ". This objective will be available during 1 hour.";
+private _desc = ([daytime, "HH:MM"] call BIS_fnc_timeToString) + ", " + str _attackingSide + " commander wants you to ambush an ennemy convoy going from " + (_node getVariable "GDGM_name") + " to " + (_toNode getVariable "GDGM_name") + ". This objective will be available until" + [1] call GDGM_fnc_getIRLTime;
 private _taskId = str _attackingSide + str _node + str _toNode + str dayTime;
 
 [_attackingSide, _taskId, [_desc, _title, ""], _pos, "CREATED", -1, true] call BIS_fnc_taskCreate;

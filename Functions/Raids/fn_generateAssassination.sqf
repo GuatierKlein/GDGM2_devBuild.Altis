@@ -5,7 +5,7 @@ private _waitTime = 3600;
 
 //create task
 private _title = str _attackingSide + ": kill the officer at " + (_node getVariable "GDGM_name");
-private _desc = ([daytime, "HH:MM"] call BIS_fnc_timeToString) + ", " + str _attackingSide + " commander wants you to kill an ennemy officer in " + (_node getVariable "GDGM_name") + ". This objective will be available during 1 hour.";
+private _desc = ([daytime, "HH:MM"] call BIS_fnc_timeToString) + ", " + str _attackingSide + " commander wants you to kill an ennemy officer in " + (_node getVariable "GDGM_name") + ". This objective will be available until" + [1] call GDGM_fnc_getIRLTime;
 private _taskId = str _attackingSide + str _node + str dayTime;
 
 [_attackingSide, _taskId, [_desc, _title, ""], _pos, "CREATED", -1, true] call BIS_fnc_taskCreate;
