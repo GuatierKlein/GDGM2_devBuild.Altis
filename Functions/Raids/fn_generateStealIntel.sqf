@@ -5,7 +5,7 @@ private _waitTime = 3600;
 
 //create task
 private _title = str _attackingSide + ": steal intel at " + (_node getVariable "GDGM_name");
-private _desc = ([daytime, "HH:MM"] call BIS_fnc_timeToString) + ", " + str _attackingSide + " commander wants you to steal important documents in " + (_node getVariable "GDGM_name") + ". The documents look like a briefcase. This objective will be available until" + [1] call GDGM_fnc_getIRLTime;
+private _desc = ([daytime, "HH:MM"] call BIS_fnc_timeToString) + ", " + str _attackingSide + " commander wants you to steal important documents in " + (_node getVariable "GDGM_name") + ". The documents look like a briefcase. This objective will be available until " + ([1] call GDGM_fnc_getIRLTime);
 private _taskId = str _attackingSide + str _node + str dayTime;
 
 [_attackingSide, _taskId, [_desc, _title, ""], _pos, "CREATED", -1, true] call BIS_fnc_taskCreate;
