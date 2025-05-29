@@ -110,6 +110,7 @@ if(GDGM_init_type == 1) then {
 [] call GDGM_fnc_Planes;
 [] call GDGM_fnc_initCommanders;
 [] call GDGM_fnc_generateStartIntel;
+[] call GDGM_fnc_initCustomAA;
 "Loading complete!" remoteExec ["systemChat",0];
 
 [] spawn GDGM_fnc_tickLoop;

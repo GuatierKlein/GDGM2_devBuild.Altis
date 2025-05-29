@@ -81,6 +81,8 @@ class CfgFunctions
 			class spawnRoadBlocks {};
 			class callBackInsta {};
 			class spawnWaterPatrol {};
+			class initCustomAA {};
+			class spawnCustomAA {};
 		};
 		class Misc
 		{

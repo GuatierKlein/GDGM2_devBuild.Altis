@@ -348,3 +348,9 @@ GDGM_allDivisionModels set [_div1 select 0, _div1];
 GDGM_airports = [
 	GDGM_airport
 ];
+
+//custom AA pos  
+GDGM_customAAPositions = [
+	GDGM_aa_1,
+	GDGM_aa_2
+];
