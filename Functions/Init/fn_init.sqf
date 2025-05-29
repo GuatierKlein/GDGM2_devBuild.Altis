@@ -4,6 +4,7 @@ GDGM_allNodes = [];
 GDGM_strategicNodes = []; //only civilian nodes
 GDGM_supplyNodes = []; //only supply nodes
 GDGM_entryNodes = [];
+GDGM_airportNodes = [];
 GDGM_allSquares = [];
 GDGM_allFortif = [];
 GDGM_allWaterFortif = [];
@@ -115,10 +116,12 @@ missionNamespace setVariable ["GDGM_logiData", [
 [] call GDGM_fnc_Planes;
 [] call GDGM_fnc_initCommanders;
 [] call GDGM_fnc_generateStartIntel;
+[] call GDGM_fnc_initCustomAA;
 "Loading complete!" remoteExec ["systemChat",0];
 
 [] spawn GDGM_fnc_tickLoop;
 [] spawn GDGM_fnc_raidLoop;
 [] spawn GDGM_fnc_ambientMusic;
 [] spawn GDGM_fnc_daySpeedLoop;
+[] spawn GDGM_fnc_initAirports;
 

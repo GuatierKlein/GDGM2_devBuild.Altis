@@ -1,5 +1,5 @@
 //parameters
-GDGM_init_type = 2; //1 = create, 2 = load, -1 = wait
+GDGM_init_type = 1; //1 = create, 2 = load, -1 = wait
 GDGM_playerSide = west;
 GDGM_spawnDistance = 1500;
 GDGM_YAxisSpawnDistance = 500;
@@ -64,6 +64,13 @@ GDGM_maxSupply = 600;
 GDGM_maxReserves = 400;
 GDGM_strategicNodesRevenue = 2;
 GDGM_maxVehStockpiles = [50, 25, 10, 5, 5];
+
+//airport
+GDGM_airport_enable = true; //enable airports
+GDGM_airport_timeBtwnPlane = [1000, 1500, 3000]; //min, mean, max
+GDGM_airport_planeSupplyRevenue = 50; //how much the player gets when a plane lands at an airport
+GDGM_airport_planeReservesRevenue = 25; //how much the player gets when a plane lands at an airport
+GDGM_airport_displayLandingNotif = true; //display a notification when a plane lands at an airport
 
 //plane mode 
 GDGM_enablePlaneMode = true;
@@ -158,6 +165,7 @@ GDGM_OPFOR_CASPlanes = ["O_Plane_CAS_02_dynamicLoadout_F"];
 GDGM_OPFOR_FighterPlanes = ["O_Plane_Fighter_02_F"];
 GDGM_OPFOR_AA = ["B_HMG_01_high_F"];
 GDGM_OPFOR_patrolBoats = [];
+GDGM_OPFOR_transportPlanes = [];
 
 //BLUFOR loadouts
 GDGM_BLUFOR_rifleDummies = [loadout_blufor];
@@ -183,6 +191,7 @@ GDGM_BLUFOR_CASPlanes = ["B_Plane_CAS_01_dynamicLoadout_F"];
 GDGM_BLUFOR_FighterPlanes = ["B_Plane_Fighter_01_F"];
 GDGM_BLUFOR_AA = ["B_HMG_01_high_F"];
 GDGM_BLUFOR_patrolBoats = [];
+GDGM_BLUFOR_transportPlanes = ["C_Plane_Civil_01_F"];
 
 //INDEPENDANTS loadouts
 GDGM_IND_rifleDummies = [];
@@ -208,6 +217,7 @@ GDGM_IND_CASPlanes = [];
 GDGM_IND_FighterPlanes = [];
 GDGM_IND_AA = [];
 GDGM_IND_patrolBoats = [];
+GDGM_IND_transportPlanes = [];
 
 //players pool  
 GDGM_PLAYERS_transports = [
@@ -333,3 +343,14 @@ private _div1 = [
 
 GDGM_OPFOR_divisionsModels pushBack _div1;
 GDGM_allDivisionModels set [_div1 select 0, _div1];
+
+//airports 
+GDGM_airports = [
+	GDGM_airport
+];
+
+//custom AA pos  
+GDGM_customAAPositions = [
+	GDGM_aa_1,
+	GDGM_aa_2
+];

@@ -9,6 +9,7 @@ class CfgFunctions
 		class Graph
 		{
 			class cityNode {};
+			class airportNode {};
 			class nodeMarker {};
 			class graph {};
 			class addNodeConnection {};
@@ -53,6 +54,7 @@ class CfgFunctions
 			class callBackPatrols {};
 			class FOBNode {};
 			class spawnFOBNode {};
+			class spawnAirport {};
 		};
 		class Square
 		{
@@ -79,6 +81,8 @@ class CfgFunctions
 			class spawnRoadBlocks {};
 			class callBackInsta {};
 			class spawnWaterPatrol {};
+			class initCustomAA {};
+			class spawnCustomAA {};
 		};
 		class Misc
 		{
@@ -323,6 +327,11 @@ class CfgFunctions
 			class division {};
 			class getAttackDivisions {};
 			class initDivisions {};
+		}
+
+		class SupplyHubs {
+			class initAirports {};
+			class simulateAirport {};
 		}
 	};
 };
