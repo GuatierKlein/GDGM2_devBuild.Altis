@@ -54,6 +54,7 @@ class CfgFunctions
 			class callBackPatrols {};
 			class FOBNode {};
 			class spawnFOBNode {};
+			class spawnAirport {};
 		};
 		class Square
 		{

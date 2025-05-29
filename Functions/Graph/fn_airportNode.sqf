@@ -64,7 +64,7 @@ _trg setTriggerArea [GDGM_spawnDistance, GDGM_spawnDistance, 0, false, GDGM_YAxi
 _trg setTriggerActivation ["ANYPLAYER", "PRESENT", true]; 
 _trg setTriggerTimeout [3,3,3,false];
 _trg setTriggerStatements ["(this && [thisTrigger, thisList] call GDGM_fnc_spawnNodeCondition) || [thisTrigger, thisList] call GDGM_fnc_spawnNodeConditionPrio", "
-	if (isServer) then {[thisTrigger getVariable 'GDGM_installation'] spawn GDGM_fnc_spawnNode};
+	if (isServer) then {[thisTrigger getVariable 'GDGM_installation'] spawn GDGM_fnc_spawnAirport};
 ", "
 	if (isServer) then {[thisTrigger getVariable 'GDGM_installation'] spawn GDGM_fnc_despawnNode};
 "];
