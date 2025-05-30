@@ -61,7 +61,7 @@ if(isNil "_save") then {
 			_destruction = _x select 4;
 		};
 
-		if(!_pos inArea "GDGM_AO") then {
+		if(!(_pos inArea "GDGM_AO")) then {
 			continue;
 		};
 
