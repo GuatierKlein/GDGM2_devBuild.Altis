@@ -212,7 +212,7 @@ for [{private _i = 0}, {_i < _numberOfPatrols}, {_i = _i + 1}] do {
 [_tmpArray, _node] spawn GDGM_fnc_garriEH;
 
 //vehicles
-if(!(_owner == GDGM_reducedSide && GDGM_reducedSideLimitedSpawn)) then {
+if(!(_owner == GDGM_reducedSide && GDGM_reducedSideLimitedSpawn && isMultiplayer)) then {
 	private _nearbyRoads = [_pos select 0, _pos select 1] nearRoads 250;
 	if(count _nearbyRoads != 0) then {
 		private _road = selectRandom _nearbyRoads;

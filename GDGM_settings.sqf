@@ -29,14 +29,15 @@ GDGM_independentName = "INDFOR";
 GDGM_eastName = "OPFOR";
 GDGM_westName = "BLUFOR";
 GDGM_reducedSide = GDGM_playerSide; 
-GDGM_reducedSideOnlySpawnAttacks = false; // reduced side will only spawn when under attack
-GDGM_reducedSideLimitedSpawn = false; // limit spawn for reduced side
+GDGM_reducedSideOnlySpawnAttacks = false; // reduced side will only spawn when under attack, always true for singleplayer
+GDGM_reducedSideLimitedSpawn = false; // limit spawn for reduced side, always true for singleplayer
 GDGM_civilianAlreadySpawnedNodeMax = 1;
 GDGM_attackForceSpawnTime = 20; // temps que dure une attaque
 GDGM_waterPatrolProba = 0;
-GDGM_maxBGReserve = 60; //max bg size allowed
+GDGM_maxBGReserve = 60; //max bg size allowed, affected by GDGM_singlePlayerGarriCoef
 GDGM_introCamLeftSide = GDGM_playerSide;
 GDGM_introCamRightSide = east;
+GDGM_singlePlayerGarriCoef = 0.66; //coef of max garry when playing singleplayer, also affects fortifs
 
 //attacks
 GDGM_artyFortif = true;
