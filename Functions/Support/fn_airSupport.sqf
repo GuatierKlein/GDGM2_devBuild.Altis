@@ -37,6 +37,10 @@ switch (_type) do {
 		//spawn fighter plane
 		[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnFighterPlane;
 	};
+	case "helo": {
+		//spawn helo
+		[_corridorPos, _grp, _side, _tempArray] spawn GDGM_fnc_spawnHelo;
+	};
 };
 
 [_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves; //reserve points
@@ -46,14 +50,6 @@ _wp setWaypointType "SAD";
 _wp setWaypointBehaviour "AWARE";
 _wp setwaypointcombatmode "RED"; 
 
-private _markerName = ("GDGM_airSupportMarker_" + str _side);
-
-if(_playerLed) then {
-	//mark with marker 
-	_marker_object = createMarker [_markerName, _corridorPos];
-	_marker_object setMarkerType "b_plane";
-};
-
 sleep 30; //wait for plane to spawn
 
 private _time = 0;
@@ -62,15 +58,6 @@ private _leader = leader _grp;
 while {_time <= _duration && alive _leader} do {
 	sleep 10;
 	_time = _time + 10;
-
-	if(_playerLed) then {
-		//update marker position
-		_markerName setMarkerPos (getPosASL _leader);
-	};
-};
-
-if(_playerLed) then {
-	deleteMarker _markerName;
 };
 
 //delete waypoints
