@@ -6,15 +6,15 @@ private _crewPool = [];
 private _baseUnit = [];
 private _reservePoints = ([_side] call GDGM_fnc_getVehReserves) select 4;
 
-if(_reservePoints < 1) exitWith { systemChat ("GDGM: No fighter planes available for " + str _side); };
+if(_reservePoints < 1) exitWith { systemChat ("GDGM: No cas planes available for " + str _side); };
 
 switch (_side) do {
-	case east: {_pos = getMarkerPos "GDGM_OPFOR_airCorridor"; _spawnPool = GDGM_OPFOR_FighterPlanes; _crewPool = GDGM_OPFOR_CrewDummies; _baseUnit = GDGM_OPFOR_baseUnit};
-	case west: {_pos = getMarkerPos "GDGM_BLUFOR_airCorridor"; _spawnPool = GDGM_BLUFOR_FighterPlanes; _crewPool = GDGM_BLUFOR_CrewDummies; _baseUnit = GDGM_BLUFOR_baseUnit};
-	case independent: {_pos = getMarkerPos "GDGM_IND_airCorridor"; _spawnPool = GDGM_IND_FighterPlanes; _crewPool = GDGM_IND_CrewDummies; _baseUnit = GDGM_IND_baseUnit};
+	case east: {_pos = getMarkerPos "GDGM_OPFOR_airCorridor"; _spawnPool = GDGM_OPFOR_CasPlanes; _crewPool = GDGM_OPFOR_CrewDummies; _baseUnit = GDGM_OPFOR_baseUnit};
+	case west: {_pos = getMarkerPos "GDGM_BLUFOR_airCorridor"; _spawnPool = GDGM_BLUFOR_CasPlanes; _crewPool = GDGM_BLUFOR_CrewDummies; _baseUnit = GDGM_BLUFOR_baseUnit};
+	case independent: {_pos = getMarkerPos "GDGM_IND_airCorridor"; _spawnPool = GDGM_IND_CasPlanes; _crewPool = GDGM_IND_CrewDummies; _baseUnit = GDGM_IND_baseUnit};
 };
 
-if(count _spawnPool == 0) exitWith { systemChat ("GDGM: No fighter planes available for " + str _side); };
+if(count _spawnPool == 0) exitWith { systemChat ("GDGM: No cas planes available for " + str _side); };
 
 _pos = AGLToASL _pos;
 _pos = _pos vectorAdd [0,0,200];

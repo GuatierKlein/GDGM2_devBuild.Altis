@@ -105,6 +105,7 @@ class CfgFunctions
 			class spawnHeloTransport {};
 			class spawnLightArmedVeh {};
 			class spawnFighterPlane {};
+			class spawnCasPlane {};
 			class spawnBoat {};
 			class getOutScanner {};
 			class addPoints {};
@@ -163,6 +164,7 @@ class CfgFunctions
 			class fireSupportFlares {};
 			class supportChooser {};
 			class airStrike {};
+			class airSupport {};
 		};
 		class EventHandlers
 		{

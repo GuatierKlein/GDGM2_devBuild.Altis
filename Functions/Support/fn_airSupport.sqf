@@ -1,0 +1,105 @@
+params ["_pos", "_side", "_type", ["_duration", 300], ["_playerLed", false]];
+
+private _reserves = 0;
+private _corridorPos = [];
+private _casIsFree = false;
+
+switch (_side) do {
+	case east: { _reserves = GDGM_OPFOR_vehReserves select 4; _corridorPos = getMarkerPos "GDGM_OPFOR_airCorridor"; _casIsFree = GDGM_isCASFree_east; };
+	case west: { _reserves = GDGM_BLUFOR_vehReserves select 4; _corridorPos = getMarkerPos "GDGM_BLUFOR_airCorridor"; _casIsFree = GDGM_isCASFree_west; };
+	case independent: {  _reserves = GDGM_IND_vehReserves select 4; _corridorPos = getMarkerPos "GDGM_IND_airCorridor"; _casIsFree = GDGM_isCASFree_ind; };
+};
+
+if (!_casIsFree) exitWith {
+	systemChat "GDGM: Air support is not available for " + str _side;
+};
+
+switch (_side) do {
+	case east: {GDGM_isCASFree_east = false};
+	case west: {GDGM_isCASFree_west = false};
+	case independent: {GDGM_isCASFree_ind = false};
+};
+
+//spend points
+// [_side, -_price] call GDGM_fnc_addPoints;
+
+//spawn helo
+private _grp = createGroup [_side ,true]; 
+private _tempArray = [];
+systemChat ("GDGM: Spawning air support for " +  str _side);
+
+switch (_type) do {
+	case "cas": {
+		//spawn CAS plane
+		[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnCasPlane;
+	} ;
+	case "fighter": {
+		//spawn fighter plane
+		[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnFighterPlane;
+	};
+};
+
+[_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves; //reserve points
+
+_wp = _grp addWaypoint [_pos, 150];
+_wp setWaypointType "SAD";
+_wp setWaypointBehaviour "AWARE";
+_wp setwaypointcombatmode "RED"; 
+
+private _markerName = ("GDGM_airSupportMarker_" + str _side);
+
+if(_playerLed) then {
+	//mark with marker 
+	_marker_object = createMarker [_markerName, _corridorPos];
+	_marker_object setMarkerType "b_plane";
+};
+
+sleep 30; //wait for plane to spawn
+
+private _time = 0;
+private _leader = leader _grp;
+
+while {_time <= _duration && alive _leader} do {
+	sleep 10;
+	_time = _time + 10;
+
+	if(_playerLed) then {
+		//update marker position
+		_markerName setMarkerPos (getPosASL _leader);
+	};
+};
+
+if(_playerLed) then {
+	deleteMarker _markerName;
+};
+
+//delete waypoints
+for "_i" from (count waypoints _grp - 1) to 0 step -1 do
+{
+	deleteWaypoint [_grp, _i];
+};
+
+systemChat ("GDGM: Air support for " + str _side + " completed.");
+
+if(alive _leader && vehicle _leader != _leader) then {
+	[_side, [0,0,0,0,1]] call GDGM_fnc_addVehReserves;
+};
+
+//helo RTB 
+_wp = _grp addWaypoint [_corridorPos, 0];
+_wp setWaypointType "MOVE";
+_wp setwaypointcombatmode "BLUE"; 
+_wp setWaypointBehaviour "CARELESS";
+_wp setWaypointStatements ["true", "
+	deleteVehicle vehicle this;
+	{ deleteVehicle _x } forEach units group this;
+"];
+
+_leader setBehaviour "CARELESS";
+_leader setCombatMode "BLUE";
+
+switch (_side) do {
+	case east: {GDGM_isCASFree_east = true};
+	case west: {GDGM_isCASFree_west = true};
+	case independent: {GDGM_isCASFree_ind = true};
+};
