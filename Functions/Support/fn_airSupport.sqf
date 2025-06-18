@@ -50,10 +50,22 @@ _wp setWaypointType "SAD";
 _wp setWaypointBehaviour "AWARE";
 _wp setwaypointcombatmode "RED"; 
 
-sleep 30; //wait for plane to spawn
+sleep 10; //wait for plane to spawn
 
 private _time = 0;
 private _leader = leader _grp;
+
+//waitunit plane distance is less than 1500m from position
+waitUntil  {
+	sleep 5;
+	_time = _time + 5;
+	//check distance
+	((getPosASL _leader) distance2D _pos) < 1500 || !alive _leader || _time > 300
+};
+
+systemChat ("GDGM: Air support for " + str _side + " arrived at position.");
+
+_time = 0;
 
 while {_time <= _duration && alive _leader} do {
 	sleep 10;
