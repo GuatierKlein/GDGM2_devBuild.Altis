@@ -42,9 +42,9 @@ GDGM_savedUserKitHashMap = createHashMap;
 
 //singleplayer 
 if(!isMultiplayer) then {
-	GDGM_smallTownGarri = GDGM_singlePlayerGarriCoef * GDGM_smallTownGarri;
-	GDGM_mediumTownGarri = GDGM_mediumTownGarri * GDGM_smallTownGarri;
-	GDGM_bigTownGarri = GDGM_bigTownGarri * GDGM_smallTownGarri;
+	GDGM_smallTownGarri = GDGM_smallTownGarri * GDGM_singlePlayerGarriCoef;
+	GDGM_mediumTownGarri = GDGM_mediumTownGarri * GDGM_singlePlayerGarriCoef;
+	GDGM_bigTownGarri = GDGM_bigTownGarri * GDGM_singlePlayerGarriCoef;
 	GDGM_reducedSideOnlySpawnAttacks = true; 
 	GDGM_reducedSideLimitedSpawn = true;
 	GDGM_maxBGReserve = GDGM_maxBGReserve * GDGM_singlePlayerGarriCoef;
