@@ -87,13 +87,13 @@ GDGM_player_maxReserves = 400;
 GDGM_player_supplies = 100;
 GDGM_player_reserves = 100;
 GDGM_player_incomeShare = 0.2; //how much of the income the player gets, 0.5 = 50% of the income
-GDGM_player_vehReserves = [10, 0, 0, 0, 0]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
+GDGM_player_vehReserves = [10, 0, 0, 0, 0]; //[trucks, apcs, tanks, helos, combat aircrafts]
 
 //OPFOR logistics
 GDGM_OPFOR_supplies = 100;
 GDGM_OPFOR_reserves = 200;
 GDGM_OPFOR_fixedReservesPerTurn = 50;
-GDGM_OPFOR_vehReserves = [30, 1, 1, 10, 2]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
+GDGM_OPFOR_vehReserves = [30, 1, 1, 10, 2]; //[trucks, apcs, tanks, helos, combat aircrafts]
 GDGM_OPFOR_vehReservesIncome = [5, 1, 0.25, 0.25, 0.25]; 
 GDGM_OPFOR_cowardice = 1;
 GDGM_OPFOR_moraleOffset = 0;
@@ -102,7 +102,7 @@ GDGM_OPFOR_skill = 0.35;
 GDGM_BLUFOR_supplies = 250;
 GDGM_BLUFOR_reserves = 200;
 GDGM_BLUFOR_fixedReservesPerTurn = 50;
-GDGM_BLUFOR_vehReserves = [20, 5, 0, 0, 10]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
+GDGM_BLUFOR_vehReserves = [20, 5, 0, 0, 10]; //[trucks, apcs, tanks, helos, combat aircrafts]
 GDGM_BLUFOR_vehReservesIncome = [5, 1, 0.25, 0.25, 0.25]; 
 GDGM_BLUFOR_cowardice = 0.5;
 GDGM_BLUFOR_moraleOffset = 0;
@@ -111,7 +111,7 @@ GDGM_BLUFOR_skill = 0.3;
 GDGM_IND_supplies = 0;
 GDGM_IND_reserves = 0;
 GDGM_IND_fixedReservesPerTurn = 0;
-GDGM_IND_vehReserves = [0, 0, 0, 0, 0]; //[trucks, apcs, tanks, transport helos, combat aircrafts]
+GDGM_IND_vehReserves = [0, 0, 0, 0, 0]; //[trucks, apcs, tanks, helos, combat aircrafts]
 GDGM_IND_vehReservesIncome = [0, 0, 0, 0, 0]; 
 GDGM_IND_cowardice = 1;
 GDGM_IND_moraleOffset = 0;
