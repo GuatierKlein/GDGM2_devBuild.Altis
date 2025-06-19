@@ -89,4 +89,48 @@ class CfgRadio
 		// radio caption
 		title	= "";
 	};
+	class radio_airsupport_request
+	{
+		// display name
+		name	= "radio_airsupport_request";
+
+		// filename, volume, pitch
+		sound[]	= { "\Sounds\Voices\airsupport_request.ogg", 1, 1.0 };
+
+		// radio caption
+		title	= "";
+	};
+		class radio_airsupport_standby
+	{
+		// display name
+		name	= "radio_airsupport_standby";
+
+		// filename, volume, pitch
+		sound[]	= { "\Sounds\Voices\airsupport_standby.ogg", 1, 1.0 };
+
+		// radio caption
+		title	= "";
+	};
+		class radio_airsupport_ok
+	{
+		// display name
+		name	= "radio_airsupport_ok";
+
+		// filename, volume, pitch
+		sound[]	= { "\Sounds\Voices\airsupport_ok.ogg", 1, 1.0 };
+
+		// radio caption
+		title	= "";
+	};
+		class radio_airsupport_denied
+	{
+		// display name
+		name	= "radio_airsupport_denied";
+
+		// filename, volume, pitch
+		sound[]	= { "\Sounds\Voices\airsupport_denied.ogg", 1, 1.0 };
+
+		// radio caption
+		title	= "";
+	};
 };
