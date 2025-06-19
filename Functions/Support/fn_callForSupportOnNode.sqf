@@ -12,8 +12,7 @@ switch (_side) do {
 
 if(count _vehPool == 0) exitWith {};
 
-
-[_pos, _side, 3] spawn GDGM_fnc_heliOnPos;
+[_pos, _side, "helo"] spawn GDGM_fnc_airSupport;
 
 // [_pos, _side] spawn GDGM_fnc_reinfHeliOnPos;
 

@@ -10,7 +10,7 @@ switch (_side) do {
 
 if(!_isArtyFree) exitWith {};
 
-private _cost = -5;
+private _cost = 0;
 private _stop = false;
 
 _availableSupplies = [_side] call GDGM_fnc_getPoints;
