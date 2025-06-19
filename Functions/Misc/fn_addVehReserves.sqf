@@ -1,4 +1,4 @@
-// _amount = nb of [trucks, apcs, tanks, transport helos, combat aircrafts]
+// _amount = nb of [trucks, apcs, tanks, helos, combat aircrafts]
 params["_side","_amount"];
 
 if(typeName _side == "SIDE") then { 

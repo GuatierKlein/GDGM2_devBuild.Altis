@@ -235,6 +235,8 @@ class CfgFunctions
 			class capture {};
 			class captureToGarage {};
 			class updateLogiData {};
+			class openCasMenu {};
+			class orderCas {};
 		};
 		class Raids {
 			class generateRaid {};

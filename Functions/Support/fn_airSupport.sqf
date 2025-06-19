@@ -1,17 +1,18 @@
 params ["_pos", "_side", "_type", ["_duration", 300], ["_playerLed", false]];
 
 private _reserves = 0;
+private _reservesHelo = 0;
 private _corridorPos = [];
 private _casIsFree = false;
 
 switch (_side) do {
-	case east: { _reserves = GDGM_OPFOR_vehReserves select 4; _corridorPos = getMarkerPos "GDGM_OPFOR_airCorridor"; _casIsFree = GDGM_isCASFree_east; };
-	case west: { _reserves = GDGM_BLUFOR_vehReserves select 4; _corridorPos = getMarkerPos "GDGM_BLUFOR_airCorridor"; _casIsFree = GDGM_isCASFree_west; };
-	case independent: {  _reserves = GDGM_IND_vehReserves select 4; _corridorPos = getMarkerPos "GDGM_IND_airCorridor"; _casIsFree = GDGM_isCASFree_ind; };
+	case east: { _reserves = GDGM_OPFOR_vehReserves select 4; _reservesHelo = GDGM_OPFOR_vehReserves select 3; _corridorPos = getMarkerPos "GDGM_OPFOR_airCorridor"; _casIsFree = GDGM_isCASFree_east; };
+	case west: { _reserves = GDGM_BLUFOR_vehReserves select 4; _reservesHelo = GDGM_BLUFOR_vehReserves select 3; _corridorPos = getMarkerPos "GDGM_BLUFOR_airCorridor"; _casIsFree = GDGM_isCASFree_west; };
+	case independent: {  _reserves = GDGM_IND_vehReserves select 4; _reservesHelo = GDGM_IND_vehReserves select 3; _corridorPos = getMarkerPos "GDGM_IND_airCorridor"; _casIsFree = GDGM_isCASFree_ind; };
 };
 
 if (!_casIsFree) exitWith {
-	systemChat "GDGM: Air support is not available for " + str _side;
+	systemChat ("GDGM: Air support is not available for " + str _side);
 };
 
 switch (_side) do {
@@ -32,18 +33,24 @@ switch (_type) do {
 	case "cas": {
 		//spawn CAS plane
 		[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnCasPlane;
+		[_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves; //reserve points
 	} ;
 	case "fighter": {
 		//spawn fighter plane
 		[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnFighterPlane;
+		[_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves; //reserve points
 	};
 	case "helo": {
 		//spawn helo
 		[_corridorPos, _grp, _side, _tempArray] spawn GDGM_fnc_spawnHelo;
+		[_side, [0,0,0,-1,0]] call GDGM_fnc_addVehReserves; //reserve points
+		_reserves = _reservesHelo;
 	};
 };
 
-[_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves; //reserve points
+if (_reserves < 1) exitWith {
+	systemChat ("GDGM: Not enough air support reserves for " + str _side);
+};
 
 _wp = _grp addWaypoint [_pos, 150];
 _wp setWaypointType "SAD";
@@ -65,6 +72,10 @@ waitUntil  {
 
 systemChat ("GDGM: Air support for " + str _side + " arrived at position.");
 
+if(_playerLed) then {
+	[_leader,"Air support is on position, over."] remoteExec ["globalChat",0];
+};
+
 _time = 0;
 
 while {_time <= _duration && alive _leader} do {
@@ -82,6 +93,9 @@ systemChat ("GDGM: Air support for " + str _side + " completed.");
 
 if(alive _leader && vehicle _leader != _leader) then {
 	[_side, [0,0,0,0,1]] call GDGM_fnc_addVehReserves;
+	if(_playerLed) then {
+		[_leader,"Air support completed, returning to base. Over."] remoteExec ["globalChat",0];
+	};
 };
 
 //helo RTB 
@@ -96,6 +110,8 @@ _wp setWaypointStatements ["true", "
 
 _leader setBehaviour "CARELESS";
 _leader setCombatMode "BLUE";
+
+sleep 600;
 
 switch (_side) do {
 	case east: {GDGM_isCASFree_east = true};

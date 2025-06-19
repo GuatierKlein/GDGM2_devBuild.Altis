@@ -181,6 +181,101 @@ class dialogArty
 	};
 };
 
+class dialogCas
+{
+	idd = 19061;
+	class ControlsBackground
+	{
+		class frame: RscPicture
+			{
+				idc = -1;
+				text = "Images\Support.paa";
+				x = 0.164899 * safezoneW + safezoneX;
+				y = -0.0169541 * safezoneH + safezoneY;
+				w = 0.634113 * safezoneW;
+				h = 1.03391 * safezoneH;
+			};
+	};
+	class controls 
+	{
+		class btnOrder: RscButton
+		{
+			idc = 190611;
+			action = "[] spawn GDGM_fnc_orderCas";
+
+			text = "CALL AIR SUPPORT"; //--- ToDo: Localize;
+			x = 0.360804 * safezoneW + safezoneX;
+			y = 0.170029 * safezoneH + safezoneY;
+			w = 0.0670201 * safezoneW;
+			h = 0.0549951 * safezoneH;
+			tooltip = "Order air support on the input position"; //--- ToDo: Localize;
+		};
+		class btnClose: RscButton
+		{
+			action = "closedialog 0";
+
+			idc = 190612;
+			text = "CLOSE"; //--- ToDo: Localize;
+			x = 0.30925 * safezoneW + safezoneX;
+			y = 0.807973 * safezoneH + safezoneY;
+			w = 0.0567187 * safezoneW;
+			h = 0.0440001 * safezoneH;
+		};
+		class editX: RscEdit
+		{
+			idc = 190613;
+
+			text = "000"; //--- ToDo: Localize;
+			x = 0.195832 * safezoneW + safezoneX;
+			y = 0.71998 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.0440001 * safezoneH;
+			colorBackground[] = {-1,-1,-1,0.5};
+			tooltip = "X coords"; //--- ToDo: Localize;
+		};
+		class editY: RscEdit
+		{
+			idc = 190614;
+
+			text = "000"; //--- ToDo: Localize;
+			x = 0.195832 * safezoneW + safezoneX;
+			y = 0.774976 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.0440001 * safezoneH;
+			colorBackground[] = {-1,-1,-1,0.5};
+			tooltip = "Y coords"; //--- ToDo: Localize;
+		};
+		class editTimeOnTarget: RscEdit
+		{
+			idc = 190615;
+
+			text = "Shots"; //--- ToDo: Localize;
+			x = 0.195832 * safezoneW + safezoneX;
+			y = 0.664985 * safezoneH + safezoneY;
+			w = 0.0825 * safezoneW;
+			h = 0.0440001 * safezoneH;
+			colorBackground[] = {-1,-1,-1,0.5};
+			tooltip = "Time on target in minutes, max 10 minutes"; //--- ToDo: Localize;
+		};
+		class lbType: RscListbox
+		{
+			idc = 190616;
+			x = 0.195832 * safezoneW + safezoneX;
+			y = 0.456004 * safezoneH + safezoneY;
+			w = 0.0773309 * safezoneW;
+			h = 0.186983 * safezoneH;
+		};
+		class map: RscMapControl
+		{
+			idc = 190617;
+			x = 0.422669 * safezoneW + safezoneX;
+			y = 0.445005 * safezoneH + safezoneY;
+			w = 0.273236 * safezoneW;
+			h = 0.472958 * safezoneH;
+		};
+	};
+};
+
 
 
 
