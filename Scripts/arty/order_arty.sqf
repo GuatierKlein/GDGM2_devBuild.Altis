@@ -18,9 +18,6 @@ if(_availablePoints + _availablePointsPlayer + _cost < 0) exitWith {
 	hint "Pas assez de points logistiques";
 };
 
-//supply cost
-["player", _cost] remoteExec["GDGM_fnc_addPoints", 2];
-
 //recup la pos grid
 _x_coord = ctrlText 040512;
 _y_coord = ctrlText 040513;
@@ -62,6 +59,8 @@ _ammo_display = (((GDGM_artillery_names_array select _index) select 1) select _i
 _commander = [side player] call GDGM_fnc_getCommander;
 
 if (_shots != 0 && _x_coord != "000" && _y_coord != "000") then {
+	//supply cost
+	["player", _cost] remoteExec["GDGM_fnc_addPoints", 2];
 	// [player, getMissionPath "Sounds\Voices\arty_request.ogg"] remoteExec ["say3D", 0];
 	player sideRadio "radio_arty_request";
 	[player,"Requesting artillery at grid " + _pos_grid] remoteExec ["globalChat",0];
