@@ -1,4 +1,4 @@
-params["_pos","_grp","_side",["_arrayToStore",[]], ["_reserve", false]];
+params["_pos","_grp","_side",["_arrayToStore",[]], ["_reserve", false], ["_spawnFlying", true]];
 
 if(!GDGM_enableHelicopters) exitWith {};
 private _unitType = "";
@@ -12,9 +12,14 @@ switch (_side) do {
 	case independent: {_unitType = GDGM_IND_baseUnit; _unitLoadouts = GDGM_IND_CrewDummies; _vehPool = GDGM_IND_armedHelos };
 };
 
+private _spawnType = "FLY";
+if(!_spawnFlying) then {
+	_spawnType = "NONE";
+};
+
 //spawn veh
 //_veh = (selectRandom _vehPool) createVehicle (_pos);
-_veh = createVehicle [(selectRandom _vehPool), _pos, [], 0, "FLY"];
+_veh = createVehicle [(selectRandom _vehPool), _pos, [], 0, _spawnType];
 //_veh setPosATL (_pos vectorAdd [0,0,100]);
 
 //spawn crew 

@@ -64,10 +64,10 @@ if (_tot != 0 && _x_coord != "000" && _y_coord != "000") then {
 	// [player, getMissionPath "Sounds\Voices\arty_request.ogg"] remoteExec ["say3D", 0];
 	player sideRadio "radio_airsupport_request";
 	[player,"Requesting air support at grid " + _pos_grid] remoteExec ["globalChat",0];
-	// sleep 20;
+	sleep 20;
 	[west, "Base"] sideRadio "radio_airsupport_standby";
 	[_commander,"Roger that " + name player + ", contacting air forces in the region"] remoteExec ["globalChat",0];
-	// sleep 40;
+	sleep 40;
 
 	//check if cas is available
 	if (!_casOk) exitWith {

@@ -70,7 +70,13 @@ switch (_type) do {
 	};
 	case "helo": {
 		//spawn helo
-		[_corridorPos, _grp, _side, _tempArray] spawn GDGM_fnc_spawnHelo;
+		if(_usingAirport) then {
+			//spawn helo on airport
+			[[_airPortPos select 0, _airPortPos select 1, 0], _grp, _side, _tempArray, false, false] spawn GDGM_fnc_spawnHelo;
+		} else {
+			//spawn helo in air corridor
+			[_corridorPos, _grp, _side, _tempArray] spawn GDGM_fnc_spawnHelo;
+		};
 		[_side, [0,0,0,-1,0]] call GDGM_fnc_addVehReserves; //reserve points
 		_reserves = _reservesHelo;
 	};
@@ -149,8 +155,9 @@ if(_usingAirport) then {
 		|| !alive _veh
 	};
 
+
 	deleteVehicle _veh;
-	deleteVehicle _leader;
+	{ deleteVehicle _x } forEach units _grp;
 	
 	switch (_side) do {
 		case east: {GDGM_isCASFree_east = true};
