@@ -166,7 +166,7 @@ GDGM_OPFOR_CASPlanes = ["O_Plane_CAS_02_dynamicLoadout_F"];
 GDGM_OPFOR_FighterPlanes = ["O_Plane_Fighter_02_F"];
 GDGM_OPFOR_AA = ["B_HMG_01_high_F"];
 GDGM_OPFOR_patrolBoats = [];
-GDGM_OPFOR_transportPlanes = [];
+GDGM_OPFOR_transportPlanes = ["C_Plane_Civil_01_F"];
 
 //BLUFOR loadouts
 GDGM_BLUFOR_rifleDummies = [loadout_blufor];
