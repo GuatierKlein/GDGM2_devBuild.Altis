@@ -4,6 +4,8 @@ private _reserves = 0;
 private _reservesHelo = 0;
 private _corridorPos = [];
 private _casIsFree = false;
+private _usingAirport = false;
+private _airPortPos = [];
 
 switch (_side) do {
 	case east: { _reserves = GDGM_OPFOR_vehReserves select 4; _reservesHelo = GDGM_OPFOR_vehReserves select 3; _corridorPos = getMarkerPos "GDGM_OPFOR_airCorridor"; _casIsFree = GDGM_isCASFree_east; };
@@ -21,8 +23,22 @@ switch (_side) do {
 	case independent: {GDGM_isCASFree_ind = false};
 };
 
+//check for friendly airports 
+private _closestFriendlyAirport = [_pos, _side] call GDGM_fnc_findClosestSidedAirport;
+if (!isNull _closestFriendlyAirport) then {
+	_usingAirport = true;
+	_airPortPos = _closestFriendlyAirport getVariable "GDGM_position";
+};
+
 //spend points
 // [_side, -_price] call GDGM_fnc_addPoints;
+
+if(_usingAirport) then {
+	systemChat ("GDGM: Using airport for air support for " + str _side);
+} else {
+	systemChat ("GDGM: Using air corridor for air support for " + str _side);
+	// sleep (random [120, 300, 500]); //wait before spawning air support
+};
 
 //spawn helo
 private _grp = createGroup [_side ,true]; 
@@ -32,12 +48,24 @@ systemChat ("GDGM: Spawning air support for " +  str _side);
 switch (_type) do {
 	case "cas": {
 		//spawn CAS plane
-		[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnCasPlane;
+		if(_usingAirport) then {
+			//spawn CAS plane on airport
+			[_grp, _side, _tempArray, false, _airPortPos] spawn GDGM_fnc_spawnCasPlane;
+		} else {
+			//spawn CAS plane in air corridor
+			[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnCasPlane;
+		};
 		[_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves; //reserve points
 	} ;
 	case "fighter": {
 		//spawn fighter plane
-		[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnFighterPlane;
+		if(_usingAirport) then {
+			//spawn fighter plane on airport
+			[_grp, _side, _tempArray, false, _airPortPos] spawn GDGM_fnc_spawnFighterPlane;
+		} else {
+			//spawn fighter plane in air corridor
+			[_grp, _side, _tempArray, false] spawn GDGM_fnc_spawnFighterPlane;
+		};
 		[_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves; //reserve points
 	};
 	case "helo": {
@@ -99,22 +127,54 @@ if(alive _leader && vehicle _leader != _leader) then {
 };
 
 //helo RTB 
-_wp = _grp addWaypoint [_corridorPos, 0];
-_wp setWaypointType "MOVE";
-_wp setwaypointcombatmode "BLUE"; 
-_wp setWaypointBehaviour "CARELESS";
-_wp setWaypointStatements ["true", "
-	deleteVehicle vehicle this;
-	{ deleteVehicle _x } forEach units group this;
-"];
-
 _leader setBehaviour "CARELESS";
 _leader setCombatMode "BLUE";
 
-sleep 600;
+if(_usingAirport) then {
+	//return to airport
+	[_grp, [_airportPos SELECT 0, _airportPos select 1, 0], _leader] spawn BIS_fnc_wpLand;
 
-switch (_side) do {
-	case east: {GDGM_isCASFree_east = true};
-	case west: {GDGM_isCASFree_west = true};
-	case independent: {GDGM_isCASFree_ind = true};
+	private _counter = 0;
+	private _veh = vehicle _leader;
+
+	waitUntil {
+		sleep 5;
+		_counter = _counter + 5;
+		(
+			isTouchingGround _veh &&
+			speed _veh < 5 &&
+			(getPosATL _veh select 2) < 2
+		)
+		|| _counter > 600
+		|| !alive _veh
+	};
+
+	deleteVehicle _veh;
+	deleteVehicle _leader;
+	
+	switch (_side) do {
+		case east: {GDGM_isCASFree_east = true};
+		case west: {GDGM_isCASFree_west = true};
+		case independent: {GDGM_isCASFree_ind = true};
+	};
+
+} else {
+	//return to corridor
+	_wp = _grp addWaypoint [_corridorPos, 0];
+	_wp setWaypointType "MOVE";
+	_wp setwaypointcombatmode "BLUE"; 
+	_wp setWaypointBehaviour "CARELESS";
+	_wp setWaypointStatements ["true", "
+		deleteVehicle vehicle this;
+		{ deleteVehicle _x } forEach units group this;
+	"];
+
+	sleep 600;
+
+	switch (_side) do {
+		case east: {GDGM_isCASFree_east = true};
+		case west: {GDGM_isCASFree_west = true};
+		case independent: {GDGM_isCASFree_ind = true};
+	};
 };
+

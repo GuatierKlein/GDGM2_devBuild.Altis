@@ -337,6 +337,7 @@ class CfgFunctions
 		class SupplyHubs {
 			class initAirports {};
 			class simulateAirport {};
+			class findClosestSidedAirport {};
 		}
 	};
 };
