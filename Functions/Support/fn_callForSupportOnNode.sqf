@@ -12,15 +12,8 @@ switch (_side) do {
 
 if(count _vehPool == 0) exitWith {};
 
-[_pos, _side, "helo"] spawn GDGM_fnc_airSupport;
-
-// [_pos, _side] spawn GDGM_fnc_reinfHeliOnPos;
-
-// sleep 10;
-
-// if(random 1 > 0.5) then {
-// 	[_pos, _side] spawn GDGM_fnc_heliOnPos;
-// } else {
-// 	[_pos, _side] spawn GDGM_fnc_reinfHeliOnPos;
-// 	[_pos, _side] spawn GDGM_fnc_reinfHeliOnPos;
-// };
+if(GDGM_enableHelicopters) then {
+	[_pos, _side, "helo"] spawn GDGM_fnc_airSupport;
+} else {
+	[_pos, _side, "cas"] spawn GDGM_fnc_airSupport;
+};

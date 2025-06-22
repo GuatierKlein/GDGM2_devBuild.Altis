@@ -33,17 +33,14 @@ if (!isNull _closestFriendlyAirport) then {
 //spend points
 // [_side, -_price] call GDGM_fnc_addPoints;
 
-if(_usingAirport) then {
-	systemChat ("GDGM: Using airport for air support for " + str _side);
-} else {
-	systemChat ("GDGM: Using air corridor for air support for " + str _side);
-	// sleep (random [120, 300, 500]); //wait before spawning air support
-};
-
 //spawn helo
 private _grp = createGroup [_side ,true]; 
 private _tempArray = [];
 systemChat ("GDGM: Spawning air support for " +  str _side);
+
+if ((_reserves < 1 && _type !="helo") || (_reservesHelo < 1 && _type =="helo")) exitWith {
+	systemChat ("GDGM: Not enough air support reserves for " + str _side);
+};
 
 switch (_type) do {
 	case "cas": {
@@ -78,12 +75,7 @@ switch (_type) do {
 			[_corridorPos, _grp, _side, _tempArray] spawn GDGM_fnc_spawnHelo;
 		};
 		[_side, [0,0,0,-1,0]] call GDGM_fnc_addVehReserves; //reserve points
-		_reserves = _reservesHelo;
 	};
-};
-
-if (_reserves < 1) exitWith {
-	systemChat ("GDGM: Not enough air support reserves for " + str _side);
 };
 
 _wp = _grp addWaypoint [_pos, 150];
