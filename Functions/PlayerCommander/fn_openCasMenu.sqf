@@ -10,12 +10,14 @@ ctrlSetText [190614,GDGM_cas_Y_coord]; //Y
 ctrlSetText [190615,GDGM_cas_timeOnTarget]; //shots
 
 //get display name
-lbAdd [190616, "fighter"];
-lbAdd [190616, "cas"];
+lbAdd [190616, "Fighter"];
+lbAdd [190616, "CAS"];
 
 if(GDGM_enableHelicopters) then {
-	lbAdd [190616, "helo"];
+	lbAdd [190616, "Helicopter"];
 };
+
+lbAdd [190616, "Supply drop"];
 
 while {dialog} do {
 	GDGM_cas_X_coord = ctrlText 040512;

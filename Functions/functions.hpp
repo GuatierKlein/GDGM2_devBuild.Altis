@@ -165,6 +165,8 @@ class CfgFunctions
 			class supportChooser {};
 			class airStrike {};
 			class airSupport {};
+			class supplyDrop {};
+			class dropSuppliesFromPlane {};
 		};
 		class EventHandlers
 		{
@@ -237,6 +239,7 @@ class CfgFunctions
 			class updateLogiData {};
 			class openCasMenu {};
 			class orderCas {};
+			class orderSupplyDrop {};
 		};
 		class Raids {
 			class generateRaid {};

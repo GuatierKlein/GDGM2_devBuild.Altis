@@ -20,7 +20,11 @@ _tot = parseNumber _tot;
 _tot = 0 max _tot; 
 _tot = 10 min _tot; 
 
-_type = ["fighter", "cas", "helo"] select _type;
+if(_type == 3) exitWith {
+	[] spawn GDGM_fnc_orderSupplyDrop;
+};
+
+_type = ["fighter", "cas", "helo", "supply"] select _type;
 private _indexReserve = 0;
 
 switch (_type) do {

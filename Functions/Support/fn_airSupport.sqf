@@ -1,5 +1,9 @@
 params ["_pos", "_side", "_type", ["_duration", 300], ["_playerLed", false]];
 
+if(_type == "supply") exitWith {
+	[_pos, _side, _duration, _playerLed] call GDGM_fnc_supplyDrop;
+};
+
 private _reserves = 0;
 private _reservesHelo = 0;
 private _corridorPos = [];
