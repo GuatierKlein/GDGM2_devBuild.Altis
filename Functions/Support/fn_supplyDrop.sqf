@@ -103,7 +103,9 @@ _wp setWaypointType "MOVE";
 _wp setWaypointBehaviour "CARELESS";
 _wp setwaypointcombatmode "BLUE"; 
 _wp setWaypointStatements ["true", "
-	[vehicle this, _gearMap] spawn GDGM_fnc_dropSuppliesFromPlane;
+	if(isServer) then {
+		[vehicle this, _gearMap] spawn GDGM_fnc_dropSuppliesFromPlane;
+	};
 "];
 
 sleep 10; //wait for plane to spawn
