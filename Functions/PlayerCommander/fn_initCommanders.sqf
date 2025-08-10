@@ -243,3 +243,4 @@ if(!isNil "GDGM_planeOfficer") then {
 };
 
 [] call GDGM_fnc_initSupplyOfficer; 
+[] call GDGM_fnc_initArmoryOfficer; // Initialize the armory officer

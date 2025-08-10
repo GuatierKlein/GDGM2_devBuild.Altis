@@ -231,6 +231,7 @@ class CfgFunctions
 			class playerAmmo {};
 			class initCommanders {};
 			class initSupplyOfficer {};
+			class initArmoryOfficer {};
 			class setAO {};
 			class openSetAO {};
 			class removeAO {};
