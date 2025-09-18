@@ -5,6 +5,22 @@ private _side = [west,east,independent];
 
 	if(isNull _unit) then {continue};
 	//select attack
+	// [_unit,
+	// 	["<t color='#FFFFFF' size='1.1'><img image='\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\rifle_ca.paa'></img><t color='#ffd700' size='1.1' font='PuristaBold'> Sell watches",	
+	// 	{				
+	// 		[] spawn GDGM_fnc_openSelectAttack;
+	// 	},
+	// 	nil,		// arguments
+	// 	6,		// priority
+	// 	true,		// showWindow
+	// 	true,		// hideOnUse
+	// 	"",			// shortcut
+	// 	"", 	// condition
+	// 	6,			// radius
+	// 	false,		// unconscious
+	// 	"",			// selection
+	// 	""			// memoryPoint
+	// ]] remoteExec ["addAction",0,true];
 	[_unit,
 		["<t color='#FFFFFF' size='1.1'><img image='\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\rifle_ca.paa'></img><t color='#ffd700' size='1.1' font='PuristaBold'> Attack menu",	
 		{				
