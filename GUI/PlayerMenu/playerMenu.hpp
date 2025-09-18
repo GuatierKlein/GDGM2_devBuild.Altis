@@ -280,7 +280,7 @@ class dialogPlayerMenu {
 		class txtTrHeli: RscText
 		{
 			idc = 1015;
-			text = "Transport aircrafts:"; //--- ToDo: Localize;
+			text = "Helicopters:"; //--- ToDo: Localize;
 			x = 0.195832 * safezoneW + safezoneX;
 			y = 0.73098 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;
@@ -291,7 +291,7 @@ class dialogPlayerMenu {
 		{
 			idc = "1-1017";
 
-			text = "Combat aircrafts:"; //--- ToDo: Localize;
+			text = "Planes:"; //--- ToDo: Localize;
 			x = 0.195832 * safezoneW + safezoneX;
 			y = 0.752978 * safezoneH + safezoneY;
 			w = 0.0721875 * safezoneW;
