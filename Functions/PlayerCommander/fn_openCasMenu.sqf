@@ -20,9 +20,9 @@ if(GDGM_enableHelicopters) then {
 lbAdd [190616, "Supply drop"];
 
 while {dialog} do {
-	GDGM_cas_X_coord = ctrlText 040512;
-	GDGM_cas_Y_coord = ctrlText 040513;
-	GDGM_cas_timeOnTarget = ctrlText 040515;
+	GDGM_cas_X_coord = ctrlText 190613;
+	GDGM_cas_Y_coord = ctrlText 190614;
+	GDGM_cas_timeOnTarget = ctrlText 190615;
 	sleep 0.3;
 };
 
