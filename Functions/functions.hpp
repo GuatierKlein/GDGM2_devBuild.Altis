@@ -306,6 +306,7 @@ class CfgFunctions
 			class disableHeliMode {};
 			class heliRaid_generateLogiRun {};
 			class getRandomPilot {};
+			class applyPylonsIfPossible {};
 		};
 		class Morale {
 			class addMorale {};
