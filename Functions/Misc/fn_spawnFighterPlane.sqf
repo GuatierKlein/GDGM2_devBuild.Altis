@@ -34,6 +34,9 @@ _crew setUnitLoadout getUnitLoadout _crewLoadout;
 _crew moveInDriver _veh;
 _crew setRank "LIEUTENANT";
 
+//apply pylons if possible
+[_veh] call GDGM_fnc_applyPylonsIfPossible;
+
 _arrayToStore pushBack _veh;
 _arrayToStore pushBack _crew;
 

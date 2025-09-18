@@ -37,6 +37,9 @@ _crew setRank "LIEUTENANT";
 _arrayToStore pushBack _veh;
 _arrayToStore pushBack _crew;
 
+//apply pylons if possible
+[_veh] call GDGM_fnc_applyPylonsIfPossible;
+
 if(_reserve) then {
 	[_side, [0,0,0,0,-1]] call GDGM_fnc_addVehReserves;
 };
