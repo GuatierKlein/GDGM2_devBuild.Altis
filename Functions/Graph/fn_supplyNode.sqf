@@ -5,6 +5,7 @@ params["_logic",["_weight",-1],["_owner",east],["_garrison",100]];
 // _owner = meme que owner node
 
 _pos = getPos _logic;
+_side = _logic getVariable "GDGM_side";
 _text = "Supply point";
 
 //player side 
@@ -25,16 +26,14 @@ _node setVariable ["GDGM_weight",_weight]; //value btwn 0 and 1, importance of t
 _node setVariable ["GDGM_markerName",(str _pos + "_supplyMarker")];
 _node setVariable ["GDGM_type","supply"];
 _node setVariable ["GDGM_isEncircled",false];
+_node setVariable ["GDGM_side",_side];
 
 //link to closest node
 _closestNode = [_node] call GDGM_fnc_findClosestNodeFromNode;
 _node setVariable ["GDGM_connectedNodes",[_closestNode]];
-_text = (_closestNode getVariable "GDGM_name") + " supply point";
+_text = (_closestNode getVariable "GDGM_name") + " supply point" + " (" + str _side + ")";
 _node setVariable ["GDGM_name",_text];
 _node setVariable ["GDGM_owner",_closestNode getVariable "GDGM_owner"];
 _closestNode setVariable ["GDGM_weight",1];
 
 _node;
-
-
-

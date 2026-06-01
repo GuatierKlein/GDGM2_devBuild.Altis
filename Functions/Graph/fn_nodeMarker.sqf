@@ -46,18 +46,39 @@ private _marker_object = _node getVariable "GDGM_markerName";
 createMarker [_marker_object, _pos];
 
 //color
-if(_node getVariable "GDGM_owner" == east ) then {
+if(_type != "supply") then {
+	if(_node getVariable "GDGM_owner" == east ) then {
 	_marker_object setMarkerColorLocal "Colorred";
-};
-if(_node getVariable "GDGM_owner" == west ) then {
-	_marker_object setMarkerColorLocal "Colorblue";
-};
-if(_node getVariable "GDGM_owner" == resistance ) then {
-	_marker_object setMarkerColorLocal "Colorgreen";
-};
+	};
+	if(_node getVariable "GDGM_owner" == west ) then {
+		_marker_object setMarkerColorLocal "Colorblue";
+	};
+	if(_node getVariable "GDGM_owner" == resistance ) then {
+		_marker_object setMarkerColorLocal "Colorgreen";
+	};
 
-if(_node getVariable "GDGM_owner" == civilian ) then {
-	_marker_object setMarkerColorLocal "Coloryellow";
+	if(_node getVariable "GDGM_owner" == civilian ) then {
+		_marker_object setMarkerColorLocal "Coloryellow";
+	};
+} else {
+	// grey supply points 
+	if(_node getVariable "GDGM_owner" != _node getVariable "GDGM_side" ) then {
+		_marker_object setMarkerColorLocal "ColorGrey";
+	} else {
+		if(_node getVariable "GDGM_owner" == east ) then {
+			_marker_object setMarkerColorLocal "Colorred";
+		};
+		if(_node getVariable "GDGM_owner" == west ) then {
+			_marker_object setMarkerColorLocal "Colorblue";
+		};
+		if(_node getVariable "GDGM_owner" == resistance ) then {
+			_marker_object setMarkerColorLocal "Colorgreen";
+		};
+
+		if(_node getVariable "GDGM_owner" == civilian ) then {
+			_marker_object setMarkerColorLocal "Coloryellow";
+		};
+	};
 };
 
 _marker_object setMarkerTypeLocal _shape;
