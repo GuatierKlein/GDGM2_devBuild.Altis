@@ -1,5 +1,12 @@
 {
 	private _owner = _x getVariable "GDGM_owner";
+	private _side = _x getVariable "GDGM_side";
+
+	if(_owner != _side) then {
+		hint "Supply point not controlled, no income generated";
+		continue;
+	};
+
 	if(_owner == GDGM_playerSide) then {
 		// Player side, add player income share
 		["player", GDGM_supplyPointRevenue * GDGM_player_incomeShare] call GDGM_fnc_addPoints;
