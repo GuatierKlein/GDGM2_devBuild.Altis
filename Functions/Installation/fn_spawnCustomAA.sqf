@@ -19,3 +19,18 @@ _unit = _newGrp createUnit [_baseUnit,  _pos, [], 0, "FORM"];
 _unit setUnitLoadout getUnitLoadout (selectRandom _loadoutPool);
 _unit moveInGunner _veh;
 _unit assignAsGunner _veh;
+
+// make marker 
+private _marker = createMarker ["AA_position" + str _pos, _pos];
+_marker setMarkerTypeLocal "b_antiair";
+_marker setMarkerTextLocal "AA Position";
+
+if(_owner == east ) then {
+	_marker setMarkerColor "Colorred";
+};
+if(_owner == west ) then {
+	_marker setMarkerColor "Colorblue";
+};
+if(_owner == resistance ) then {
+	_marker setMarkerColor "Colorgreen";
+};
