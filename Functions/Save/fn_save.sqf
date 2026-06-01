@@ -29,7 +29,7 @@ _pointsSave pushBack [GDGM_player_supplies, GDGM_player_reserves, GDGM_player_ve
 	private _type = _x getVariable "GDGM_type"; 
 	private _destuction = _x getVariable "GDGM_destructionAmount";
 
-	if(_type != "civilian" && _type != "fob") then {continue};
+	if(_type != "civilian" && _type != "fob" && _type != "airport") then {continue};
 	
 	_nodeSave pushBack [_pos, _garri, _owner, _type, _destuction];
 } forEach GDGM_allNodes;

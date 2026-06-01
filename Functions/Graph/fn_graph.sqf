@@ -79,7 +79,8 @@ if(isNil "_save") then {
 				GDGM_strategicNodes pushBack _node;
 			};
 			case ("airport"): {
-				private _node = [_pos, _owner, _garri] call GDGM_fnc_airportNode;
+				_node = nearestObject [_pos, "logic"];
+				private _node = [_node, _owner, _garri] call GDGM_fnc_airportNode;
 				GDGM_allNodes pushBack _node;
 				GDGM_strategicNodes pushBack _node;
 				GDGM_airportNodes pushBack _node;
